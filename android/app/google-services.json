@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "692181115494",
+    "project_id": "projecttech-12be7",
+    "storage_bucket": "projecttech-12be7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692181115494:android:62824584f0abc19fe403a7",
+        "android_client_info": {
+          "package_name": "com.example.techlearnprojectapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692181115494-3tftse373b6ivvasjl3nhai3ju9hskro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC02H8srGCvwsvS7Pw7C0rPVo4stkBaaUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692181115494-3tftse373b6ivvasjl3nhai3ju9hskro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
