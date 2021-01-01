@@ -19,7 +19,7 @@ class Mydrawer extends StatelessWidget {
           accountEmail: Text("lugen@gmail.com",
               style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold)),
           currentAccountPicture: CircleAvatar(child: Icon(Icons.person),
-            backgroundColor: Colors.blueAccent,
+            backgroundColor: Color(0xff453658),
           ),
 
         ),

@@ -18,7 +18,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[600],
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0.0,
@@ -82,7 +82,7 @@ class _DashboardState extends State<Dashboard> {
 
         ],
       ),
-        drawer: Mydrawer(),
+      drawer: Mydrawer(),
     );
   }
   }

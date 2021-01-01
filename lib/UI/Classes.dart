@@ -15,7 +15,7 @@ class _ClassesPageState extends State<ClassesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffe1bee7),
+      backgroundColor: Color(0xff453658),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
@@ -32,7 +32,7 @@ class _ClassesPageState extends State<ClassesPage> {
             .size
             .height - 80.0,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.grey[600],
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(110.0),
               topRight: Radius.circular(10.0)),
@@ -67,12 +67,12 @@ class _ClassesPageState extends State<ClassesPage> {
                       children: <Widget>[
 
                         _bulidlevelItem(
-                            'images/7.jpg', "الصف السابع ","المواد"),
+                            'images/7.jpg', "7th Grade ","Materials"),
                         _bulidlevelItem(
-                            'images/88.jpg', "الصف الثامن","المواد"),
+                            'images/88.jpg', "8th Grade","Materials"),
                         _bulidlevelItem(
-                            'images/9.jpg', "الصف التاسع","المواد"),
-                        _bulidlevelItem('images/10.png', "الصف العاشر","المواد"),
+                            'images/9.jpg', "9th Grade","Materials"),
+                        _bulidlevelItem('images/10.png', "10th Grade","Materials"),
                       ]
                   ),
                 ),

@@ -12,9 +12,11 @@ class _ObjectsPageState extends State<ObjectsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffe1bee7),
+
+        backgroundColor: Color(0xff453658),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+
+      backgroundColor: Colors.transparent,
         elevation: 0.0,
         title: Text('Tech Learn',
             style: TextStyle(
@@ -23,13 +25,13 @@ class _ObjectsPageState extends State<ObjectsPage> {
 
       ),
       body: Container(
-        alignment: Alignment.topCenter,
+      alignment: Alignment.topCenter,
         height: MediaQuery
             .of(context)
             .size
             .height - 80.0,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.grey[600],
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(110.0),
               topRight: Radius.circular(10.0)),
@@ -41,8 +43,9 @@ class _ObjectsPageState extends State<ObjectsPage> {
         child: ListView(
             primary: false,
             padding: EdgeInsets.only(left: 50.0, top: 50.0, right: 25.0),
-            children: <Widget>[
-              Text(
+    children: <Widget>[
+
+        Text(
                 'Teaching Materials \n مواد التدريس ',
                 style: TextStyle(
                     fontFamily: ArabicFonts.El_Messiri,
@@ -81,10 +84,12 @@ class _ObjectsPageState extends State<ObjectsPage> {
                 ),
 
               )
-            ]),
+
+    ]
+
+    ),
       ),
 
-      // drawer: Mydrawer(),
     );
   }
 
@@ -92,7 +97,9 @@ class _ObjectsPageState extends State<ObjectsPage> {
   Widget _bulidlevelItem( String levelName, className) {
     return Padding(
         padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
-        child: InkWell(
+    child: SingleChildScrollView(
+
+    child: InkWell(
           onTap: () {},
           child: Row(
 
@@ -138,7 +145,8 @@ class _ObjectsPageState extends State<ObjectsPage> {
 
             ],
           ),
-        ));
+        )
+    ));
   }
 
 

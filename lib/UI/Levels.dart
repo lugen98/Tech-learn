@@ -34,7 +34,7 @@ class _LevelPage extends State<LevelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffe1bee7),
+      backgroundColor: Color(0xff453658),
       body: ListView(
         children: <Widget>[
           Padding(
@@ -87,12 +87,12 @@ class _LevelPage extends State<LevelPage> {
             ),
           ),
           SizedBox(
-            height: 40.0,
+            height: 2,
           ),
           Container(
             height: MediaQuery.of(context).size.height - 185.0,
             decoration: BoxDecoration(
-                color: Colors.grey.shade200,
+                color: Colors.grey[600],
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(80.0),
                     topRight: Radius.circular(80.0))),
@@ -167,7 +167,7 @@ class _LevelPage extends State<LevelPage> {
                               package: 'google_fonts_arabic',
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black38),
+                              color: Colors.white),
                         ),
                       ],
                     )

@@ -29,10 +29,10 @@ class _MainHomePageState extends State<MainHomePage> {
                       builder: (context) => Login()));
             },
              child: Container(
-            height: 50,
+            height: 60,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Color(0xff3d5afe),Color(0xff3d5afe)],
+                  colors: [Color(0xff453658),Color(0xff453658)],
                   stops: [0,1],
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(15))
@@ -58,7 +58,7 @@ class _MainHomePageState extends State<MainHomePage> {
               height: 50,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Color(0xff3d5afe),Color(0xff3d5afe)],
+                    colors: [Color(0xff453658),Color(0xff453658)],
                     stops: [0,1],
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(15))
