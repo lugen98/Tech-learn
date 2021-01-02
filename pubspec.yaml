@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  cloud_firestore:
   google_fonts_arabic:
   flutter_staggered_grid_view:
   flutter_localizations:
@@ -29,7 +30,6 @@ dependencies:
   shimmer:
   scoped_model:
   firebase_messaging:
-  firebase_core:
   flutter:
     sdk: flutter
 

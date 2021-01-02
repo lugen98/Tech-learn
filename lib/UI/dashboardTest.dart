@@ -5,15 +5,13 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-
-
 class Dashboard extends StatefulWidget {
 
   @override
-  _DashboardState createState() => _DashboardState();
+  DashboardState createState() => DashboardState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {

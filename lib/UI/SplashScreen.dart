@@ -1,8 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:techlearning_app/UI/dashboardTest.dart';
 
-import 'homeScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -13,7 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () =>  Navigator.push(context, MaterialPageRoute(builder:(context)=> MainHomePage())));
+    Timer(Duration(seconds: 5), () =>  Navigator.push(context, MaterialPageRoute(builder:(context)=> Dashboard())));
   }
 
   @override

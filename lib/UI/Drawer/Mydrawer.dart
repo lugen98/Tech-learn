@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:techlearning_app/UI/singUpTest.dart';
 import '../dashboardTest.dart';
 import '../homeScreen.dart';
 import 'Settings.dart';
@@ -31,6 +32,15 @@ class Mydrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) =>Dashboard()));
+            }
+        ),
+        ListTile(
+            title: Text("Register",
+                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold)),
+            leading: Icon(Icons.person_add),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) =>SignUp()));
             }
         ),
         ListTile(
