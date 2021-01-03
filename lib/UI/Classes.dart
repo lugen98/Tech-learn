@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
+import 'package:techlearning_app/UI/Materials.dart';
 import 'objects.dart';
 
 class ClassesPage extends StatefulWidget {
@@ -9,7 +10,6 @@ class ClassesPage extends StatefulWidget {
 }
 
 class _ClassesPageState extends State<ClassesPage> {
-  int _selectedIndex=0 ;
 
 
   @override
@@ -65,14 +65,22 @@ class _ClassesPageState extends State<ClassesPage> {
                   child: ListView(
 
                       children: <Widget>[
-
-                        _bulidlevelItem(
-                            'images/7.jpg', "7th Grade ","Materials"),
-                        _bulidlevelItem(
-                            'images/88.jpg', "8th Grade","Materials"),
-                        _bulidlevelItem(
-                            'images/9.jpg', "9th Grade","Materials"),
-                        _bulidlevelItem('images/10.png', "10th Grade","Materials"),
+                        InkWell(child: _bulidlevelItem(
+                      'images/7.jpg', "7th Grade ","Materials"),onTap: (){ Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ObjectsPage()
+                        ));},),
+                        InkWell(child: _bulidlevelItem(
+                            'images/88.jpg', "8th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ObjectsPage()
+                        ));},),
+                        InkWell(child: _bulidlevelItem(
+                            'images/9.jpg', "9th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => MaterialsPage()
+                        ));},),
+                        InkWell(child: _bulidlevelItem(
+                            'images/10.png', "10th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>MaterialsPage()
+                        ));},),
                       ]
                   ),
                 ),
@@ -81,7 +89,6 @@ class _ClassesPageState extends State<ClassesPage> {
             ]),
       ),
 
-     // drawer: Mydrawer(),
     );
   }
 
@@ -89,14 +96,7 @@ class _ClassesPageState extends State<ClassesPage> {
   Widget _bulidlevelItem(String imgPath, String levelName,className) {
     return Padding(
         padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => ObjectsPage()
-            ));
-          },
           child: Row(
-
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Container(
@@ -142,29 +142,12 @@ class _ClassesPageState extends State<ClassesPage> {
                 icon: Icon(Icons.arrow_forward),
                 color: Colors.black,
                 onPressed: () {
-                  _onItemTap(_selectedIndex);
                 },
               ),
 
             ],
           ),
-        ));
+        );
   }
-    _onItemTap(index) {
-      setState(() {
-        _selectedIndex = index;
-        switch (_selectedIndex) {
-          case 0:
-            return ObjectsPage();
-            break;
-          case 1:
-            return ObjectsPage();
-            break;
-          case 2:
-            return ObjectsPage();
-            break;
-        }
-      });
-    }
 
 }

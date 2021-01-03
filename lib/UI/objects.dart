@@ -65,20 +65,20 @@ class _ObjectsPageState extends State<ObjectsPage> {
                   child: ListView(
 
                       children: <Widget>[
-
-                        _bulidlevelItem(
-                            "التربية الأسلامية ", "المعلمين"),
-                        _bulidlevelItem(
-                            "اللغة العربية", "المعلمين"),
-                        _bulidlevelItem(
-                            "اللغة الانجليزية",  "المعلمين"),
-                        _bulidlevelItem(
-                             "الرياضيات",  "المعلمين"),
-                        _bulidlevelItem(
-                           "العلوم ", "المعلمين"),
-                        _bulidlevelItem(
-                             "الاجتماعيات ", "المعلمين"),
-                        _bulidlevelItem("الحاسوب ", "المعلمين"),
+                  InkWell(child: _bulidlevelItem(
+                      "التربية الأسلامية ", "المعلمين"),onTap: (){},),
+                        InkWell(child: _bulidlevelItem(
+                            "اللغة العربية", "المعلمين"),onTap: (){},),
+                        InkWell(child: _bulidlevelItem(
+                            "اللغة الانجليزية",  "المعلمين"),onTap: (){},),
+                        InkWell(child: _bulidlevelItem(
+                            "الرياضيات",  "المعلمين"),onTap: (){},),
+                        InkWell(child: _bulidlevelItem(
+                            "العلوم ", "المعلمين"),onTap: (){},),
+                        InkWell(child: _bulidlevelItem(
+                            "الاجتماعيات ", "المعلمين"),onTap: (){},),
+                        InkWell(child: _bulidlevelItem(
+                            "الحاسوب ", "المعلمين"),onTap: (){},),
                       ]
                   ),
                 ),

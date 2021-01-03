@@ -105,13 +105,18 @@ class _LevelPage extends State<LevelPage> {
                   child: Container(
                     height: MediaQuery.of(context).size.height - 300,
                     child: ListView(children: <Widget>[
-                      _bulidlevelItem(
-                          'images/kids.jpg', "Primary Level", 'Classes'),
-                      _bulidlevelItem(
-                          'images/seco.gif', "Secondary level", 'Classes'),
-                      _bulidlevelItem(
-                          'images/train2.jpg', "Training Courses", 'Classes'),
-                      _bulidlevelItem('images/ideaa.jpg', "Other", 'Classes'),
+                      InkWell(child: _bulidlevelItem(
+                          'images/kids.jpg', "Primary Level", 'Classes'),onTap: (){
+                      },),
+                      InkWell(child: _bulidlevelItem(
+                          'images/seco.gif', "Secondary level", 'Classes'),onTap: (){
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) => ClassesPage()));
+                      },),
+                      InkWell(child: _bulidlevelItem(
+                          'images/train2.jpg', "Training Courses", 'Classes'),onTap: (){},),
+                      InkWell(child: _bulidlevelItem(
+                          'images/ideaa.jpg', "Other", 'Classes'),onTap: (){},),
                     ]),
                   ),
                 )
@@ -127,11 +132,6 @@ class _LevelPage extends State<LevelPage> {
   Widget _bulidlevelItem(String imgPath, String levelName, String classes) {
     return Padding(
         padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => ClassesPage()));
-          },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -184,6 +184,6 @@ class _LevelPage extends State<LevelPage> {
               ),
             ],
           ),
-        ));
+        );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'DashboardPage.dart';
+import 'package:techlearning_app/UI/DashboardPage.dart';
 import 'Drawer/Mydrawer.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -73,10 +73,9 @@ class DashboardState extends State<Dashboard> {
           ),
           ),
 
-          SizedBox(height: 40,
+          SizedBox(height: 70,
           ),
           GridDashboard(),
-
 
         ],
       ),

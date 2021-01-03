@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:techlearning_app/UI/dashboardTest.dart';
-import 'package:techlearning_app/UI/homeScreen.dart';
 import 'Login.dart';
 
 class SignUp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: IconButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MainHomePage()));
+                  MaterialPageRoute(builder: (context) => Dashboard()));
             },
             icon: Icon(
               Icons.arrow_back,

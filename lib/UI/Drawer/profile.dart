@@ -13,7 +13,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Padding(
         padding: const EdgeInsets.all(50.0),
     child:SingleChildScrollView(
-
     child: Text(
         'Profile',
         style: TextStyle(
@@ -51,8 +50,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     IconData icon,
   }) {
     return Material(
-
-
         elevation: 4,
       shadowColor: Colors.grey,
       shape: RoundedRectangleBorder(
@@ -68,7 +65,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 5,
               ),
             ),
-            prefixIcon: Icon(icon,color: Theme.of(context).primaryColor,),
+            prefixIcon: Icon(icon,color: Color(0xff453658),),
             hintText: hintText,
             hintStyle: TextStyle(
               letterSpacing: 2,
@@ -116,7 +113,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             height: 50,
             width: double.infinity,
             child: RaisedButton(
-              color: Theme.of(context).primaryColor,
+              color: Colors.grey[600],
               child: Center(
 
 
@@ -145,7 +142,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor:  Color(0xff453658),
         elevation: 0.0,
 
         leading: IconButton(
@@ -199,7 +196,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 class HeaderCurvedContainer extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()..color = const Color(0xff6361f3);
+    Paint paint = Paint()..color = const  Color(0xff453658);
     Path path = Path()
       ..relativeLineTo(0, 150)
       ..quadraticBezierTo(size.width / 2, 200.0, size.width, 150)

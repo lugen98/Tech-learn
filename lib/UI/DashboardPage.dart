@@ -1,6 +1,6 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:techlearning_app/UI/Drawer/Settings.dart';
+import 'package:techlearning_app/UI/Drawer/profile.dart';
 import 'package:techlearning_app/UI/Levels.dart';
 
 class GridviewPage extends StatefulWidget {
@@ -10,136 +10,135 @@ class GridviewPage extends StatefulWidget {
 
 class _GridviewPageState extends State<GridviewPage> {
   @override
-  Widget build(BuildContext context) {
-  }
-
+  Widget build(BuildContext context) {}
 }
+
 class GridDashboard extends StatelessWidget {
-
-  Items item1 = new Items(
-    title: "Calendar",
-    subtitle: "December,Sunday",
-    event: "2 Event",
-    img: 'images/calendar.png',
-  );
-
-  Items item2 = new Items(
-    title: "Profile",
-    subtitle: "View",
-    event: "",
-    img: 'images/p.jpg',
-  );
-
-  Items item3 = new Items(
-      title: "Levels",
-      subtitle: "Class",
-      event: "4 Items",
-      img: 'images/levels.jpg'
-  );
-
-  Items item4 = new Items(
-    title: "Activity",
-    subtitle: "Classes",
-    event: "",
-    img: 'images/notification.png',
-  );
-
-  Items item5 = new Items(
-    title: "To Do",
-    subtitle: "Homework",
-    event: "2 Event",
-    img: 'images/todo.png',
-  );
-
-  Items item6 = new Items(
-    title: "Settings",
-    subtitle: "",
-    event: "",
-    img: 'images/setting.png',
-
-  );
-
-
   @override
   Widget build(BuildContext context) {
-    List <Items> myList = [item1, item2, item3, item4, item5, item6];
-    var color = 0xff453658;
     return Flexible(
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder:(context ) =>LevelPage()
-            ));
-          },
-          child: GridView.count(
-              childAspectRatio: 1.0,
-              padding: EdgeInsets.only(left: 16, right: 16),
-              crossAxisCount: 2,
-              crossAxisSpacing: 18,
-              mainAxisSpacing: 18,
-
-              children: myList.map((data) {
-                return GestureDetector(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Color(color),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-
-                        Image.asset(
-                          data.img,
-                          width: 45,
-                        ),
-                        SizedBox(
-                          height: 14,
-                        ),
-                        Text(
-                          data.title,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 19,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 8,),
-                        Text(
-                          data.subtitle,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 14,),
-                        Text(
-                          data.event,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-
-                      ],
-                    ),
+        child: Container(
+      height: 700,
+      child: GridView(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, crossAxisSpacing: 18, mainAxisSpacing: 18),
+        children: <Widget>[
+          InkWell(
+            child: GridTile(
+                child: Image.asset('images/calendar.png'),
+                footer: Container(
+                  height: 20,
+                  color: Colors.black.withOpacity(0.1),
+                  child: Text(
+                    "Calender",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
                   ),
-
-                );
-              }).toList()),
-        )
-    );
+                )),
+            onTap: () {},
+          ),
+          InkWell(
+            child: GridTile(
+                child: Image.asset('images/pr.png'),
+                footer: Container(
+                  height: 20,
+                  color: Colors.black.withOpacity(0.1),
+                  child: Text(
+                    "Profile",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                )),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder:(context ) =>ProfileScreen()
+              ));
+            },
+          ),
+          InkWell(
+            child: GridTile(
+                child: Image.asset('images/levels.jpg'),
+                footer: Container(
+                  height: 20,
+                  color: Colors.black.withOpacity(0.1),
+                  child: Text(
+                    "Levels",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                )),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder:(context ) =>LevelPage()
+              ));
+            },
+          ),
+          InkWell(
+            child: GridTile(
+                child: Image.asset('images/notification.png'),
+                footer: Container(
+                  height: 20,
+                  color: Colors.black.withOpacity(0.1),
+                  child: Text(
+                    "Activity",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                )),
+            onTap: () {},
+          ),
+          InkWell(
+            child: GridTile(
+                child: Image.asset('images/todo.png'),
+                footer: Container(
+                  height: 20,
+                  color: Colors.black.withOpacity(0.1),
+                  child: Text(
+                    "To Do",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                )),
+            onTap: () {},
+          ),
+          InkWell(
+            child: GridTile(
+                child: Image.asset('images/setting.png'),
+                footer: Container(
+                  height: 20,
+                  color: Colors.black.withOpacity(0.1),
+                  child: Text(
+                    "Settings",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                )),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder:(context ) =>SettingsPage()
+              ));
+            },
+          ),
+        ],
+      ),
+    ));
   }
-
-}
-class Items{
-  String title;
-  String subtitle;
-  String event;
-  String img;
-
-  Items({this.title,this.subtitle,this.event,this.img});
-
-
 }

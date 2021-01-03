@@ -12,7 +12,7 @@ class _MaterialsPageState extends State<MaterialsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffe1bee7),
+      backgroundColor: Color(0xff453658),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
@@ -29,7 +29,7 @@ class _MaterialsPageState extends State<MaterialsPage> {
             .size
             .height - 80.0,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.grey[600],
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(110.0),
               topRight: Radius.circular(10.0)),
