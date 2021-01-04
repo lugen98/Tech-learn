@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:techlearning_app/UI/singUpTest.dart';
+import 'package:techlearning_app/services/SingIn_auth.dart';
 import '../dashboardTest.dart';
 import '../homeScreen.dart';
 import 'Settings.dart';
@@ -40,7 +41,7 @@ class Mydrawer extends StatelessWidget {
             leading: Icon(Icons.person_add),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) =>SignUp()));
+                  MaterialPageRoute(builder: (context) => SignIn()));
             }
         ),
         ListTile(

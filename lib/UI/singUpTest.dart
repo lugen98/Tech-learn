@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:techlearning_app/UI/dashboardTest.dart';
+import 'package:techlearning_app/services/auth.dart';
 import 'Login.dart';
 
 class SignUp extends StatelessWidget {
@@ -34,9 +35,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Register'),
         brightness: Brightness.light,
         backgroundColor: Colors.transparent,
-        elevation: 0,
+        elevation: 0.2,
         leading: Container(
           margin: EdgeInsets.all(5),
           width: 50,
@@ -70,6 +72,8 @@ class MyCustomForm extends StatefulWidget {
 }
 
 class MyCustomFormState extends State<MyCustomForm> {
+  final AuthService _auth = AuthService();
+
   bool isHidePassword = false;
 
   TextEditingController _firstName = new TextEditingController();
@@ -84,8 +88,8 @@ class MyCustomFormState extends State<MyCustomForm> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.only(top: 20, left: 30, right: 30,bottom: 30),
-                child:  Image.asset("images/img.png"),
+                padding:
+                    EdgeInsets.only(top: 20, left: 30, right: 30, bottom: 30),
               ),
               firstName(),
               lastName(),
@@ -102,44 +106,47 @@ class MyCustomFormState extends State<MyCustomForm> {
         padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 10),
         child: Column(children: <Widget>[
           RaisedButton(
-              onPressed: () {
-                if (_email.text.isEmpty) {
-                  Scaffold.of(context).showSnackBar(SnackBar(
-                    content: Text("Please Enter UserName"),
-                  ));
-                } else if (_password.text.isEmpty) {
-                  Scaffold.of(context).showSnackBar(SnackBar(
-                    content: Text("Please Enter Password"),
-                  ));
+            onPressed: () async {
+              if (_firstName.text.isEmpty) {
+                Scaffold.of(context).showSnackBar(SnackBar(
+                  content: Text("Please Enter UserName"),
+                ));
+              } else if (_password.text.isEmpty) {
+                Scaffold.of(context).showSnackBar(SnackBar(
+                  content: Text("Please Enter Password"),
+                ));
+
+                dynamic result = await _auth.SignInAnon();
+                if (result == null) {
+                  print('error Signing in');
                 } else {
-                  Scaffold.of(context).showSnackBar(SnackBar(
-                    content: Text("sucess"),
-                  ));
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Dashboard()));
+                  print('signed in');
+                  print(result.uid);
                 }
-              },
+              }
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Dashboard()));
 
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Color(0xffff38f1), Color(0xffba00ff)],
-                      stops: [0,1],
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(15))
+            },
+            child: Container(
+              height: 50,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Color(0xffff38f1), Color(0xffba00ff)],
+                    stops: [0, 1],
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: Center(
+                child: Text(
+                  "Register",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24),
                 ),
-                child: Center(
-                  child: Text("Sing Up",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 24
-                    ),),
-                ),
-              )
+              ),
+            ),
           ),
-
           Column(children: <Widget>[
             SizedBox(
               height: 10,
@@ -147,7 +154,8 @@ class MyCustomFormState extends State<MyCustomForm> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text("Already have an account? ",
+                Text(
+                  "Already have an account? ",
                   style: TextStyle(
                       color: Colors.blueGrey,
                       fontSize: 16,
@@ -159,20 +167,19 @@ class MyCustomFormState extends State<MyCustomForm> {
                     "Login",
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.blue, fontWeight: FontWeight.w700),
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w700),
                   ),
                 )
               ],
             )
-          ]
-          )
-        ]
-        )
-    );
+          ])
+        ]));
   }
 
   TextFormField getPassword() {
     return TextFormField(
+      onChanged: (val) {},
       controller: _password,
       keyboardType: TextInputType.text,
       obscureText: !isHidePassword,
@@ -194,6 +201,9 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   TextFormField getEmail() {
     return TextFormField(
+      onChanged: (val) {
+
+      },
       controller: _email,
       keyboardType: TextInputType.text,
       decoration: const InputDecoration(
@@ -205,6 +215,7 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   TextFormField firstName() {
     return TextFormField(
+      onChanged: (val) {},
       controller: _firstName,
       keyboardType: TextInputType.text,
       decoration: const InputDecoration(
@@ -216,6 +227,7 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   TextFormField lastName() {
     return TextFormField(
+      onChanged: (val) {},
       controller: _lastName,
       keyboardType: TextInputType.text,
       decoration: const InputDecoration(

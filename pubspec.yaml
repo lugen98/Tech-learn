@@ -29,6 +29,9 @@ dependencies:
   http:
   shimmer:
   scoped_model:
+  firebase_auth:
+  provider:
+  flutter_firebase_auth_ui:
   firebase_messaging:
   flutter:
     sdk: flutter
