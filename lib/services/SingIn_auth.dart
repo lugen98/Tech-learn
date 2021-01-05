@@ -21,19 +21,68 @@ class _SignInState extends State<SignIn> {
      ),
      body: Container(
        padding: EdgeInsets.symmetric(vertical: 20.0,horizontal: 50.0),
-       child:
-       RaisedButton(
-         child: Text('Sign In'),
-         onPressed: () async{
-      dynamic result =   await _auth.SignInAnon();
-      if(result==null){
-        print('error Signing in');
-      }else{
-        print('signed in');
-        print(result.uid);
-      }
-         },
-       ) ,
+       child: Form(
+         child: Column(
+           children: <Widget>[
+             SizedBox(height: 20.0,),
+
+             TextFormField(
+               decoration: InputDecoration(
+                 hintText: 'First Name',
+                 icon: Icon(Icons.person),
+               ),
+               onChanged: (val){
+
+               },
+             ),
+             SizedBox(height: 20.0,),
+             TextFormField(
+               decoration: InputDecoration(
+                 hintText: 'Last Name',
+                 icon: Icon(Icons.people),
+               ),
+               onChanged: (val){
+
+               },
+             ),
+             SizedBox(height: 20.0,),
+             TextFormField(
+               obscureText: true,
+               decoration: InputDecoration(
+                 hintText: 'password',
+                 icon: Icon(Icons.lock),
+               ),
+
+
+               onChanged: (val) {}
+             ),
+
+             SizedBox(height: 20.0,),
+
+             TextFormField(
+               decoration: InputDecoration(
+                 hintText: 'E-mail',
+                 icon: Icon(Icons.email),
+               ),
+               onChanged: (val){
+
+               },
+             ),
+
+             SizedBox(height: 20.0,),
+             RaisedButton(
+               color: Colors.purpleAccent,
+               child: Text('Sign IN',
+                 style: TextStyle(color: Colors.white),
+             ),
+               onPressed: () async{
+
+               },
+             )
+    ],
+         ),
+       )
+
      ),
 
 
