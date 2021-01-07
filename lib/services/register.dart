@@ -27,7 +27,7 @@ import 'package:techlearning_app/services/auth.dart';
       appBar: AppBar(
         backgroundColor: Color(0xff453658),
         elevation: 0.0,
-        title: Text('Register'),
+        title: Text('Reg8'),
         actions: <Widget>[
           FlatButton.icon(
               onPressed: (){
