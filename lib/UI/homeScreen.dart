@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:techlearning_app/UI/Login.dart';
+import 'package:techlearning_app/services/Authenticate.dart';
+import 'package:techlearning_app/services/register.dart';
 import 'singUpTest.dart';
 
 class MainHomePage extends StatefulWidget {
@@ -26,7 +28,7 @@ class _MainHomePageState extends State<MainHomePage> {
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(
-                      builder: (context) => Login()));
+                      builder: (context) => SignIn()));
             },
              child: Container(
             height: 60,
@@ -38,7 +40,7 @@ class _MainHomePageState extends State<MainHomePage> {
                 borderRadius: BorderRadius.all(Radius.circular(15))
             ),
             child: Center(
-              child: Text("LogIn",
+              child: Text("Sign In",
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
@@ -52,7 +54,7 @@ class _MainHomePageState extends State<MainHomePage> {
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(
-                      builder: (context) => SignUp()));
+                      builder: (context) => Authenticate()));
             },
             child: Container(
               height: 50,
