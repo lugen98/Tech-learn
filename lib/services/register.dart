@@ -27,7 +27,7 @@ import 'package:techlearning_app/services/auth.dart';
       appBar: AppBar(
         backgroundColor: Color(0xff453658),
         elevation: 0.0,
-        title: Text('Register'),
+        title: Text('Reg8'),
         actions: <Widget>[
           FlatButton.icon(
               onPressed: (){
@@ -35,7 +35,7 @@ import 'package:techlearning_app/services/auth.dart';
               },
               icon:Icon(Icons.person,color: Colors.white,),
               label: Text(
-                'Sign IN',
+                'Sign IN99',
                 style: TextStyle(color: Colors.white),
               ),)
         ],
