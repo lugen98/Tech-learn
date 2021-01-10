@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:techlearning_app/UI/Login.dart';
-import 'package:techlearning_app/services/Authenticate.dart';
+import 'package:techlearning_app/services/SingIn_auth.dart';
 import 'package:techlearning_app/services/register.dart';
-import 'singUpTest.dart';
 
 class MainHomePage extends StatefulWidget {
   MainHomePage({Key key}) : super(key: key);
@@ -54,7 +52,7 @@ class _MainHomePageState extends State<MainHomePage> {
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(
-                      builder: (context) => Authenticate()));
+                      builder: (context) =>Register()));
             },
             child: Container(
               height: 50,

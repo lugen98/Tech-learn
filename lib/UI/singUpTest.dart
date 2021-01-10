@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:techlearning_app/UI/dashboardTest.dart';
+import 'package:techlearning_app/services/SingIn_auth.dart';
 import 'package:techlearning_app/services/auth.dart';
-import 'Login.dart';
 
 class SignUp extends StatelessWidget {
   @override

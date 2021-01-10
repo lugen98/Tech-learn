@@ -1,14 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:techlearning_app/services/Authenticate.dart';
+import 'package:techlearning_app/UI/teacherReg.dart';
 import '../dashboardTest.dart';
 import '../homeScreen.dart';
 import 'Settings.dart';
 import 'editProfile.dart';
 import 'profile.dart';
+import 'package:techlearning_app/services/auth.dart';
 
 
 class Mydrawer extends StatelessWidget {
+
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -40,7 +43,7 @@ class Mydrawer extends StatelessWidget {
             leading: Icon(Icons.person_add),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Authenticate()));
+                  MaterialPageRoute(builder: (context) => TeacherReg()));
             }
         ),
         ListTile(
@@ -91,11 +94,13 @@ class Mydrawer extends StatelessWidget {
             title: Text("Logout",
                 style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold)),
             leading: Icon(Icons.exit_to_app),
-            onTap: () {
-              Navigator.push(
-                  context,
+            onTap:(){
+              Navigator.push(context,
                   MaterialPageRoute(builder: (context) => MainHomePage()));
-            }),
+            }
+          //openSignOutPage,
+
+            ),
 
 
       ]
@@ -103,5 +108,8 @@ class Mydrawer extends StatelessWidget {
     );
   }
 
+ void openSignOutPage() async {
+    await _auth.signOut();
 
+ }
 }
