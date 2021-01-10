@@ -27,6 +27,19 @@ class AuthService {
   }
 
   // sign in emil $ pass
+  Future signInEP(String email, String password) async {
+    try {
+      AuthResult result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      FirebaseUser user = result.user;
+      return _userFirebase(user);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+
   //register in emil $ pass
   Future registerEP(String email, String password) async {
     try {
