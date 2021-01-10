@@ -29,21 +29,7 @@ class _RegisterState extends State<Register> {
         backgroundColor: Color(0xff453658),
         elevation: 0.0,
         title: Text('Register'),
-        actions: <Widget>[
-          FlatButton.icon(
-            onPressed: () {
-              widget.toggleView();
-            },
-            icon: Icon(
-              Icons.person,
-              color: Colors.white,
-            ),
-            label: Text(
-              'Sign IN',
-              style: TextStyle(color: Colors.white),
-            ),
-          )
-        ],
+
       ),
       body: Container(
           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
@@ -107,7 +93,7 @@ class _RegisterState extends State<Register> {
                       setState(() => password = val);
                     }),
                 SizedBox(
-                  height: 20.0,
+                  height: 50.0,
                 ),
                 RaisedButton(
                   color: Colors.purpleAccent,
@@ -121,7 +107,8 @@ class _RegisterState extends State<Register> {
                       if (result == null) {
                         setState(() => error = 'please supply a valid email');
                       } else {
-                        return Dashboard();
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Dashboard()));
                       }
                     }
                   },
@@ -134,11 +121,11 @@ class _RegisterState extends State<Register> {
                   style: TextStyle(color: Colors.red, fontSize: 14.0),
                 ),
                 SizedBox(
-                  height: 12.0,
+                  height: 100.0,
                 ),
                 Text(
                   'Alraedy have account Sign In',
-                  style: TextStyle(color: Colors.red, fontSize: 14.0),
+                  style: TextStyle(color: Colors.black, fontSize: 15.0,fontWeight: FontWeight.w700),
                 ),
                 InkWell(
                     onTap: (){

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:techlearning_app/UI/dashboardTest.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'package:techlearning_app/services/register.dart';
 
@@ -12,12 +13,13 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
+
   //text filed state
-  String firstName = '';
-  String lastName = '';
   String email = '';
   String password = '';
-  String Register = '';
+  String error = '';
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,32 +29,19 @@ class _SignInState extends State<SignIn> {
         backgroundColor: Color(0xff453658),
         elevation: 0.0,
         title: Text('Sign In'),
-        actions: <Widget>[
-          FlatButton.icon(
-            onPressed: () {
-              widget.toggleView();
-            },
-            icon: Icon(
-              Icons.person,
-              color: Colors.white,
-            ),
-            label: Text(
-              'Register',
-              style: TextStyle(color: Colors.white),
-            ),
-          )
-        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: SingleChildScrollView(
             child: Form(
-          child: Column(
+              key: _formKey,
+              child: Column(
             children: <Widget>[
               SizedBox(
                 height: 20.0,
               ),
               TextFormField(
+                validator: (val) => val.isEmpty ? 'Enter email' : null,
                 decoration: InputDecoration(
                   hintText: 'E-mail',
                   icon: Icon(Icons.email),
@@ -65,6 +54,9 @@ class _SignInState extends State<SignIn> {
                 height: 20.0,
               ),
               TextFormField(
+                  validator: (val) => val.length < 6
+                      ? 'password Should be more than 6'
+                      : null,
                   obscureText: true,
                   decoration: InputDecoration(
                     hintText: 'password',
@@ -74,7 +66,7 @@ class _SignInState extends State<SignIn> {
                     setState(() => password = val);
                   }),
               SizedBox(
-                height: 20.0,
+                height: 50.0,
               ),
               RaisedButton(
                 color: Colors.purpleAccent,
@@ -83,20 +75,34 @@ class _SignInState extends State<SignIn> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () async {
-                  print(email);
-                  print(password);
+                  if (_formKey.currentState.validate()) {
+                    dynamic result = await _auth.signInEP(email, password);
+                    if (result == null) {
+                      setState(() => error = 'Failed To Sign In');
+                    } else {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Dashboard()));
+                    }
+                  }
                 },
               ),
               SizedBox(
                 height: 12.0,
               ),
               Text(
-                'You dont have an account Register now',
+                error,
                 style: TextStyle(color: Colors.red, fontSize: 14.0),
+              ),
+              SizedBox(
+                height: 100.0,
+              ),
+              Text(
+                'You dont have an account Register now',
+                style: TextStyle(color: Colors.black, fontSize: 15.0, fontWeight: FontWeight.w700),
               ),
               InkWell(
                   onTap: (){
-                  //  Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
                   },
                   child: Text(
                 "Register",

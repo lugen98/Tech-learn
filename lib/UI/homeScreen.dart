@@ -66,7 +66,7 @@ class _MainHomePageState extends State<MainHomePage> {
                   borderRadius: BorderRadius.all(Radius.circular(15))
               ),
               child: Center(
-                child: Text("Sing Up",
+                child: Text("Register",
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
