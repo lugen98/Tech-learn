@@ -32,11 +32,14 @@ class DashboardState extends State<Dashboard> {
             )
           ],
         ),
-      body: Column(
-        children: <Widget>[
-          SizedBox(height: 50,),
+      body:
+          Container(
+    child: Column(
+      children: <Widget>[
+    SizedBox(height: 50,),
           Padding(padding:EdgeInsets.only(left: 16, top: 10,right: 16),
-          child: Row(
+
+            child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Column(
@@ -77,10 +80,13 @@ class DashboardState extends State<Dashboard> {
           ),
           GridDashboard(),
 
-        ],
-      ),
+    ]),
+         ),
+
       drawer: Mydrawer(),
+
     );
+
   }
   }
 

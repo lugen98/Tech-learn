@@ -14,6 +14,7 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
+  bool loading = false;
 
   //text filed state
   String email = '';
@@ -23,7 +24,7 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color(0xff453658),
@@ -38,7 +39,7 @@ class _SignInState extends State<SignIn> {
               child: Column(
             children: <Widget>[
               SizedBox(
-                height: 20.0,
+                height: 40.0,
               ),
               TextFormField(
                 validator: (val) => val.isEmpty ? 'Enter email' : null,
@@ -51,7 +52,7 @@ class _SignInState extends State<SignIn> {
                 },
               ),
               SizedBox(
-                height: 20.0,
+                height: 30.0,
               ),
               TextFormField(
                   validator: (val) => val.length < 6
@@ -78,13 +79,15 @@ class _SignInState extends State<SignIn> {
                   if (_formKey.currentState.validate()) {
                     dynamic result = await _auth.signInEP(email, password);
                     if (result == null) {
-                      setState(() => error = 'Failed To Sign In');
+                      setState(() =>
+                      error = 'Failed To Sign In');
                     } else {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Dashboard()));
                     }
                   }
-                },
+                  },
+
               ),
               SizedBox(
                 height: 12.0,
