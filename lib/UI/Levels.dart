@@ -4,6 +4,7 @@ import 'package:google_fonts_arabic/fonts.dart';
 import 'package:techlearning_app/UI/Classes.dart';
 import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/UI/dashboardTest.dart';
 import 'package:techlearning_app/UI/Drawer/Mydrawer.dart';
+import 'package:techlearning_app/UI/praimry.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -107,6 +108,8 @@ class _LevelPage extends State<LevelPage> {
                     child: ListView(children: <Widget>[
                       InkWell(child: _bulidlevelItem(
                           'images/kids.jpg', "Primary Level", 'Classes'),onTap: (){
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) => PrimaryPage()));
                       },),
                       InkWell(child: _bulidlevelItem(
                           'images/seco.gif', "Secondary level", 'Classes'),onTap: (){
@@ -114,9 +117,7 @@ class _LevelPage extends State<LevelPage> {
                             .push(MaterialPageRoute(builder: (context) => ClassesPage()));
                       },),
                       InkWell(child: _bulidlevelItem(
-                          'images/train2.jpg', "Training Courses", 'Classes'),onTap: (){},),
-                      InkWell(child: _bulidlevelItem(
-                          'images/ideaa.jpg', "Other", 'Classes'),onTap: (){},),
+                          'images/train2.jpg', "Training Courses", 'Courses'),onTap: (){},),
                     ]),
                   ),
                 )

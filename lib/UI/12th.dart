@@ -1,21 +1,14 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
-import 'package:techlearning_app/UI/10th.dart';
-import 'package:techlearning_app/UI/11th.dart';
-import 'package:techlearning_app/UI/12th.dart';
-import 'package:techlearning_app/UI/8th.dart';
-import 'package:techlearning_app/UI/Materials.dart';
-import 'package:techlearning_app/UI/adabi.dart';
-import 'package:techlearning_app/UI/elme.dart';
-import 'objects.dart';
 
-class ClassesPage extends StatefulWidget {
+class TwelvePage extends StatefulWidget {
   @override
-  _ClassesPageState createState() => _ClassesPageState();
+  _TwelvePageState createState() => _TwelvePageState();
 }
 
-class _ClassesPageState extends State<ClassesPage> {
+class _TwelvePageState extends State<TwelvePage> {
 
 
   @override
@@ -52,7 +45,7 @@ class _ClassesPageState extends State<ClassesPage> {
             padding: EdgeInsets.only(left: 50.0, top: 50.0, right: 25.0),
             children: <Widget>[
               Text(
-                'Secondary Classes\nالصفوف الثانوية',
+                ' التوجيهي ',
                 style: TextStyle(
                     fontFamily: ArabicFonts.El_Messiri,
                     package: 'google_fonts_arabic',
@@ -72,29 +65,11 @@ class _ClassesPageState extends State<ClassesPage> {
 
                       children: <Widget>[
                         InkWell(child: _bulidlevelItem(
-                       "7th Grade ","Materials"),onTap: (){ Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ObjectsPage()
-                        ));},),
+                            "أدبي","المواد"),onTap: (){},),
                         InkWell(child: _bulidlevelItem(
-                            "8th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => EighthPage()
-                        ));},),
+                            "علمي","المواد"),onTap: (){},),
                         InkWell(child: _bulidlevelItem(
-                            "9th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => MaterialsPage()
-                        ));},),
-                        InkWell(child: _bulidlevelItem(
-                            "10th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>TenthPage()
-                        ));},),
-                        InkWell(child: _bulidlevelItem(
-                            "11th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>ElevenPage()
-                        ));},),
-                        InkWell(child: _bulidlevelItem(
-                             "12th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>TwelvePage()
-                        ));},),
+                            "مهني","المواد"),onTap: (){},),
                       ]
                   ),
                 ),
@@ -107,10 +82,13 @@ class _ClassesPageState extends State<ClassesPage> {
   }
 
 
-  Widget _bulidlevelItem( String levelName,className) {
+  Widget _bulidlevelItem( String levelName, className) {
     return Padding(
         padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+        child: InkWell(
+          onTap: () {},
           child: Row(
+
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Container(
@@ -147,13 +125,15 @@ class _ClassesPageState extends State<ClassesPage> {
               IconButton(
                 icon: Icon(Icons.arrow_forward),
                 color: Colors.black,
-                onPressed: () {
-                },
+                onPressed: () {},
               ),
 
             ],
           ),
-        );
+        ));
   }
 
+
 }
+
+
