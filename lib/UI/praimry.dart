@@ -6,16 +6,14 @@ import 'package:techlearning_app/UI/11th.dart';
 import 'package:techlearning_app/UI/12th.dart';
 import 'package:techlearning_app/UI/8th.dart';
 import 'package:techlearning_app/UI/Materials.dart';
-import 'package:techlearning_app/UI/adabi.dart';
-import 'package:techlearning_app/UI/elme.dart';
 import 'objects.dart';
 
-class ClassesPage extends StatefulWidget {
+class PrimaryPage extends StatefulWidget {
   @override
-  _ClassesPageState createState() => _ClassesPageState();
+  _PrimaryPageState createState() => _PrimaryPageState();
 }
 
-class _ClassesPageState extends State<ClassesPage> {
+class _PrimaryPageState extends State<PrimaryPage> {
 
 
   @override
@@ -52,7 +50,7 @@ class _ClassesPageState extends State<ClassesPage> {
             padding: EdgeInsets.only(left: 50.0, top: 50.0, right: 25.0),
             children: <Widget>[
               Text(
-                'Secondary Classes\nالصفوف الثانوية',
+                'Primary Classes\nالصفوف الأبتدائية',
                 style: TextStyle(
                     fontFamily: ArabicFonts.El_Messiri,
                     package: 'google_fonts_arabic',
@@ -72,28 +70,28 @@ class _ClassesPageState extends State<ClassesPage> {
 
                       children: <Widget>[
                         InkWell(child: _bulidlevelItem(
-                       "7th Grade ","Materials"),onTap: (){ Navigator.of(context).push(MaterialPageRoute(
+                            "First Grade ","Materials"),onTap: (){ Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => ObjectsPage()
                         ));},),
                         InkWell(child: _bulidlevelItem(
-                            "8th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
+                            "The Second Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => EighthPage()
                         ));},),
                         InkWell(child: _bulidlevelItem(
-                            "9th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => MaterialsPage()
+                            "Third Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => EighthPage()
                         ));},),
                         InkWell(child: _bulidlevelItem(
-                            "10th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>TenthPage()
+                            "4th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>EighthPage()
                         ));},),
                         InkWell(child: _bulidlevelItem(
-                            "11th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>ElevenPage()
+                            "5th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>EighthPage()
                         ));},),
                         InkWell(child: _bulidlevelItem(
-                             "12th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>TwelvePage()
+                            "6th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>EighthPage()
                         ));},),
                       ]
                   ),
@@ -109,51 +107,51 @@ class _ClassesPageState extends State<ClassesPage> {
 
   Widget _bulidlevelItem( String levelName,className) {
     return Padding(
-        padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                child: Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          levelName,
-                          style: TextStyle(
-                              fontFamily: ArabicFonts.Changa,
-                              package: 'google_fonts_arabic',
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          className,
-                          style: TextStyle(
-                              fontFamily: ArabicFonts.Amiri,
-                              package: 'google_fonts_arabic',
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                      ],
-                    )
-                  ],
+      padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Container(
+            child: Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 10.0,
                 ),
-              ),
-              IconButton(
-                icon: Icon(Icons.arrow_forward),
-                color: Colors.black,
-                onPressed: () {
-                },
-              ),
-
-            ],
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      levelName,
+                      style: TextStyle(
+                          fontFamily: ArabicFonts.Changa,
+                          package: 'google_fonts_arabic',
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      className,
+                      style: TextStyle(
+                          fontFamily: ArabicFonts.Amiri,
+                          package: 'google_fonts_arabic',
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
-        );
+          IconButton(
+            icon: Icon(Icons.arrow_forward),
+            color: Colors.black,
+            onPressed: () {
+            },
+          ),
+
+        ],
+      ),
+    );
   }
 
 }

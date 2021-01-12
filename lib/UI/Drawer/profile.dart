@@ -88,49 +88,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           _textFormField(
-            hintText: 'First Name',
+            hintText: ' Name',
             icon: Icons.person,
           ),
 
           _textFormField(
-            hintText: 'Last Name',
-            icon: Icons.person,
+            hintText: 'Degree',
+            icon: Icons.paste,
 
           ),
 
         
           _textFormField(
-            hintText: 'E-mail',
-            icon: Icons.mail,
+            hintText: 'Major',
+            icon: Icons.bookmark,
 
           ),
-          _textFormField(hintText: 'Password', icon: Icons.lock),
+
+          _textFormField(
+            hintText: 'Price',
+            icon: Icons.attach_money,
+
+          ),
+          _textFormField(
+            hintText: 'Age',
+            icon: Icons.person,
+          ),
+          _textFormField(
+            hintText: 'Gender',
+            icon: Icons.wc_sharp,
+          ),
           _textFormField(
             hintText: 'Contact Number',
             icon: Icons.phone,
           ),
-          Container(
-            height: 50,
-            width: double.infinity,
-            child: RaisedButton(
-              color: Colors.grey[600],
-              child: Center(
-
-
-                child: Text(
-                  'Update',
-                  style: TextStyle(
-                    fontSize: 23,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              onPressed: () {
-                Scaffold.of(context).showSnackBar(
-                  SnackBar(content: Text("Your Profile Updated"),));},
-            ),
-
-          )
         ],
       ),
       );

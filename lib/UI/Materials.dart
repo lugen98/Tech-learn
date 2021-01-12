@@ -16,18 +16,20 @@ class _MaterialsPageState extends State<MaterialsPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: Text('Tech Learn',
+        title: Text('Teaching Materials',
             style: TextStyle(
                 fontFamily: 'Montserrat', fontSize: 24.0, color: Colors.white)),
         centerTitle: true,
 
       ),
-      body: Container(
-        alignment: Alignment.topCenter,
+      body:  SingleChildScrollView(
+      child:
+      Container(
+     alignment: Alignment.topCenter,
         height: MediaQuery
             .of(context)
             .size
-            .height - 80.0,
+            .height - 60.0,
         decoration: BoxDecoration(
           color: Colors.grey[600],
           borderRadius: BorderRadius.only(
@@ -40,25 +42,16 @@ class _MaterialsPageState extends State<MaterialsPage> {
 
         child: ListView(
             primary: false,
-            padding: EdgeInsets.only(left: 50.0, top: 50.0, right: 25.0),
+            padding: EdgeInsets.only(left: 50.0, top: 12.0, right: 25.0),
             children: <Widget>[
-              Text(
-                'Teaching Materials \n مواد التدريس ',
-                style: TextStyle(
-                    fontFamily: ArabicFonts.El_Messiri,
-                    package: 'google_fonts_arabic',
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 27.0),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 45.0),
+        Padding(
+                padding: EdgeInsets.only(top: 12.0),
                 child: Container(
 
                   height: MediaQuery
                       .of(context)
                       .size
-                      .height - 300,
+                      .height - 100,
                   child: ListView(
 
                       children: <Widget>[
@@ -91,13 +84,14 @@ class _MaterialsPageState extends State<MaterialsPage> {
             ]),
       ),
 
-      // drawer: Mydrawer(),
-    );
+
+      ) );
   }
 
 
   Widget _bulidlevelItem( String levelName, className) {
-    return Padding(
+    return Container(
+      child:  SingleChildScrollView(
         padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
         child: InkWell(
           onTap: () {},
@@ -119,7 +113,7 @@ class _MaterialsPageState extends State<MaterialsPage> {
                           style: TextStyle(
                               fontFamily: ArabicFonts.Changa,
                               package: 'google_fonts_arabic',
-                              fontSize: 24.0,
+                              fontSize: 20.0,
                               fontWeight: FontWeight.bold),
                         ),
                         Text(
@@ -127,7 +121,7 @@ class _MaterialsPageState extends State<MaterialsPage> {
                           style: TextStyle(
                               fontFamily: ArabicFonts.Amiri,
                               package: 'google_fonts_arabic',
-                              fontSize: 18.0,
+                              fontSize: 16.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.white),
                         ),
@@ -144,7 +138,7 @@ class _MaterialsPageState extends State<MaterialsPage> {
 
             ],
           ),
-        ));
+        )));
   }
 
 
