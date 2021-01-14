@@ -39,7 +39,7 @@ class _MainHomePageState extends State<MainHomePage> {
                 borderRadius: BorderRadius.all(Radius.circular(15))
             ),
             child: Center(
-              child: Text("Sign In",
+              child: Text("register",
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
