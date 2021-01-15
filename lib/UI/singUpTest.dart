@@ -135,7 +135,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                     colors: [Color(0xffff38f1), Color(0xffba00ff)],
                     stops: [0, 1],
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(15))),
+                  borderRadius: BorderRadius.all(Radius.circular(30))),
               child: Center(
                 child: Text(
                   "Register",
