@@ -124,7 +124,7 @@ class _RegisterState extends State<Register> {
                   height: 100.0,
                 ),
                 Text(
-                  'Alraedy have account Sign In',
+                  'Alraedy have account Sign in',
                   style: TextStyle(color: Colors.black, fontSize: 15.0,fontWeight: FontWeight.w700),
                 ),
                 InkWell(
