@@ -116,13 +116,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                   content: Text("Please Enter Password"),
                 ));
 
-                dynamic result = await _auth.SignInAnon();
-                if (result == null) {
-                  print('error Signing in');
-                } else {
-                  print('signed in');
-                  print(result.uid);
-                }
               }
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Dashboard()));

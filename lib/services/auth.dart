@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:techlearning_app/services/users.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -15,11 +17,18 @@ class AuthService {
   }
 
   //sing in anon
-  Future SignInAnon() async {
-    try {
-      AuthResult result = await _auth.signInAnonymously();
-      FirebaseUser user = result.user;
-      return _userFirebase(user);
+      Future<void> signInGoogle() async{
+        try {
+        GoogleSignInAccount  signInAccount = await GoogleSignIn().signIn();
+        GoogleSignInAuthentication authentication = await signInAccount.authentication;
+        var x = GoogleAuthProvider.getCredential(
+          idToken: authentication.idToken,
+          accessToken: authentication.accessToken,
+        );
+          AuthResult result = await _auth.signInWithCredential(x);
+        FirebaseUser user = result.user;
+        return _userFirebase(user);
+
     } catch (e) {
       print(e.toString());
       return null;
