@@ -23,6 +23,9 @@ environment:
 dependencies:
   cloud_firestore:
   flutter_spinkit:
+  flutter_svg:
+  google_sign_in:
+  sign_button:
   google_fonts_arabic:
   flutter_staggered_grid_view:
   flutter_localizations:

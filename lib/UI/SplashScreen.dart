@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:techlearning_app/UI/homeScreen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -48,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               children: <Widget>[
 
-                Image.asset("images/logo1.jpg"),
+                SvgPicture.asset("images/Frame 1.svg"),
                 Padding(
                   padding: EdgeInsets.only(
                       top: 86.96, right: 80, left: 80, bottom: 98),
