@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:techlearning_app/UI/homeScreen.dart';
-import 'package:techlearning_app/UI/teacherReg.dart';
-import 'package:techlearning_app/services/register.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'StudentSignUp.dart';
+import 'TeacherSignUp.dart';
 
 
 class FirstSignUp extends StatefulWidget {
@@ -90,7 +90,7 @@ class _FirstSignUpState extends State<FirstSignUp> {
           child: RaisedButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Register()));
+                    MaterialPageRoute(builder: (context) => TeacherSignUp()));
               },
               color:  Color(0xFFFFD900),
               shape: RoundedRectangleBorder(
@@ -98,7 +98,7 @@ class _FirstSignUpState extends State<FirstSignUp> {
               child:
               InkWell(
                 onTap: (){ Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>TeacherReg()
+                    builder: (context) =>TeacherSignUp()
                 ));},
                 child: Text(
                   "Teacher",
@@ -129,7 +129,7 @@ class _FirstSignUpState extends State<FirstSignUp> {
                       child: RaisedButton(
                           onPressed: () {
                             Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => Register()));
+                                MaterialPageRoute(builder: (context) => StudentSignUp()));
                           },
                           color: Color(0xFFFFD900),
                           shape: RoundedRectangleBorder(
@@ -137,7 +137,7 @@ class _FirstSignUpState extends State<FirstSignUp> {
                           child:
                           InkWell(
                             onTap: (){ Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>TeacherReg()
+                                builder: (context) => StudentSignUp()
                             ));},
                             child: Text(
                               "Student",

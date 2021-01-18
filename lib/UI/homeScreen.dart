@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:techlearning_app/UI/dashboardTest.dart';
-import 'package:techlearning_app/UI/firstsignup.dart';
-import 'package:techlearning_app/services/SingIn_auth.dart';
-import 'package:techlearning_app/services/register.dart';
+import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/firstsignup.dart';
+import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/SingIn_auth.dart';
+import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/register.dart';
+import 'package:techlearning_app/login&signin/firstSignIn.dart';
 
 class MainHomePage extends StatefulWidget {
   MainHomePage({Key key}) : super(key: key);
@@ -98,7 +99,7 @@ class _MainHomePageState extends State<MainHomePage> {
                 InkWell(
                     onTap: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignIn()));
+                          MaterialPageRoute(builder: (context) => FirstSignIn()));
                     },
                     child: Text(
                       " Click here to log in ",
