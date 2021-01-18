@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:techlearning_app/services/SingIn_auth.dart';
-import 'package:techlearning_app/services/register.dart';
+import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/SingIn_auth.dart';
+import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/register.dart';
 
 class Authenticate extends StatefulWidget{
   @override

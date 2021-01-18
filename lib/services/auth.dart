@@ -16,7 +16,7 @@ class AuthService {
     return _auth.onAuthStateChanged.map(_userFirebase);
   }
 
-  //sing in anon
+  //sing in Google
       Future<void> signInGoogle() async{
         try {
         GoogleSignInAccount  signInAccount = await GoogleSignIn().signIn();

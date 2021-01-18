@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:techlearning_app/UI/dashboardTest.dart';
-import 'package:techlearning_app/services/SingIn_auth.dart';
+import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/SingIn_auth.dart';
 import 'package:techlearning_app/services/auth.dart';
 
 class Register extends StatefulWidget {
@@ -20,6 +20,7 @@ class _RegisterState extends State<Register> {
   String lastName = '';
   String email = '';
   String password = '';
+  String confirmPass ="";
   String error = '';
   @override
   Widget build(BuildContext context) {
