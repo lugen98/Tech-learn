@@ -419,7 +419,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                           top: 20, right: 20, left: 20, bottom:30),
                                     ),
                                     Text(
-                                      'Dont have an account?',
+                                      'Already have an account?',
                                       style: GoogleFonts.poppins(
                                           textStyle: TextStyle(
                                               color: Color(0xFF053361),
@@ -435,7 +435,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                                       TeacherSignIn()));
                                         },
                                         child: Text(
-                                          "Click here to Sign up ",
+                                          "Click here to Sign In ",
                                           style: GoogleFonts.poppins(
                                               textStyle: TextStyle(
                                                   fontSize: 13,

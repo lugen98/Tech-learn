@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/UI/dashboardTest.dart';
-import 'package:techlearning_app/login&signin/TeacherSignIn.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'StudentForgetPass.dart';
 import 'firstSignIn.dart';
+import 'StudentSignUp.dart';
 
 class StudentSignIn extends StatefulWidget {
   final Function toggleView;
@@ -334,7 +334,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  TeacherSignIn()));
+                                                  StudentSignUp()));
                                     },
                                     child: Text(
                                       "Click here to Sign up ",

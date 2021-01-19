@@ -4,7 +4,7 @@ import 'package:techlearning_app/UI/dashboardTest.dart';
 import 'package:techlearning_app/login&signin/TeacherForgotPass.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'TeacherSignUp.dart';
 import 'firstSignIn.dart';
 
 class TeacherSignIn extends StatefulWidget {
@@ -337,7 +337,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  TeacherSignIn()));
+                                                  TeacherSignUp()));
                                     },
                                     child: Text(
                                       "Click here to Sign up ",
