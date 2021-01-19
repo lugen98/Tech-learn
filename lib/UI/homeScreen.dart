@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:techlearning_app/UI/dashboardTest.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/firstsignup.dart';
-import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/SingIn_auth.dart';
-import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/register.dart';
 import 'package:techlearning_app/login&signin/firstSignIn.dart';
 
 class MainHomePage extends StatefulWidget {
@@ -26,25 +24,27 @@ class _MainHomePageState extends State<MainHomePage> {
               children: <Widget>[
                 Padding(
                   padding:
-                      EdgeInsets.only(top: 75, right: 50, left: 40, bottom: 80),
+                      EdgeInsets.only(top: 75, right: 50, left: 25, bottom: 80),
                 ),
                 Text('Tech',
-                    style: TextStyle(
-                        color: Color(0xFF053361),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 38)),
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            color: Color(0xFF053361),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 38))),
                 Text('Learn',
-                    style: TextStyle(
-                        color: Color(0xFFFFD900),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 38)),
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            color: Color(0xFFFFD900),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 38))),
               ],
             ),
           ),
           Container(
             child: Column(
               children: <Widget>[
-    SvgPicture.asset("images/Frame 1.svg"),
+                SvgPicture.asset("images/Frame 1.svg"),
                 Padding(
                   padding: EdgeInsets.only(
                       top: 86.96, right: 80, left: 80, bottom: 10),
@@ -56,15 +56,17 @@ class _MainHomePageState extends State<MainHomePage> {
             child: Column(children: <Widget>[
               Padding(
                 padding:
-                EdgeInsets.only(top: 1, right: 21, left: 31, bottom: 10),
+                    EdgeInsets.only(top: 1, right: 21, left: 31, bottom: 10),
               ),
               SizedBox(
                 width: 328,
                 height: 49,
                 child: RaisedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) =>FirstSignUp()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FirstSignUp()));
                     },
                     color: Color(0xFFFFD900),
                     shape: RoundedRectangleBorder(
@@ -73,10 +75,11 @@ class _MainHomePageState extends State<MainHomePage> {
                       onTap: openRegPage,
                       child: Text(
                         "Create Free Account",
-                        style: TextStyle(
-                            fontSize: 16,
-                            color:  Color(0xFF053361),
-                            fontWeight: FontWeight.w700),
+                        style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                                fontSize: 16,
+                                color: Color(0xFF053361),
+                                fontWeight: FontWeight.w700)),
                       ),
                     )),
               )
@@ -87,26 +90,30 @@ class _MainHomePageState extends State<MainHomePage> {
               children: <Widget>[
                 Padding(
                   padding:
-                      EdgeInsets.only(top: 1, right: 21, left: 31, bottom: 50),
+                      EdgeInsets.only(top: 1, right: 16, left: 19, bottom: 50),
                 ),
                 Text(
                   'Already have an account ?',
-                  style: TextStyle(
-                      color:  Color(0xFF053361),
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700),
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          color: Color(0xFF053361),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w700)),
                 ),
                 InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => FirstSignIn()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FirstSignIn()));
                     },
                     child: Text(
                       " Click here to log in ",
-                      style: TextStyle(
-                          fontSize: 13,
-                          color: Color(0xFF0A61B7),
-                          fontWeight: FontWeight.w700),
+                      style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              fontSize: 13,
+                              color: Color(0xFF0A61B7),
+                              fontWeight: FontWeight.w700)),
                     ))
               ],
             ),

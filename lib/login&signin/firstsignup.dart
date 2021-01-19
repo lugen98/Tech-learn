@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/UI/homeScreen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'StudentSignUp.dart';
@@ -26,15 +27,17 @@ class _FirstSignUpState extends State<FirstSignUp> {
                     right: 30, left: 20),
               ),
               Text('Tech',
-                  style: TextStyle(
-                      color:  Color(0xFF053361),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25)),
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          color: Color(0xFF053361),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20))),
               Text('Learn',
-                  style: TextStyle(
-                      color:  Color(0xFFFFD900),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25)),
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          color: Color(0xFFFFD900),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20))),
             ],
           ),
           leading: Container(
@@ -43,7 +46,7 @@ class _FirstSignUpState extends State<FirstSignUp> {
             height: 60,
             child: IconButton(
               color: Color(0xFF053361),
-              iconSize: 28,
+              iconSize: 26,
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => MainHomePage()));
@@ -69,13 +72,14 @@ class _FirstSignUpState extends State<FirstSignUp> {
               children: <Widget>[
               Padding(
               padding: EdgeInsets.only(
-              top: 65, right: 80, left: 40, bottom: 20),
+              top: 65, right: 60, left: 40, bottom: 20),
         ),
         Text('Who are you?',
-            style: TextStyle(
+          style: GoogleFonts.poppins(
+              textStyle: TextStyle(
                 color: Color(0xFF053361),
                 fontWeight: FontWeight.bold,
-                fontSize: 20)),
+                fontSize: 18))),
 
         ],
       ),
@@ -102,10 +106,11 @@ class _FirstSignUpState extends State<FirstSignUp> {
                 ));},
                 child: Text(
                   "Teacher",
-                  style: TextStyle(
-                      fontSize: 18,
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 16,
                       color: Color(0xFF053361),
-                      fontWeight: FontWeight.w700),
+                      fontWeight: FontWeight.w700)),
                 ),
               )
           ),
@@ -141,10 +146,11 @@ class _FirstSignUpState extends State<FirstSignUp> {
                             ));},
                             child: Text(
                               "Student",
-                              style: TextStyle(
-                                  fontSize: 18,
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 16,
                                   color: Color(0xFF053361),
-                                  fontWeight: FontWeight.w700),
+                                  fontWeight: FontWeight.w700)),
                             ),
                           )
                       ),
