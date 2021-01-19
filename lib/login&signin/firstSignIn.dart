@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/UI/homeScreen.dart';
-import 'package:techlearning_app/UI/teacherReg.dart';
-import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/register.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:techlearning_app/login&signin/StudentSignIn.dart';
 import 'package:techlearning_app/login&signin/TeacherSignIn.dart';
@@ -28,15 +27,17 @@ class _FirstSignInState extends State<FirstSignIn> {
                     right: 30, left: 20),
               ),
               Text('Tech',
-                  style: TextStyle(
-                      color:  Color(0xFF053361),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25)),
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          color: Color(0xFF053361),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20))),
               Text('Learn',
-                  style: TextStyle(
-                      color:  Color(0xFFFFD900),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25)),
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          color: Color(0xFFFFD900),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20))),
             ],
           ),
           leading: Container(
@@ -45,7 +46,7 @@ class _FirstSignInState extends State<FirstSignIn> {
             height: 60,
             child: IconButton(
               color: Color(0xFF053361),
-              iconSize: 28,
+              iconSize: 26,
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => MainHomePage()));
@@ -71,13 +72,14 @@ class _FirstSignInState extends State<FirstSignIn> {
                       children: <Widget>[
                         Padding(
                           padding: EdgeInsets.only(
-                              top: 65, right: 80, left: 40, bottom: 20),
+                              top: 65, right: 70, left: 40, bottom: 20),
                         ),
                         Text('Who are you?',
-                            style: TextStyle(
+                          style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
                                 color: Color(0xFF053361),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20)),
+                                fontWeight: FontWeight.w700,
+                                fontSize: 18))),
 
                       ],
                     ),
@@ -104,10 +106,11 @@ class _FirstSignInState extends State<FirstSignIn> {
                                   ));},
                                   child: Text(
                                     "Teacher",
-                                    style: TextStyle(
-                                        fontSize: 18,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 16,
                                         color: Color(0xFF053361),
-                                        fontWeight: FontWeight.w700),
+                                        fontWeight: FontWeight.w700)),
                                   ),
                                 )
                             ),
@@ -143,10 +146,11 @@ class _FirstSignInState extends State<FirstSignIn> {
                                   ));},
                                   child: Text(
                                     "Student",
-                                    style: TextStyle(
-                                        fontSize: 18,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 16,
                                         color: Color(0xFF053361),
-                                        fontWeight: FontWeight.w700),
+                                        fontWeight: FontWeight.w700)),
                                   ),
                                 )
                             ),

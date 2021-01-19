@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sign_button/constants.dart';
-import 'package:sign_button/create_button.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/UI/dashboardTest.dart';
 import 'package:techlearning_app/login&signin/TeacherSignIn.dart';
 import 'package:techlearning_app/services/auth.dart';
@@ -19,6 +19,7 @@ class _StudentSignInState extends State<StudentSignIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
+  bool isHidePassword = false;
 
   //text filed state
   String email = '';
@@ -39,15 +40,17 @@ class _StudentSignInState extends State<StudentSignIn> {
                 padding: EdgeInsets.only(right: 40, left: 20),
               ),
               Text('Tech',
-                  style: TextStyle(
-                      color: Color(0xFF053361),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25)),
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          color: Color(0xFF053361),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20))),
               Text('Learn',
-                  style: TextStyle(
-                      color: Color(0xFFFFD900),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25)),
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          color: Color(0xFFFFD900),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20))),
             ],
           ),
           leading: Container(
@@ -56,7 +59,7 @@ class _StudentSignInState extends State<StudentSignIn> {
             height: 60,
             child: IconButton(
               color: Color(0xFF053361),
-              iconSize: 28,
+              iconSize: 26,
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => FirstSignIn()));
@@ -76,54 +79,85 @@ class _StudentSignInState extends State<StudentSignIn> {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(
-                        top: 65, right: 23, left: 20, bottom: 10),
+                        top: 65, right: 15, left: 15, bottom: 5),
                   ),
                   Text('Sign in to your TechLearn Account',
-                      style: TextStyle(
-                          color: Color(0xFF053361),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18)),
+                      style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              color: Color(0xFF053361),
+                              fontWeight: FontWeight.w700,
+                              fontSize: 18))),
                 ],
               ),
             ),
             Container(
-              child: Column(children: <Widget>[
-                Padding(
-                  padding:
-                      EdgeInsets.only(top: 5, right: 2, left: 2, bottom: 10),
-                ),
-                SizedBox(
-                  width: 328,
-                  height: 49,
-                  child: SignInButton(
-                      buttonType: ButtonType.google,
-                      onPressed: () async {
-                        await _auth.signInGoogle();
+                child: Column(children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(top: 10, right: 2, left: 2, bottom: 5),
+              ),
+              SizedBox(
+                width: 328,
+                height: 49,
+                child: OutlineButton.icon(
+                    label: Text(
+                      'Sign In With Google',
+                      style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              color: Color(0xFF053361),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16)),
+                    ),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    highlightedBorderColor: Color(0xFF6D747A),
+                    borderSide: BorderSide(color: Color(0xFF6D747A)),
+                    icon: FaIcon(FontAwesomeIcons.google, color: Colors.red),
+                    onPressed: () async {
+                      await _auth.signInGoogle();
 
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Dashboard()));
-                      }),
-                ),
-              ]),
-            ),
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Dashboard()));
+                    }),
+              ),
+            ])),
             Container(
-              child: Column(children: <Widget>[
-                Padding(
-                  padding:
-                      EdgeInsets.only(top: 10, right: 2, left: 2, bottom: 10),
-                ),
-                SizedBox(
-                  width: 328,
-                  height: 49,
-                  child: SignInButton(
-                    buttonType: ButtonType.facebook,
-                    onPressed: () {},
+                child: Column(children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(top: 10, right: 2, left: 2, bottom: 5),
+              ),
+              SizedBox(
+                width: 328,
+                height: 49,
+                child: OutlineButton.icon(
+                  label: Text(
+                    'Sign In With Facebook',
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            color: Color(0xFF053361),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16)),
                   ),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  padding:
+                      EdgeInsets.only(top: 10, right: 3, left: 2, bottom: 5),
+                  highlightedBorderColor: Color(0xFF6D747A),
+                  borderSide: BorderSide(color: Color(0xFF6D747A)),
+                  icon: FaIcon(FontAwesomeIcons.facebook, color: Colors.blue),
+                  onPressed: () {},
                 ),
-              ]),
+              ),
+            ])),
+            Padding(
+              padding: EdgeInsets.only(top: 5, right: 2, left: 2, bottom: 5),
             ),
+            Text("OR",
+                style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                        color: Color(0xFF6D747A),
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16))),
             Container(
                 child: SingleChildScrollView(
                     child: Form(
@@ -131,7 +165,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                         child: Column(children: <Widget>[
                           Padding(
                             padding: EdgeInsets.only(
-                                top: 10, right: 2, left: 2, bottom: 10),
+                                top: 5, right: 2, left: 2, bottom: 5),
                           ),
                           SizedBox(
                             width: 328,
@@ -165,11 +199,22 @@ class _StudentSignInState extends State<StudentSignIn> {
                                 validator: (val) => val.length < 6
                                     ? 'password Should be more than 6'
                                     : null,
-                                obscureText: true,
+                                obscureText: !isHidePassword,
                                 decoration: InputDecoration(
                                     hintText: "Enter password",
                                     labelText: "password",
                                     prefixIcon: Icon(Icons.lock),
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        Icons.remove_red_eye,
+                                        color: isHidePassword
+                                            ? Color(0xFF0A61B7)
+                                            : Colors.grey,
+                                      ),
+                                      onPressed: () {
+                                        _togglePasswordVisability();
+                                      },
+                                    ),
                                     border: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0xFFC8CACC),
@@ -186,31 +231,35 @@ class _StudentSignInState extends State<StudentSignIn> {
                               children: <Widget>[
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      top: 23, right: 10, left: 30, bottom: 10),
+                                      top: 20, right: 10, left: 30, bottom: 5),
                                 ),
                                 InkWell(
                                   onTap: () {},
                                   child: Text('Remember Me?',
-                                      style: TextStyle(
-                                          color: Color(0xFF0A61B7),
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14)),
+                                      style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                              color: Color(0xFF0A61B7),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 14))),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      top: 10, right: 30, left: 30, bottom: 10),
+                                      top: 20, right: 30, left: 30, bottom: 10),
                                 ),
                                 InkWell(
-                                  onTap: () { Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              StudentForgotPass()));},
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                StudentForgotPass()));
+                                  },
                                   child: Text('Forgot Password?',
-                                      style: TextStyle(
-                                          color: Color(0xFF0A61B7),
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14)),
+                                      style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                              color: Color(0xFF0A61B7),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 14))),
                                 )
                               ],
                             ),
@@ -231,10 +280,11 @@ class _StudentSignInState extends State<StudentSignIn> {
                                           Radius.circular(10))),
                                   child: Text(
                                     "Sign in",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Color(0xFF053361),
-                                        fontWeight: FontWeight.w700),
+                                    style: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                            fontSize: 16,
+                                            color: Color(0xFF053361),
+                                            fontWeight: FontWeight.w700)),
                                   ),
                                   onPressed: () async {
                                     if (_formKey.currentState.validate()) {
@@ -268,14 +318,15 @@ class _StudentSignInState extends State<StudentSignIn> {
                               children: <Widget>[
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      top: 1, right: 30, left: 20, bottom: 1),
+                                      top: 1, right: 20, left: 20, bottom: 1),
                                 ),
                                 Text(
                                   'Dont have an account?',
-                                  style: TextStyle(
-                                      color: Color(0xFF053361),
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w700),
+                                  style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                          color: Color(0xFF053361),
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w700)),
                                 ),
                                 InkWell(
                                     onTap: () {
@@ -287,10 +338,11 @@ class _StudentSignInState extends State<StudentSignIn> {
                                     },
                                     child: Text(
                                       "Click here to Sign up ",
-                                      style: TextStyle(
-                                          fontSize: 13,
-                                          color: Color(0xFF0A61B7),
-                                          fontWeight: FontWeight.w700),
+                                      style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                              fontSize: 13,
+                                              color: Color(0xFF0A61B7),
+                                              fontWeight: FontWeight.w700)),
                                     ))
                               ],
                             ),
@@ -298,5 +350,11 @@ class _StudentSignInState extends State<StudentSignIn> {
                         ]))))
           ])),
         ));
+  }
+
+  void _togglePasswordVisability() {
+    setState(() {
+      isHidePassword = !isHidePassword;
+    });
   }
 }
