@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/UI/dashboardTest.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'StudentForgetPass.dart';
 import 'firstSignIn.dart';
 import 'StudentSignUp.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import 'orDivider.dart';
 class StudentSignIn extends StatefulWidget {
   final Function toggleView;
   StudentSignIn({this.toggleView});
@@ -18,7 +18,7 @@ class StudentSignIn extends StatefulWidget {
 class _StudentSignInState extends State<StudentSignIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
-  bool loading = false;
+  bool checkBokValue = false;
   bool isHidePassword = false;
 
   //text filed state
@@ -79,7 +79,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(
-                        top: 65, right: 15, left: 15, bottom: 5),
+                        top: 65, right: 10, left: 13, bottom: 5),
                   ),
                   Text('Sign in to your TechLearn Account',
                       style: GoogleFonts.poppins(
@@ -91,73 +91,101 @@ class _StudentSignInState extends State<StudentSignIn> {
               ),
             ),
             Container(
-                child: Column(children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 10, right: 2, left: 2, bottom: 5),
-              ),
-              SizedBox(
-                width: 328,
-                height: 49,
-                child: OutlineButton.icon(
-                    label: Text(
-                      'Sign In With Google',
-                      style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                              color: Color(0xFF053361),
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16)),
-                    ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                    highlightedBorderColor: Color(0xFF6D747A),
-                    borderSide: BorderSide(color: Color(0xFF6D747A)),
-                    icon: FaIcon(FontAwesomeIcons.google, color: Colors.red),
-                    onPressed: () async {
-                      await _auth.signInGoogle();
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                  SizedBox(
+                    width: 328,
+                    height: 49,
+                    child: RaisedButton(
+                      color: Colors.white,
+                      elevation: 1.0,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(color: Color(0xFF6D747A)),
+                          borderRadius: BorderRadius.circular(10.0)),
+                      highlightColor: Color(0xFF6D747A),
+                      padding: EdgeInsets.only(
+                          top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
+                      onPressed: () async {
+                        await _auth.signInGoogle();
 
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Dashboard()));
-                    }),
-              ),
-            ])),
-            Container(
-                child: Column(children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 10, right: 2, left: 2, bottom: 5),
-              ),
-              SizedBox(
-                width: 328,
-                height: 49,
-                child: OutlineButton.icon(
-                  label: Text(
-                    'Sign In With Facebook',
-                    style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                            color: Color(0xFF053361),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16)),
-                  ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  padding:
-                      EdgeInsets.only(top: 10, right: 3, left: 2, bottom: 5),
-                  highlightedBorderColor: Color(0xFF6D747A),
-                  borderSide: BorderSide(color: Color(0xFF6D747A)),
-                  icon: FaIcon(FontAwesomeIcons.facebook, color: Colors.blue),
-                  onPressed: () {},
-                ),
-              ),
-            ])),
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Dashboard()));
+                      },
+                      child: new Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            'images/search 1.svg',
+                            height: 20.0,
+                            width: 20.0,
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(right: 40, left: 50.0),
+                              child: Text(
+                                "Sign in with google",
+                                style: GoogleFonts.poppins(
+                                    textStyle: TextStyle(
+                                        color: Color(0xFF053361),
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.w500)),
+                              ))
+                        ],
+                      ),
+                    ),
+                  )
+                ])),
             Padding(
               padding: EdgeInsets.only(top: 5, right: 2, left: 2, bottom: 5),
             ),
-            Text("OR",
-                style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                        color: Color(0xFF6D747A),
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16))),
+            Container(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                  SizedBox(
+                    width: 328,
+                    height: 49,
+                    child: RaisedButton(
+                      color: Colors.white,
+                      elevation: 1.0,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(color: Color(0xFF6D747A)),
+                          borderRadius: BorderRadius.circular(10.0)),
+                      highlightColor: Color(0xFF6D747A),
+                      padding: EdgeInsets.only(
+                          top: 7.0, bottom: 7.0, right: 40.0, left: 10.0),
+                      onPressed: () {},
+                      child: new Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            'images/facebook 1.svg',
+                            height: 20.0,
+                            width: 20.0,
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(right: 20, left: 50.0),
+                              child: Text(
+                                "Sign in with Facebook",
+                                style: GoogleFonts.poppins(
+                                    textStyle: TextStyle(
+                                        color: Color(0xFF053361),
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.w500)),
+                              ))
+                        ],
+                      ),
+                    ),
+                  ),
+                ])),
+
+              Padding(
+                padding:
+                    EdgeInsets.only(top: 10, right: 70, left: 70, bottom: 10),
+              ),
+    OrDivider(),
             Container(
                 child: SingleChildScrollView(
                     child: Form(
@@ -175,7 +203,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                   val.isEmpty ? 'Enter email' : null,
                               decoration: InputDecoration(
                                   hintText: 'E-mail',
-                                  labelText: 'E-mail',
+                                  labelText: 'Email',
                                   prefixIcon: Icon(Icons.email),
                                   border: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -202,7 +230,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                 obscureText: !isHidePassword,
                                 decoration: InputDecoration(
                                     hintText: "Enter password",
-                                    labelText: "password",
+                                    labelText: "Password",
                                     prefixIcon: Icon(Icons.lock),
                                     suffixIcon: IconButton(
                                       icon: Icon(
@@ -226,13 +254,24 @@ class _StudentSignInState extends State<StudentSignIn> {
                                   setState(() => password = val);
                                 }),
                           ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: 5, right: 2, left: 2, bottom: 5),
+                          ),
                           Container(
                             child: Row(
                               children: <Widget>[
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      top: 20, right: 10, left: 30, bottom: 5),
+                                      top: 10, right: 5, left: 5, bottom: 5),
                                 ),
+                                Checkbox(
+                                    value: checkBokValue,
+                                    onChanged: (bool value) {
+                                      setState(() {
+                                        checkBokValue = value;
+                                      });
+                                    }),
                                 InkWell(
                                   onTap: () {},
                                   child: Text('Remember Me?',
@@ -244,7 +283,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      top: 20, right: 30, left: 30, bottom: 10),
+                                      top: 20, right: 20, left: 20, bottom: 10),
                                 ),
                                 InkWell(
                                   onTap: () {
@@ -306,19 +345,16 @@ class _StudentSignInState extends State<StudentSignIn> {
                               ),
                             ]),
                           ),
-                          SizedBox(
-                            height: 12.0,
-                          ),
-                          Text(
-                            error,
-                            style: TextStyle(color: Colors.red, fontSize: 14.0),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: 5, right: 16, left: 17, bottom: 5),
                           ),
                           Container(
                             child: Row(
                               children: <Widget>[
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      top: 1, right: 20, left: 20, bottom: 1),
+                                      top: 1, right: 20, left: 17, bottom: 30),
                                 ),
                                 Text(
                                   'Dont have an account?',
@@ -346,7 +382,14 @@ class _StudentSignInState extends State<StudentSignIn> {
                                     ))
                               ],
                             ),
-                          )
+                          ),
+                          SizedBox(
+                            height: 12.0,
+                          ),
+                          Text(
+                            error,
+                            style: TextStyle(color: Colors.red, fontSize: 14.0),
+                          ),
                         ]))))
           ])),
         ));

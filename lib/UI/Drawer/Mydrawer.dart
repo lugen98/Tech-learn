@@ -9,8 +9,14 @@ import 'profile.dart';
 import 'package:techlearning_app/services/auth.dart';
 
 
-class Mydrawer extends StatelessWidget {
+class Mydrawer  extends StatefulWidget {
+  @override
+  _MydrawerState createState() => _MydrawerState();
+}
 
+class _MydrawerState extends State<Mydrawer > {
+
+String error="";
   final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
@@ -95,10 +101,8 @@ class Mydrawer extends StatelessWidget {
                 style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold)),
             leading: Icon(Icons.exit_to_app),
             onTap:(){
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MainHomePage()));
+              openSignOutPage();
             }
-          //openSignOutPage,
 
             ),
 
@@ -109,7 +113,10 @@ class Mydrawer extends StatelessWidget {
   }
 
  void openSignOutPage() async {
-    await _auth.signOut();
+
+   await _auth.signOut();
+     Navigator.push(context,
+         MaterialPageRoute(builder: (context) => MainHomePage()));
 
  }
 }
