@@ -72,7 +72,7 @@ class _FirstSignUpState extends State<FirstSignUp> {
               children: <Widget>[
               Padding(
               padding: EdgeInsets.only(
-              top: 65, right: 60, left: 40, bottom: 20),
+              top: 65, right: 60, left: 60, bottom: 20),
         ),
         Text('Who are you?',
           style: GoogleFonts.poppins(
