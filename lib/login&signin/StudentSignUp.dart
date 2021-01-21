@@ -84,7 +84,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.only(
-                            top: 65, right: 40, left: 40, bottom: 5),
+                            top: 65, right: 40, left: 40, bottom: 6),
                       ),
                       Text('Sign up For TechLearn',
                           style: GoogleFonts.poppins(
