@@ -33,6 +33,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -40,10 +41,8 @@ class _StudentSignUpState extends State<StudentSignUp> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(right: 40, left: 20),
-              ),
               Text('Tech',
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(
@@ -56,15 +55,13 @@ class _StudentSignUpState extends State<StudentSignUp> {
                           color: Color(0xFFFFD900),
                           fontWeight: FontWeight.w600,
                           fontSize: 20))),
+              Padding(padding: EdgeInsets.only(right: 30,left: 30) ),
             ],
           ),
           leading: Container(
-            margin: EdgeInsets.all(8),
-            width: 40,
-            height: 60,
             child: IconButton(
               color: Color(0xFF053361),
-              iconSize: 26,
+              iconSize: 24,
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => FirstSignUp()));
@@ -76,16 +73,13 @@ class _StudentSignUpState extends State<StudentSignUp> {
             ),
           ),
         ),
-        body: Container(
+        body:  Container(
           child: SingleChildScrollView(
               child: Column(children: <Widget>[
                 Container(
-                  child: Row(
+                  child:Column(
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(
-                            top: 65, right: 40, left: 40, bottom: 5),
-                      ),
+                      SizedBox(height: size.height * 0.05),
                       Text('Sign up For TechLearn',
                           style: GoogleFonts.poppins(
                               textStyle: TextStyle(
@@ -97,8 +91,8 @@ class _StudentSignUpState extends State<StudentSignUp> {
                 ),
                 Container(
                     child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
+                          SizedBox(height: size.height * 0.04),
                           SizedBox(
                             width: 328,
                             height: 49,
@@ -142,9 +136,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
                             ),
                           )
                         ])),
-                Padding(
-                  padding: EdgeInsets.only(top: 5, right: 2, left: 2, bottom: 5),
-                ),
+                SizedBox(height: size.height * 0.03),
                 Container(
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -185,20 +177,13 @@ class _StudentSignUpState extends State<StudentSignUp> {
                             ),
                           )
                         ])),
-
-    Padding(
-                  padding: EdgeInsets.only(top: 5, right: 2, left: 2, bottom: 5),
-                ),
                 OrDivider(),
                 Container(
                     child: SingleChildScrollView(
                         child: Form(
                             key: _formKey,
                             child: Column(children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 5, right: 2, left: 2, bottom: 5),
-                              ),
+                              SizedBox(height: size.height * 0.01),
                               SizedBox(
                                 width: 328,
                                 height: 49,
@@ -220,10 +205,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                   },
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 5, right: 2, left: 2, bottom: 5),
-                              ),
+                              SizedBox(height: size.height * 0.03),
                               SizedBox(
                                 width: 328,
                                 height: 49,
@@ -245,10 +227,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                   },
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 5, right: 2, left: 2, bottom: 15),
-                              ),
+                              SizedBox(height: size.height * 0.03),
                               SizedBox(
                                 width: 328,
                                 height: 49,
@@ -270,10 +249,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                   },
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 10, right: 2, left: 2, bottom: 10),
-                              ),
+                              SizedBox(height: size.height * 0.03),
                               SizedBox(
                                 width: 328,
                                 height: 49,
@@ -308,16 +284,13 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                       setState(() => password = val);
                                     }),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 10, right: 2, left: 2, bottom: 10),
-                              ),
+                              SizedBox(height: size.height * 0.03),
                               SizedBox(
                                 height: 49,
                                 width: 328,
                                 child: TextFormField(
                                     validator: (val) => val.length < 6
-                                        ? 'password Should be more than 6'
+                                        ? 'Password does not match'
                                         : null,
                                     /*validator: (val) =>
                                     val.compareTo(password) != null
@@ -354,22 +327,17 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                     }),
                               ),
 
+                              SizedBox(height: size.height * 0.02),
                               Container(
-                                  child: Row(children: <Widget>[
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 19, right: 10, left: 3, bottom: 10),
-                                    ),
+                                  child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
                                     Text('By signing up, you agree to our',
                                         style: GoogleFonts.poppins(
                                             textStyle: TextStyle(
                                                 color: Color(0xFF6D747A),
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 12))),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 5, right: 1, left: 3, bottom: 10),
-                                    ),
                                     InkWell(
                                       onTap: () {},
                                       child: Text('Terms and ',
@@ -381,11 +349,9 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                     )
                                   ])),
                               Container(
-                                  child: Row(children: <Widget>[
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 5, right: 10, left: 3, bottom: 10),
-                                    ),
+                                  child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
                                     InkWell(
                                       onTap: () {},
                                       child: Text('Privacy Policy',
@@ -396,16 +362,10 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                                   fontSize: 12))),
                                     )
                                   ])),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 5, right: 10, left: 5, bottom: 5),
-                              ),
+
                               Container(
-                                child: Row(children: <Widget>[
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 30, right: 10, left: 5, bottom: 15),
-                                  ),
+                                child: Column(children: <Widget>[
+                                  SizedBox(height: size.height * 0.03),
                                   SizedBox(
                                     width: 328,
                                     height: 49,
@@ -447,17 +407,10 @@ class _StudentSignUpState extends State<StudentSignUp> {
 
                               ),
 
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 5, right: 16, left: 20, bottom: 5),
-                              ),
                               Container(
-                                child: Row(
+                                child: Column(
                                   children: <Widget>[
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 10, right: 10, left: 17, bottom:30),
-                                    ),
+                                    SizedBox(height: size.height * 0.03),
                                     Text(
                                       'Already have an account?',
                                       style: GoogleFonts.poppins(
@@ -487,11 +440,11 @@ class _StudentSignUpState extends State<StudentSignUp> {
                               ),
                               SizedBox(
                                 height: 12.0,
-                              ),
-                              Text(
-                                error,
-                                style: TextStyle(color: Colors.red, fontSize: 14.0),
-                              ),
+                                child:
+                                Text(
+                                  error,
+                                  style: TextStyle(color: Colors.red, fontSize: 14.0),
+                                ),),
                             ]))))
               ])),
         ));

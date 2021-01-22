@@ -29,6 +29,8 @@ class _TeacherSign2State extends State<TeacherSign2> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -36,10 +38,8 @@ class _TeacherSign2State extends State<TeacherSign2> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(right: 40, left: 20),
-              ),
               Text('Tech',
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(
@@ -52,15 +52,13 @@ class _TeacherSign2State extends State<TeacherSign2> {
                           color: Color(0xFFFFD900),
                           fontWeight: FontWeight.w600,
                           fontSize: 20))),
+              Padding(padding: EdgeInsets.only(right: 30,left: 30) ),
             ],
           ),
           leading: Container(
-            margin: EdgeInsets.all(8),
-            width: 40,
-            height: 60,
             child: IconButton(
               color: Color(0xFF053361),
-              iconSize: 26,
+              iconSize: 24,
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => FirstSignUp()));
@@ -76,12 +74,9 @@ class _TeacherSign2State extends State<TeacherSign2> {
           child: SingleChildScrollView(
               child: Column(children: <Widget>[
                 Container(
-                  child: Row(
+                  child:Column(
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(
-                            top: 65, right: 40, left: 40, bottom: 5),
-                      ),
+                      SizedBox(height: size.height * 0.05),
                       Text('Sign up For TechLearn',
                           style: GoogleFonts.poppins(
                               textStyle: TextStyle(
@@ -96,10 +91,7 @@ class _TeacherSign2State extends State<TeacherSign2> {
                         child: Form(
                             key: _formKey,
                             child: Column(children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 5, right: 2, left: 2, bottom: 5),
-                              ),
+                              SizedBox(height: size.height * 0.04),
                               SizedBox(
                                 width: 328,
                                 height: 49,
@@ -125,10 +117,7 @@ class _TeacherSign2State extends State<TeacherSign2> {
                                   },
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 5, right: 2, left: 2, bottom: 5),
-                              ),
+                              SizedBox(height: size.height * 0.03),
                               SizedBox(
                                 width: 328,
                                 height: 49,
@@ -150,10 +139,7 @@ class _TeacherSign2State extends State<TeacherSign2> {
                                   },
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 10, right: 2, left: 2, bottom: 10),
-                              ),
+                              SizedBox(height: size.height * 0.03),
                               SizedBox(
                                 width: 328,
                                 height: 49,
@@ -176,22 +162,18 @@ class _TeacherSign2State extends State<TeacherSign2> {
                                 ),
                               ),
 
+                              SizedBox(height: size.height * 0.02),
                               Container(
-                                  child: Row(children: <Widget>[
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 19, right: 10, left: 3, bottom: 10),
-                                    ),
+                                  child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
                                     Text('By signing up, you agree to our',
                                         style: GoogleFonts.poppins(
                                             textStyle: TextStyle(
                                                 color: Color(0xFF6D747A),
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 12))),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 5, right: 1, left: 3, bottom: 10),
-                                    ),
+
                                     InkWell(
                                       onTap: () {},
                                       child: Text('Terms and ',
@@ -203,11 +185,9 @@ class _TeacherSign2State extends State<TeacherSign2> {
                                     )
                                   ])),
                               Container(
-                                  child: Row(children: <Widget>[
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 5, right: 10, left: 3, bottom: 15),
-                                    ),
+                                  child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
                                     InkWell(
                                       onTap: () {},
                                       child: Text('Privacy Policy',
@@ -218,16 +198,9 @@ class _TeacherSign2State extends State<TeacherSign2> {
                                                   fontSize: 12))),
                                     )
                                   ])),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 5, right: 10, left: 5, bottom: 5),
-                              ),
                               Container(
-                                child: Row(children: <Widget>[
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 30, right: 10, left: 5, bottom: 15),
-                                  ),
+                                child: Column(children: <Widget>[
+                                  SizedBox(height: size.height * 0.03),
                                   SizedBox(
                                     width: 328,
                                     height: 49,
@@ -271,18 +244,10 @@ class _TeacherSign2State extends State<TeacherSign2> {
                                   ),
                                 ]),
                               ),
-
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 5, right: 10, left: 20, bottom: 5),
-                              ),
                               Container(
-                                child: Row(
+                                child: Column(
                                   children: <Widget>[
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 5, right: 10, left: 20, bottom: 30),
-                                    ),
+                                    SizedBox(height: size.height * 0.03),
                                     Text(
                                       'Already have an account?',
                                       style: GoogleFonts.poppins(

@@ -22,6 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Colors.white,
         body: Container(
@@ -29,11 +30,9 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(children: <Widget>[
           Container(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: 52, right: 40, left: 40, bottom: 86.96),
-                ),
+                SizedBox(height: size.height * 0.30),
                 Text('Tech',
                     style: GoogleFonts.poppins(
                         textStyle: TextStyle(
@@ -50,26 +49,22 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
           Container(
-            child: Column(
-              children: <Widget>[
-
-                SvgPicture.asset("images/Frame 1.svg"),
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: 86.96, right: 80, left: 80, bottom: 98),
-                ),
+            child: Column(children: <Widget>[
+              SizedBox(height: size.height * 0.04),
+              SvgPicture.asset(
+                "images/Frame 1.svg",
+                height: size.height * 0.25,
+              ),
               ],
             ),
           ),
-
+              SizedBox(height: size.height * 0.06),
           Container(
             child: Column(
               children: <Widget>[
+                SizedBox(height: size.height * 0.10),
                 CircularProgressIndicator(),
-                Padding(
-                  padding:
-                  EdgeInsets.only(top: 7, right: 164, left: 164, bottom: 7),
-                ),
+                SizedBox(height: size.height * 0.03),
                 Text(
                   "Start",
                   style: GoogleFonts.poppins(
@@ -78,10 +73,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       fontSize: 13.0,
                       color: Color(0xFF053361),)),
                 ),
-                Padding(
-                  padding:
-                  EdgeInsets.only(top: 7, right: 164, left: 164, bottom: 7),
-                ),
+
               ],
             ),
           ),

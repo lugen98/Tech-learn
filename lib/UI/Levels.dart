@@ -91,7 +91,7 @@ class _LevelPage extends State<LevelPage> {
             height: 2,
           ),
           Container(
-            height: MediaQuery.of(context).size.height - 185.0,
+            height: MediaQuery.of(context).size.height - 150.0,
             decoration: BoxDecoration(
                 color: Colors.grey[600],
                 borderRadius: BorderRadius.only(
@@ -104,7 +104,7 @@ class _LevelPage extends State<LevelPage> {
                 Padding(
                   padding: EdgeInsets.only(top: 45.0),
                   child: Container(
-                    height: MediaQuery.of(context).size.height - 300,
+                    height: MediaQuery.of(context).size.height - 150,
                     child: ListView(children: <Widget>[
                       InkWell(child: _bulidlevelItem(
                           'images/kids.jpg', "Primary Level", 'Classes'),onTap: (){

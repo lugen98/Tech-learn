@@ -72,7 +72,6 @@ class MyCustomForm extends StatefulWidget {
 }
 
 class MyCustomFormState extends State<MyCustomForm> {
-  final AuthService _auth = AuthService();
 
   bool isHidePassword = false;
 

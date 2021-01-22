@@ -14,6 +14,7 @@ class FirstSignIn extends StatefulWidget {
 class _FirstSignInState extends State<FirstSignIn> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -21,10 +22,10 @@ class _FirstSignInState extends State<FirstSignIn> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(
-                    right: 30, left: 20),
+                padding: EdgeInsets.all(1),
               ),
               Text('Tech',
                   style: GoogleFonts.poppins(
@@ -38,15 +39,14 @@ class _FirstSignInState extends State<FirstSignIn> {
                           color: Color(0xFFFFD900),
                           fontWeight: FontWeight.w600,
                           fontSize: 20))),
+              Padding(padding: EdgeInsets.only(right: 30,left: 30) ),
             ],
           ),
           leading: Container(
-            margin: EdgeInsets.all(8),
-            width: 40,
-            height: 60,
+
             child: IconButton(
               color: Color(0xFF053361),
-              iconSize: 26,
+              iconSize: 24,
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => MainHomePage()));
@@ -60,20 +60,16 @@ class _FirstSignInState extends State<FirstSignIn> {
           ),
         ),
         body: Container(
+
             child: SingleChildScrollView(
                 child: Column(children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: 7, right: 50, left: 40, bottom: 2),
-                  ),
 
                   Container(
-                    child:Row (
+
+                    child:Column(
+
                       children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(
-                              top: 65, right: 60, left: 60, bottom: 20),
-                        ),
+                        SizedBox(height: size.height * 0.05),
                         Text('Who are you?',
                           style: GoogleFonts.poppins(
                               textStyle: TextStyle(
@@ -88,6 +84,7 @@ class _FirstSignInState extends State<FirstSignIn> {
                   Container (
                     child: Column(
                         children: <Widget>[
+                          SizedBox(height: size.height * 0.05),
                           SizedBox(
                             width: 328,
                             height: 49,
@@ -124,10 +121,7 @@ class _FirstSignInState extends State<FirstSignIn> {
                   Container (
                     child: Column(
                         children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 18, right: 50, left: 40, bottom: 7),
-                          ),
+                          SizedBox(height: size.height * 0.04),
                           SizedBox(
                             width: 328,
                             height: 49,
@@ -163,16 +157,14 @@ class _FirstSignInState extends State<FirstSignIn> {
                   ),
                   Container(
                     child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(
-                              top: 30, right: 80, left: 80, bottom: 7),
-                        ),
-                        SvgPicture.asset("images/OBJECTS.svg"),
-
-                      ],
+                        children: <Widget>[
+                    SizedBox(height: size.height * 0.02),
+                    SvgPicture.asset("images/OBJECTS.svg",
+                      width: size.width * 1.5,
                     ),
-                  ),
+                  ])
+                    ),
+
                 ]
                 )
 

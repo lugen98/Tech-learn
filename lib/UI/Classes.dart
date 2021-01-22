@@ -6,8 +6,6 @@ import 'package:techlearning_app/UI/11th.dart';
 import 'package:techlearning_app/UI/12th.dart';
 import 'package:techlearning_app/UI/8th.dart';
 import 'package:techlearning_app/UI/Materials.dart';
-import 'package:techlearning_app/UI/adabi.dart';
-import 'package:techlearning_app/UI/elme.dart';
 import 'objects.dart';
 
 class ClassesPage extends StatefulWidget {
