@@ -18,6 +18,7 @@ class StudentSignIn extends StatefulWidget {
 class _StudentSignInState extends State<StudentSignIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
+
   bool checkBokValue = false;
   bool isHidePassword = false;
 
@@ -28,6 +29,9 @@ class _StudentSignInState extends State<StudentSignIn> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
+
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -35,10 +39,8 @@ class _StudentSignInState extends State<StudentSignIn> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(right: 40, left: 20),
-              ),
               Text('Tech',
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(
@@ -51,15 +53,13 @@ class _StudentSignInState extends State<StudentSignIn> {
                           color: Color(0xFFFFD900),
                           fontWeight: FontWeight.w600,
                           fontSize: 20))),
+              Padding(padding: EdgeInsets.only(right: 30,left: 30) ),
             ],
           ),
           leading: Container(
-            margin: EdgeInsets.all(8),
-            width: 40,
-            height: 60,
             child: IconButton(
               color: Color(0xFF053361),
-              iconSize: 26,
+              iconSize: 24,
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => FirstSignIn()));
@@ -71,16 +71,16 @@ class _StudentSignInState extends State<StudentSignIn> {
             ),
           ),
         ),
-        body: Container(
+        body:
+        Container(
           child: SingleChildScrollView(
               child: Column(children: <Widget>[
-            Container(
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: 65, right: 10, left: 13, bottom: 5),
-                  ),
+
+                Container(
+
+                  child:Column(
+                    children: <Widget>[
+                      SizedBox(height: size.height * 0.05),
                   Text('Sign in to your TechLearn Account',
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
@@ -90,10 +90,13 @@ class _StudentSignInState extends State<StudentSignIn> {
                 ],
               ),
             ),
-            Container(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+
+                     Container(
+
+               child: Column(
+
                     children: <Widget>[
+                      SizedBox(height: size.height * 0.04),
                   SizedBox(
                     width: 328,
                     height: 49,
@@ -117,6 +120,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                       child: new Row(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
+
                           SvgPicture.asset(
                             'images/search 1.svg',
                             height: 20.0,
@@ -137,10 +141,9 @@ class _StudentSignInState extends State<StudentSignIn> {
                     ),
                   )
                 ])),
-            Padding(
-              padding: EdgeInsets.only(top: 5, right: 2, left: 2, bottom: 5),
-            ),
+                SizedBox(height: size.height * 0.03),
             Container(
+
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -181,20 +184,16 @@ class _StudentSignInState extends State<StudentSignIn> {
                   ),
                 ])),
 
-              Padding(
-                padding:
-                    EdgeInsets.only(top: 10, right: 70, left: 70, bottom: 10),
-              ),
+
     OrDivider(),
             Container(
+
                 child: SingleChildScrollView(
+
                     child: Form(
                         key: _formKey,
                         child: Column(children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 5, right: 2, left: 2, bottom: 5),
-                          ),
+                          SizedBox(height: size.height * 0.01),
                           SizedBox(
                             width: 328,
                             height: 49,
@@ -216,10 +215,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                               },
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 10, right: 2, left: 2, bottom: 10),
-                          ),
+                          SizedBox(height: size.height * 0.03),
                           SizedBox(
                             width: 328,
                             height: 49,
@@ -254,17 +250,13 @@ class _StudentSignInState extends State<StudentSignIn> {
                                   setState(() => password = val);
                                 }),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 5, right: 2, left: 2, bottom: 5),
-                          ),
+
                           Container(
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 10, right: 5, left: 5, bottom: 5),
-                                ),
+
+
                                 Checkbox(
                                     value: checkBokValue,
                                     onChanged: (bool value) {
@@ -282,8 +274,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                               fontSize: 14))),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 20, right: 20, left: 20, bottom: 10),
+                                  padding: EdgeInsets.only( left: 20),
                                 ),
                                 InkWell(
                                   onTap: () {
@@ -299,16 +290,17 @@ class _StudentSignInState extends State<StudentSignIn> {
                                               color: Color(0xFF0A61B7),
                                               fontWeight: FontWeight.bold,
                                               fontSize: 14))),
-                                )
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 10),
+                                ),
                               ],
                             ),
                           ),
                           Container(
+
                             child: Column(children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: 10, right: 2, left: 2, bottom: 5),
-                              ),
+                              SizedBox(height: size.height * 0.03),
                               SizedBox(
                                 width: 328,
                                 height: 49,
@@ -345,17 +337,10 @@ class _StudentSignInState extends State<StudentSignIn> {
                               ),
                             ]),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 5, right: 16, left: 17, bottom: 5),
-                          ),
                           Container(
-                            child: Row(
+                            child: Column(
                               children: <Widget>[
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 1, right: 20, left: 17, bottom: 30),
-                                ),
+                                SizedBox(height: size.height * 0.04),
                                 Text(
                                   'Dont have an account?',
                                   style: GoogleFonts.poppins(

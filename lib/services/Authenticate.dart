@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/SingIn_auth.dart';
 
 class Authenticate extends StatefulWidget{
   @override

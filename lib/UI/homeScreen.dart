@@ -14,18 +14,18 @@ class MainHomePage extends StatefulWidget {
 class _MainHomePageState extends State<MainHomePage> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Colors.white,
         body: Container(
             child: SingleChildScrollView(
-                child: Column(children: <Widget>[
+                child: Column(
+                    children: <Widget>[
           Container(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding:
-                      EdgeInsets.only(top: 75, right: 50, left: 25, bottom: 80),
-                ),
+                SizedBox(height: size.height * 0.30),
                 Text('Tech',
                     style: GoogleFonts.poppins(
                         textStyle: TextStyle(
@@ -41,25 +41,24 @@ class _MainHomePageState extends State<MainHomePage> {
               ],
             ),
           ),
-          Container(
-            child: Column(
-              children: <Widget>[
-                SvgPicture.asset("images/Frame 1.svg"),
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: 86.96, right: 80, left: 80, bottom: 10),
+                Container(
+                  child: Column(children: <Widget>[
+                      SizedBox(height: size.height * 0.03),
+                      SvgPicture.asset(
+                        "images/Frame 1.svg",
+                        height: size.height * 0.30,
+                      ),
+              //
+                    //  SvgPicture.asset("images/Frame 1.svg"),
+                    ]
+                  )
                 ),
-              ],
-            ),
-          ),
+
           Container(
             child: Column(children: <Widget>[
-              Padding(
-                padding:
-                    EdgeInsets.only(top: 1, right: 21, left: 31, bottom: 10),
-              ),
+              SizedBox(height: size.height * 0.10),
               SizedBox(
-                width: 328,
+                width: 320,
                 height: 49,
                 child: RaisedButton(
                     onPressed: () {
@@ -86,12 +85,13 @@ class _MainHomePageState extends State<MainHomePage> {
             ]),
           ),
           Container(
-            child: Row(
+            child: Column(
               children: <Widget>[
-                Padding(
+                SizedBox(height: size.height * 0.02),
+                /*Padding(
                   padding:
-                      EdgeInsets.only(top: 1, right: 16, left: 19, bottom: 50),
-                ),
+                      EdgeInsets.only( right: 20, left: 20),
+                ),*/
                 Text(
                   'Already have an account ?',
                   style: GoogleFonts.poppins(
@@ -100,6 +100,7 @@ class _MainHomePageState extends State<MainHomePage> {
                           fontSize: 13,
                           fontWeight: FontWeight.w700)),
                 ),
+
                 InkWell(
                     onTap: () {
                       Navigator.push(

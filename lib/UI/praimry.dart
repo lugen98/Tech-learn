@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
-import 'package:techlearning_app/UI/10th.dart';
-import 'package:techlearning_app/UI/11th.dart';
-import 'package:techlearning_app/UI/12th.dart';
 import 'package:techlearning_app/UI/8th.dart';
-import 'package:techlearning_app/UI/Materials.dart';
 import 'objects.dart';
 
 class PrimaryPage extends StatefulWidget {
@@ -65,7 +61,7 @@ class _PrimaryPageState extends State<PrimaryPage> {
                   height: MediaQuery
                       .of(context)
                       .size
-                      .height - 300,
+                      .height - 150,
                   child: ListView(
 
                       children: <Widget>[
