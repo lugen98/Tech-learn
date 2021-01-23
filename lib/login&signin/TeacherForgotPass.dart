@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/login&signin/TeacherRestPass.dart';
 import 'package:techlearning_app/login&signin/TeacherSignIn.dart';
+import 'package:techlearning_app/services/auth.dart';
 
 class TeacherForgotPass extends StatefulWidget {
   @override
@@ -10,6 +11,8 @@ class TeacherForgotPass extends StatefulWidget {
 
 class _TeacherForgotPassState extends State<TeacherForgotPass> {
   final _formKey = GlobalKey<FormState>();
+  final AuthService _auth = AuthService();
+
   String email = '';
   @override
   Widget build(BuildContext context) {
@@ -100,7 +103,6 @@ class _TeacherForgotPassState extends State<TeacherForgotPass> {
                                     validator: (val) =>
                                     val.isEmpty ? 'Enter email' : null,
                                     decoration: InputDecoration(
-                                        hintText: 'E-mail',
                                         labelText: 'E-mail',
                                         prefixIcon: Icon(Icons.email),
                                         border: OutlineInputBorder(
@@ -134,10 +136,9 @@ class _TeacherForgotPassState extends State<TeacherForgotPass> {
                                         fontWeight: FontWeight.w700)),
                               ),
                               onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => TeacherRestPass()));
+                                _auth.sendPasswordResetEmail(email);
+                                Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context) => TeacherRestPass()));
                               },
                             )),
                         SizedBox(height: size.height * 0.03),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/services/auth.dart';
 import 'StudentSignIn.dart';
 
 class StudentRestPass extends StatefulWidget {
@@ -10,7 +9,6 @@ class StudentRestPass extends StatefulWidget {
 
 class _StudentRestPassState extends State<StudentRestPass> {
   final _formKey = GlobalKey<FormState>();
-  final AuthService _auth = AuthService();
   bool isHidePassword = false;
   bool isshowPassword = false;
   String password = '';
@@ -198,19 +196,12 @@ class _StudentRestPassState extends State<StudentRestPass> {
                                         fontWeight: FontWeight.w700)),
                               ),
                               onPressed: () async {
-                                if (_formKey.currentState.validate()) {
-                                  dynamic result = await _auth.signInEP(
-                                      password, confirmPass);
-                                  if (result == null) {
-                                    setState(() => error = 'Failed To Sign In');
-                                  } else {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
                                                 StudentSignIn()));
-                                  }
-                                }
+
                               },
                             )),
 

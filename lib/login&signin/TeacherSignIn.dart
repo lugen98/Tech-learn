@@ -23,7 +23,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
 
   //text filed state
   String email = '';
-  String password = '';
+  String _password = '';
   String error = '';
 
   @override
@@ -189,7 +189,6 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                               validator: (val) =>
                                   val.isEmpty ? 'Enter email' : null,
                               decoration: InputDecoration(
-                                  hintText: 'E-mail',
                                   labelText: 'E-mail',
                                   prefixIcon: Icon(Icons.email),
                                   border: OutlineInputBorder(
@@ -224,7 +223,6 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                         _togglePasswordVisability();
                                       },
                                     ),
-                                    hintText: "Enter password",
                                     labelText: "password",
                                     prefixIcon: Icon(Icons.lock),
                                     border: OutlineInputBorder(
@@ -235,7 +233,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                         borderRadius:
                                             BorderRadius.circular(10))),
                                 onChanged: (val) {
-                                  setState(() => password = val);
+                                  setState(() => _password = val);
                                 }),
                           ),
 
@@ -307,7 +305,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                   onPressed: () async {
                                     if (_formKey.currentState.validate()) {
                                       dynamic result =
-                                          await _auth.signInEP(email, password);
+                                          await _auth.signInEP(email, _password);
                                       if (result == null) {
                                         setState(
                                             () => error = 'Failed To Sign In');

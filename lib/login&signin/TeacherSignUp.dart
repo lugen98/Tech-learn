@@ -193,7 +193,6 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                               validator: (val) =>
                                   val.isEmpty ? 'Enter First Name' : null,
                               decoration: InputDecoration(
-                                  hintText: 'First name',
                                   labelText: 'First name',
                                   prefixIcon: Icon(Icons.person),
                                   border: OutlineInputBorder(
@@ -215,7 +214,6 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                               validator: (val) =>
                                   val.isEmpty ? 'Enter Last Name' : null,
                               decoration: InputDecoration(
-                                  hintText: 'last name',
                                   labelText: 'last name',
                                   prefixIcon: Icon(Icons.people),
                                   border: OutlineInputBorder(
@@ -238,7 +236,6 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                               validator: (val) =>
                                   val.isEmpty ? 'Enter email' : null,
                               decoration: InputDecoration(
-                                  hintText: 'E-mail',
                                   labelText: 'E-mail',
                                   prefixIcon: Icon(Icons.email),
                                   border: OutlineInputBorder(

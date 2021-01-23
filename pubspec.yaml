@@ -27,6 +27,8 @@ dependencies:
   google_sign_in:
   sign_button:
   device_preview:
+  flutter_login_facebook:
+  form_validation:
   google_fonts:
   font_awesome_flutter:
   google_fonts_arabic:

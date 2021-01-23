@@ -88,10 +88,6 @@ class _MainHomePageState extends State<MainHomePage> {
             child: Column(
               children: <Widget>[
                 SizedBox(height: size.height * 0.02),
-                /*Padding(
-                  padding:
-                      EdgeInsets.only( right: 20, left: 20),
-                ),*/
                 Text(
                   'Already have an account ?',
                   style: GoogleFonts.poppins(
@@ -115,10 +111,12 @@ class _MainHomePageState extends State<MainHomePage> {
                               fontSize: 13,
                               color: Color(0xFF0A61B7),
                               fontWeight: FontWeight.w700)),
-                    ))
+                    )),
+                SizedBox(height: size.height * 0.04),
+
               ],
             ),
-          )
+          ),
         ]))));
   }
 

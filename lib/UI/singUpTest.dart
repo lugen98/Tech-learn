@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:techlearning_app/UI/dashboardTest.dart';
 import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/SingIn_auth.dart';
-import 'package:techlearning_app/services/auth.dart';
 
 class SignUp extends StatelessWidget {
   @override

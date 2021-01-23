@@ -201,7 +201,6 @@ class _StudentSignInState extends State<StudentSignIn> {
                               validator: (val) =>
                                   val.isEmpty ? 'Enter email' : null,
                               decoration: InputDecoration(
-                                  hintText: 'E-mail',
                                   labelText: 'Email',
                                   prefixIcon: Icon(Icons.email),
                                   border: OutlineInputBorder(
@@ -225,7 +224,6 @@ class _StudentSignInState extends State<StudentSignIn> {
                                     : null,
                                 obscureText: !isHidePassword,
                                 decoration: InputDecoration(
-                                    hintText: "Enter password",
                                     labelText: "Password",
                                     prefixIcon: Icon(Icons.lock),
                                     suffixIcon: IconButton(
@@ -337,10 +335,15 @@ class _StudentSignInState extends State<StudentSignIn> {
                               ),
                             ]),
                           ),
+                          SizedBox(height: size.height * 0.02),
+                          Text(
+                            error,
+                            style: TextStyle(color: Colors.red, fontSize: 14.0),
+                          ),
                           Container(
                             child: Column(
                               children: <Widget>[
-                                SizedBox(height: size.height * 0.04),
+                                SizedBox(height: size.height * 0.03),
                                 Text(
                                   'Dont have an account?',
                                   style: GoogleFonts.poppins(
@@ -368,13 +371,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                               ],
                             ),
                           ),
-                          SizedBox(
-                            height: 12.0,
-                          ),
-                          Text(
-                            error,
-                            style: TextStyle(color: Colors.red, fontSize: 14.0),
-                          ),
+                          SizedBox(height: size.height * 0.03),
                         ]))))
           ])),
         ));

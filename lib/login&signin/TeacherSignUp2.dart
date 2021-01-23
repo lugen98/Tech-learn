@@ -4,6 +4,8 @@ import 'package:techlearning_app/UI/dashboardTest.dart';
 import 'package:techlearning_app/login&signin/TeacherSignIn.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'firstsignup.dart';
+import 'package:form_validation/form_validation.dart';
+
 
 
 class TeacherSign2 extends StatefulWidget {
@@ -21,8 +23,8 @@ class _TeacherSign2State extends State<TeacherSign2> {
   //text filed state
   String email = '';
   String password = '';
-  String Degree = '';
-  String Major = '';
+  String degree = '';
+  String major = '';
   String phoneNumber = "";
 
   String error = '';
@@ -113,7 +115,7 @@ class _TeacherSign2State extends State<TeacherSign2> {
                                           ),
                                           borderRadius: BorderRadius.circular(10))),
                                   onChanged: (val) {
-                                    setState(() => Degree = val);
+                                    setState(() => degree = val);
                                   },
                                 ),
                               ),
@@ -135,7 +137,7 @@ class _TeacherSign2State extends State<TeacherSign2> {
                                           ),
                                           borderRadius: BorderRadius.circular(10))),
                                   onChanged: (val) {
-                                    setState(() => Major = val);
+                                    setState(() => major = val);
                                   },
                                 ),
                               ),
@@ -144,10 +146,14 @@ class _TeacherSign2State extends State<TeacherSign2> {
                                 width: 328,
                                 height: 49,
                                 child: TextFormField(
-                                  validator: (val) =>
-                                  val.isEmpty ? 'Enter your phone Number ' : null,
+                                  validator: (val) {
+                                    var validator = Validator(
+                                      validators: [PhoneNumberValidator()],);
+                                    return validator.validate(
+                                        context: context,
+                                        //label: 'Enter formatted phone number',
+                                        value: val,);},
                                   decoration: InputDecoration(
-                                      hintText: 'Phone Number',
                                       labelText: 'Phone Number',
                                       prefixIcon: Icon(Icons.phone),
                                       border: OutlineInputBorder(
