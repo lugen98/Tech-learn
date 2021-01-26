@@ -386,8 +386,8 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                     ),
                                     onPressed: () async {
                                       if (_formKey.currentState.validate()) {
-                                        dynamic result = await _auth.registerEP(
-                                            email, password);
+                                        dynamic result = await _auth.teacherRegisterEP(
+                                           firstName,lastName, email, password);
                                         if (result == null) {
                                           setState(() =>
                                               error = 'Failed To Sign In');

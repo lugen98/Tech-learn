@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:techlearning_app/services/database.dart';
 import 'package:techlearning_app/services/users.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -35,8 +36,20 @@ class AuthService {
     }
   }
 
-  // sign in emil $ pass
-  Future signInEP(String email, String password) async {
+  // sign in student emil $ pass
+  Future signInStudentEP(String email, String password) async {
+    try {
+      AuthResult result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      FirebaseUser user = result.user;
+      return _userFirebase(user);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+  // sign in teacher emil $ pass
+  Future signInTeacherEP(String email, String password) async {
     try {
       AuthResult result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
@@ -49,19 +62,35 @@ class AuthService {
   }
 
 
-  //register in emil $ pass
-  Future registerEP(String email, String password) async {
+
+  // Student register in emil $ pass
+  Future studentRegisterEP(String firstName,String lastName,String email, String password) async {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
+      //create a new document for the new user with uid
+      await DatabaseService(uid: user.uid).updateStudentData(firstName, lastName, email, password);
       return _userFirebase(user);
     } catch (e) {
       print(e.toString());
       return null;
     }
   }
-
+  // Teacher register in emil $ pass
+  Future teacherRegisterEP(String firstName,String lastName,String email, String password) async {
+    try {
+      AuthResult result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      FirebaseUser user = result.user;
+      //create a new document for the new user with uid
+      await DatabaseService(uid: user.uid).updateTeacherData(firstName, lastName, email, password);
+      return _userFirebase(user);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
   //sign out
   Future signOut() async {
     try {

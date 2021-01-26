@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
+import 'package:techlearning_app/Materials/Arabic.dart';
 
 class ObjectsPage extends StatefulWidget {
   @override
@@ -68,7 +69,9 @@ class _ObjectsPageState extends State<ObjectsPage> {
                   InkWell(child: _bulidlevelItem(
                       "التربية الأسلامية ", "المعلمين"),onTap: (){},),
                         InkWell(child: _bulidlevelItem(
-                            "اللغة العربية", "المعلمين"),onTap: (){},),
+                            "اللغة العربية", "المعلمين"),onTap: (){ Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Arabic()
+                        ));},),
                         InkWell(child: _bulidlevelItem(
                             "اللغة الانجليزية",  "المعلمين"),onTap: (){},),
                         InkWell(child: _bulidlevelItem(
@@ -140,7 +143,9 @@ class _ObjectsPageState extends State<ObjectsPage> {
               IconButton(
                 icon: Icon(Icons.arrow_forward),
                 color: Colors.black,
-                onPressed: () {},
+                onPressed: () {Navigator.of(context).push(MaterialPageRoute(
+    builder: (context) => Arabic()
+    ));},
               ),
 
             ],

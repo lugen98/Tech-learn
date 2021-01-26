@@ -194,7 +194,7 @@ class _TeacherRestPassState extends State<TeacherRestPass> {
                                       ),
                                       onPressed: () async {
                                         if (_formKey.currentState.validate()) {
-                                          dynamic result = await _auth.signInEP(
+                                          dynamic result = await _auth.signInTeacherEP(
                                               password, confirmPass);
                                           if (result == null) {
                                             setState(() => error = 'Failed To Sign In');

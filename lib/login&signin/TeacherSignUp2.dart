@@ -6,10 +6,7 @@ import 'package:techlearning_app/services/auth.dart';
 import 'firstsignup.dart';
 import 'package:form_validation/form_validation.dart';
 
-
-
 class TeacherSign2 extends StatefulWidget {
-
   @override
   _TeacherSign2State createState() => _TeacherSign2State();
 }
@@ -54,7 +51,7 @@ class _TeacherSign2State extends State<TeacherSign2> {
                           color: Color(0xFFFFD900),
                           fontWeight: FontWeight.w600,
                           fontSize: 20))),
-              Padding(padding: EdgeInsets.only(right: 30,left: 30) ),
+              Padding(padding: EdgeInsets.only(right: 30, left: 30)),
             ],
           ),
           leading: Container(
@@ -75,222 +72,204 @@ class _TeacherSign2State extends State<TeacherSign2> {
         body: Container(
           child: SingleChildScrollView(
               child: Column(children: <Widget>[
-                Container(
-                  child:Column(
-                    children: <Widget>[
-                      SizedBox(height: size.height * 0.05),
-                      Text('Sign up For TechLearn',
-                          style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                  color: Color(0xFF053361),
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 18))),
-                    ],
-                  ),
-                ),
-                  Container(
-                    child: SingleChildScrollView(
-                        child: Form(
-                            key: _formKey,
-                            child: Column(children: <Widget>[
-                              SizedBox(height: size.height * 0.04),
-                              SizedBox(
-                                width: 328,
-                                height: 49,
-                                child: TextFormField(
-                                  validator: (val) =>
+            Container(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: size.height * 0.05),
+                  Text('Sign up For TechLearn',
+                      style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              color: Color(0xFF053361),
+                              fontWeight: FontWeight.w700,
+                              fontSize: 18))),
+                ],
+              ),
+            ),
+            Container(
+                child: SingleChildScrollView(
+                    child: Form(
+                        key: _formKey,
+                        child: Column(children: <Widget>[
+                          SizedBox(height: size.height * 0.04),
+                          SizedBox(
+                            width: 328,
+                            height: 49,
+                            child: TextFormField(
+                              validator: (val) =>
                                   val.isEmpty ? 'Enter your Degree' : null,
-                                  decoration: InputDecoration(
-                                      hintText: 'Degree',
-                                      labelText: 'Degree',
-                                      prefixIcon:  Image.asset(
-                                          'images/Degree Icon.png',
-                                        height: 30,
-                                        width: 30,
-                                      ),
-                                      border: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0xFFC8CACC),
-                                            width: 1,
-                                          ),
-                                          borderRadius: BorderRadius.circular(10))),
-                                  onChanged: (val) {
-                                    setState(() => degree = val);
-                                  },
-                                ),
-                              ),
-                              SizedBox(height: size.height * 0.03),
-                              SizedBox(
-                                width: 328,
-                                height: 49,
-                                child: TextFormField(
-                                  validator: (val) =>
-                                  val.isEmpty ? 'Enter your Major' : null,
-                                  decoration: InputDecoration(
-                                      hintText: 'Major',
-                                      labelText: 'Major',
-                                      prefixIcon: Icon(Icons.bookmark),
-                                      border: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0xFFC8CACC),
-                                            width: 1,
-                                          ),
-                                          borderRadius: BorderRadius.circular(10))),
-                                  onChanged: (val) {
-                                    setState(() => major = val);
-                                  },
-                                ),
-                              ),
-                              SizedBox(height: size.height * 0.03),
-                              SizedBox(
-                                width: 328,
-                                height: 49,
-                                child: TextFormField(
-                                  validator: (val) {
-                                    var validator = Validator(
-                                      validators: [PhoneNumberValidator()],);
-                                    return validator.validate(
-                                        context: context,
-                                        //label: 'Enter formatted phone number',
-                                        value: val,);},
-                                  decoration: InputDecoration(
-                                      labelText: 'Phone Number',
-                                      prefixIcon: Icon(Icons.phone),
-                                      border: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0xFFC8CACC),
-                                            width: 1,
-                                          ),
-                                          borderRadius: BorderRadius.circular(10))),
-                                  onChanged: (val) {
-                                    setState(() => phoneNumber = val);
-                                  },
-                                ),
-                              ),
-
-                              SizedBox(height: size.height * 0.02),
-                              Container(
-                                  child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: <Widget>[
-                                    Text('By signing up, you agree to our',
-                                        style: GoogleFonts.poppins(
-                                            textStyle: TextStyle(
-                                                color: Color(0xFF6D747A),
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 12))),
-
-                                    InkWell(
-                                      onTap: () {},
-                                      child: Text('Terms and ',
-                                          style: GoogleFonts.poppins(
-                                              textStyle: TextStyle(
-                                                  color: Color(0xFF0A61B7),
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 12))),
-                                    )
-                                  ])),
-                              Container(
-                                  child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: <Widget>[
-                                    InkWell(
-                                      onTap: () {},
-                                      child: Text('Privacy Policy',
-                                          style: GoogleFonts.poppins(
-                                              textStyle: TextStyle(
-                                                  color: Color(0xFF0A61B7),
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 12))),
-                                    )
-                                  ])),
-                              Container(
-                                child: Column(children: <Widget>[
-                                  SizedBox(height: size.height * 0.03),
-                                  SizedBox(
-                                    width: 328,
-                                    height: 49,
-                                    child: RaisedButton(
-                                        color: Color(0xFFFFD900),
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(10))),
-                                        child: Text(
-                                          "Sign in",
-                                          style: GoogleFonts.poppins(
-                                              textStyle: TextStyle(
-                                                  fontSize: 16,
-                                                  color: Color(0xFF053361),
-                                                  fontWeight: FontWeight.w700)),
-                                        ),
-                                        onPressed: () async {
-                                          if (_formKey.currentState.validate()) {
-                                            dynamic result = await _auth.registerEP(
-                                                email, password);
-                                            if (result == null) {
-                                              setState(() =>
-                                              error = 'Failed To Sign In');
-                                            } else if (_formKey.currentState
-                                                .validate()) {
-                                              dynamic result = await _auth
-                                                  .registerEP(email, password);
-                                              if (result == email) {
-                                                setState(() => error =
-                                                'The email address is already in use by another account');
-                                              } else {
-                                                Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            Dashboard()));
-                                              }
-                                            }
-                                          }
-                                        }),
+                              decoration: InputDecoration(
+                                  hintText: 'Degree',
+                                  labelText: 'Degree',
+                                  prefixIcon: Image.asset(
+                                    'images/Degree Icon.png',
+                                    height: 30,
+                                    width: 30,
                                   ),
-                                ]),
-                              ),
-                              Container(
-                                child: Column(
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFC8CACC),
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10))),
+                              onChanged: (val) {
+                                setState(() => degree = val);
+                              },
+                            ),
+                          ),
+                          SizedBox(height: size.height * 0.03),
+                          SizedBox(
+                            width: 328,
+                            height: 49,
+                            child: TextFormField(
+                              validator: (val) =>
+                                  val.isEmpty ? 'Enter your Major' : null,
+                              decoration: InputDecoration(
+                                  hintText: 'Major',
+                                  labelText: 'Major',
+                                  prefixIcon: Icon(Icons.bookmark),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFC8CACC),
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10))),
+                              onChanged: (val) {
+                                setState(() => major = val);
+                              },
+                            ),
+                          ),
+                          SizedBox(height: size.height * 0.03),
+                          SizedBox(
+                            width: 328,
+                            height: 49,
+                            child: TextFormField(
+                              keyboardType: TextInputType.phone,
+                              decoration: InputDecoration(
+                                  labelText: 'Phone Number',
+                                  prefixIcon: Icon(Icons.phone),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFC8CACC),
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10))),
+                              onChanged: (val) {
+                                setState(() => phoneNumber = val);
+                              },
+                            ),
+                          ),
+                          SizedBox(height: size.height * 0.02),
+                          Container(
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                                    SizedBox(height: size.height * 0.03),
-                                    Text(
-                                      'Already have an account?',
+                                Text('By signing up, you agree to our',
+                                    style: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                            color: Color(0xFF6D747A),
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12))),
+                                InkWell(
+                                  onTap: () {},
+                                  child: Text('Terms and ',
                                       style: GoogleFonts.poppins(
                                           textStyle: TextStyle(
+                                              color: Color(0xFF0A61B7),
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 12))),
+                                )
+                              ])),
+                          Container(
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                InkWell(
+                                  onTap: () {},
+                                  child: Text('Privacy Policy',
+                                      style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                              color: Color(0xFF0A61B7),
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 12))),
+                                )
+                              ])),
+                          Container(
+                            child: Column(children: <Widget>[
+                              SizedBox(height: size.height * 0.03),
+                              SizedBox(
+                                width: 328,
+                                height: 49,
+                                child: RaisedButton(
+                                    color: Color(0xFFFFD900),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10))),
+                                    child: Text(
+                                      "Continue",
+                                      style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                              fontSize: 16,
                                               color: Color(0xFF053361),
-                                              fontSize: 13,
                                               fontWeight: FontWeight.w700)),
                                     ),
-                                    InkWell(
-                                        onTap: () {
+                                    onPressed: () async {
+                                      if (_formKey.currentState.validate()) {
+                                        dynamic result =
+                                            await _auth.teacherRegisterEP(
+                                                major, degree, email, password);
+                                        if (result == email) {
+                                          setState(() => error =
+                                              'The email address is already in use by another account');
+                                        } else {
                                           Navigator.push(
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      TeacherSignIn()));
-                                        },
-                                        child: Text(
-                                          "Click here to Sign In ",
-                                          style: GoogleFonts.poppins(
-                                              textStyle: TextStyle(
-                                                  fontSize: 13,
-                                                  color: Color(0xFF0A61B7),
-                                                  fontWeight: FontWeight.w700)),
-                                        ))
-                                  ],
-                                ),
+                                                      Dashboard()));
+                                        }
+                                      }
+                                    }),
                               ),
-                              SizedBox(
-                                width: 328,
-                                height: 49,
-                             child:
-                              Text(
-                                error,
-                                style: TextStyle(color: Colors.red, fontSize: 14.0),
-                              ),),
-                            ]))))
-              ])),
+                            ]),
+                          ),
+                          SizedBox(height: size.height * 0.02),
+                          Text(
+                            error,
+                            style: TextStyle(color: Colors.red, fontSize: 14.0),
+                          ),
+                          Container(
+                            child: Column(
+                              children: <Widget>[
+                                SizedBox(height: size.height * 0.03),
+                                Text(
+                                  'Already have an account?',
+                                  style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                          color: Color(0xFF053361),
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w700)),
+                                ),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  TeacherSignIn()));
+                                    },
+                                    child: Text(
+                                      "Click here to Sign In ",
+                                      style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                              fontSize: 13,
+                                              color: Color(0xFF0A61B7),
+                                              fontWeight: FontWeight.w700)),
+                                    ))
+                              ],
+                            ),
+                          ),
+                        ]))))
+          ])),
         ));
   }
 }

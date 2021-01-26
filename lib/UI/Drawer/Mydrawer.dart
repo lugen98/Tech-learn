@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:techlearning_app/UI/teacherReg.dart';
 import '../dashboardTest.dart';
 import '../homeScreen.dart';
 import 'Settings.dart';
@@ -41,15 +40,6 @@ String error="";
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) =>Dashboard()));
-            }
-        ),
-        ListTile(
-            title: Text("Register",
-                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold)),
-            leading: Icon(Icons.person_add),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TeacherReg()));
             }
         ),
         ListTile(

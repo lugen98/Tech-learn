@@ -382,7 +382,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                       onPressed: () async {
                                         if (_formKey.currentState.validate()) {
                                           dynamic result =
-                                          await _auth.registerEP(email, password);
+                                          await _auth.studentRegisterEP(firstName,lastName,email, password);
                                           if (result == null) {
                                             setState(
                                                     () => error = 'Failed To Sign In');
