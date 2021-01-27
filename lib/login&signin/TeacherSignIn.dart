@@ -217,7 +217,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                 height: 49,
                                 child: TextFormField(
                                     validator: (val) => val.length < 6
-                                        ? 'password Should be more than 6'
+                                        ? 'password Should be more than6'
                                         : null,
                                     obscureText: !isHidePassword,
                                     decoration: InputDecoration(
