@@ -117,12 +117,12 @@ class _StudentRestPassState extends State<StudentRestPass> {
                                   hintText: "New password",
                                   prefixIcon: Icon(Icons.lock),
                                   suffixIcon: IconButton(
-                                    icon: Icon(
-                                      Icons.remove_red_eye,
-                                      color: isHidePassword
-                                          ? Color(0xFF0A61B7)
-                                          : Colors.grey,
-                                    ),
+                                    icon:Icon(isHidePassword
+                                        ? Icons.visibility
+                                        : Icons.visibility_off),
+                                    color: isHidePassword
+                                        ? Color(0xFF0A61B7)
+                                        : Colors.grey,
                                     onPressed: () {
                                       _togglePasswordVisability();
                                     },
@@ -150,12 +150,12 @@ class _StudentRestPassState extends State<StudentRestPass> {
                               obscureText: !isshowPassword,
                               decoration: InputDecoration(
                                 suffixIcon: IconButton(
-                                  icon: Icon(
-                                    Icons.remove_red_eye,
-                                    color: isshowPassword
-                                        ? Color(0xFF0A61B7)
-                                        : Colors.grey,
-                                  ),
+                                  icon: Icon(isshowPassword
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                                  color: isshowPassword
+                                      ? Color(0xFF0A61B7)
+                                      : Colors.grey,
                                   onPressed: () {
                                     _togglePassVisability();
                                   },

@@ -7,6 +7,7 @@ import 'TeacherSignUp.dart';
 import 'firstSignIn.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'orDivider.dart';
+import 'signingoogle.dart';
 
 class TeacherSignIn extends StatefulWidget {
   @override
@@ -31,7 +32,6 @@ class _TeacherSignInState extends State<TeacherSignIn> {
     return Scaffold(
         backgroundColor: Colors.white,
 
-
         //techLearn appbar
         appBar: AppBar(
           centerTitle: true,
@@ -55,7 +55,6 @@ class _TeacherSignInState extends State<TeacherSignIn> {
               Padding(padding: EdgeInsets.only(right: 30, left: 30)),
             ],
           ),
-
 
           //arrowBack
           leading: Container(
@@ -90,7 +89,6 @@ class _TeacherSignInState extends State<TeacherSignIn> {
             ),
           ),
 
-
           //signIn with Google
           Container(
               child: Column(children: <Widget>[
@@ -107,11 +105,9 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                 highlightColor: Color(0xFF6D747A),
                 padding: EdgeInsets.only(
                     top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
-                onPressed: () async {
-                  await _auth.signInGoogle();
-
+                onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Dashboard()));
+                      MaterialPageRoute(builder: (context) => SignInDemo()));
                 },
                 child: new Row(
                   mainAxisSize: MainAxisSize.min,
@@ -136,7 +132,6 @@ class _TeacherSignInState extends State<TeacherSignIn> {
               ),
             )
           ])),
-
 
           //signIn with Facebook
           SizedBox(height: size.height * 0.03),
@@ -182,7 +177,6 @@ class _TeacherSignInState extends State<TeacherSignIn> {
 
                 OrDivider(),
 
-
                 //sign In Email&Password
                 Container(
                     child: SingleChildScrollView(
@@ -222,12 +216,12 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                     obscureText: !isHidePassword,
                                     decoration: InputDecoration(
                                         suffixIcon: IconButton(
-                                          icon: Icon(
-                                            Icons.remove_red_eye,
-                                            color: isHidePassword
-                                                ? Color(0xFF0A61B7)
-                                                : Colors.grey,
-                                          ),
+                                          icon:  Icon(isHidePassword
+                                              ? Icons.visibility
+                                              : Icons.visibility_off),
+                                          color: isHidePassword
+                                              ? Color(0xFF0A61B7)
+                                              : Colors.grey,
                                           onPressed: () {
                                             _togglePasswordVisability();
                                           },
@@ -290,7 +284,6 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                 ),
                               ),
 
-
                               //sign In Button
                               Container(
                                 child: Column(children: <Widget>[
@@ -313,8 +306,9 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                       ),
                                       onPressed: () async {
                                         if (_formKey.currentState.validate()) {
-                                          dynamic result = await _auth.signInTeacherEP(
-                                              email, _password);
+                                          dynamic result =
+                                              await _auth.signInTeacherEP(
+                                                  email, _password);
                                           if (result == null) {
                                             setState(() =>
                                                 error = 'Failed To Sign In');

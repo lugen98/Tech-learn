@@ -3,6 +3,12 @@ import 'package:techlearning_app/services/database.dart';
 import 'package:techlearning_app/services/users.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+GoogleSignIn _googleSignIn = GoogleSignIn(
+  scopes: [
+    'email',
+    'https://www.googleapis.com/auth/contacts.readonly',
+  ],
+);
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -16,9 +22,16 @@ class AuthService {
   Stream<User> get user {
     return _auth.onAuthStateChanged.map(_userFirebase);
   }
+  Future<void> handleSignIn() async {
+    try {
+      await _googleSignIn.signIn();
+    } catch (error) {
+      print(error);
+    }
+  }
 
   //sing in Google
-      Future<void> signInGoogle() async{
+  /*    Future<void> signInGoogle() async{
         try {
         GoogleSignInAccount  signInAccount = await GoogleSignIn().signIn();
         GoogleSignInAuthentication authentication = await signInAccount.authentication;
@@ -34,7 +47,7 @@ class AuthService {
       print(e.toString());
       return null;
     }
-  }
+  }*/
 
   // sign in student emil $ pass
   Future signInStudentEP(String email, String password) async {
@@ -62,7 +75,6 @@ class AuthService {
   }
 
 
-
   // Student register in emil $ pass
   Future studentRegisterEP(String firstName,String lastName,String email, String password) async {
     try {
@@ -70,7 +82,7 @@ class AuthService {
           email: email, password: password);
       FirebaseUser user = result.user;
       //create a new document for the new user with uid
-      await DatabaseService(uid: user.uid).updateStudentData(firstName, lastName, email, password);
+      await DatabaseService(uid: user.uid).updateStudentData(firstName, lastName);
       return _userFirebase(user);
     } catch (e) {
       print(e.toString());
