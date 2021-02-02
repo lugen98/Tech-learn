@@ -110,12 +110,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                       padding: EdgeInsets.only(
                           top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
                       onPressed: () async {
-                        await _auth.signInGoogle();
-
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Dashboard()));
+                        await _auth.handleSignIn();
                       },
                       child: new Row(
                         mainAxisSize: MainAxisSize.min,
@@ -226,13 +221,14 @@ class _StudentSignInState extends State<StudentSignIn> {
                                 decoration: InputDecoration(
                                     labelText: "Password",
                                     prefixIcon: Icon(Icons.lock),
-                                    suffixIcon: IconButton(
-                                      icon: Icon(
-                                        Icons.remove_red_eye,
+                                    suffixIcon:  IconButton(
+                                      icon: Icon(isHidePassword
+                                          ? Icons.visibility
+                                          : Icons.visibility_off),
                                         color: isHidePassword
                                             ? Color(0xFF0A61B7)
                                             : Colors.grey,
-                                      ),
+
                                       onPressed: () {
                                         _togglePasswordVisability();
                                       },
