@@ -12,11 +12,12 @@ class StudentForgotPass extends StatefulWidget {
 class _StudentForgotPassState extends State<StudentForgotPass> {
   final _formKey = GlobalKey<FormState>();
   final AuthService _auth = AuthService();
-
+  String error = '';
 
   String email = '';
   @override
   Widget build(BuildContext context) {
+
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -25,7 +26,7 @@ class _StudentForgotPassState extends State<StudentForgotPass> {
           centerTitle: true,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          title:  Row(
+          title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text('Tech',
@@ -40,7 +41,7 @@ class _StudentForgotPassState extends State<StudentForgotPass> {
                           color: Color(0xFFFFD900),
                           fontWeight: FontWeight.bold,
                           fontSize: 20))),
-              Padding(padding: EdgeInsets.only(right: 30,left: 30) ),
+              Padding(padding: EdgeInsets.only(right: 30, left: 30)),
             ],
           ),
           leading: Container(
@@ -60,108 +61,110 @@ class _StudentForgotPassState extends State<StudentForgotPass> {
         ),
         body: Container(
             child: SingleChildScrollView(
-              child: Column(children: <Widget>[
-              Container(
-              child: Column(children: <Widget>[
-              Container(
-              child:Column(
-              children: <Widget>[
-              SizedBox(height: size.height * 0.05),
-                Text('Forgot Your Password?',
-                    style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                            color: Color(0xFF053361),
-                            fontWeight: FontWeight.w700,
-                            fontSize: 18))),
-              ],
-            ),
-          ),
-                SizedBox(height: size.height * 0.02),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                Text('Enter your Email and we will send you a reset link',
-                    style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                            color: Color(0xFF053361),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 13))),
-              ],
-            ),
-          ),
-          Container(
-              child: SingleChildScrollView(
-                  child: Form(
-                      key: _formKey,
-                      child: Column(children: <Widget>[
-                        SizedBox(height: size.height * 0.03),
-                        SizedBox(
-                          width: 328,
-                          height: 49,
-                          child: TextFormField(
-                            validator: (val) =>
-                                val.isEmpty ? 'Enter email' : null,
-                            decoration: InputDecoration(
-                                labelText: 'E-mail',
-                                prefixIcon: Icon(Icons.email),
-                                border: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFC8CACC),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10))),
-                            onChanged: (val) {
-                              setState(() => email = val);
-                            },
-                          ),
-                        ),
-                      ])))),
+                child: Column(children: <Widget>[
           Container(
               child: Column(children: <Widget>[
-                SizedBox(height: size.height * 0.03),
-            SizedBox(
-                width: 328,
-                height: 49,
-                child: RaisedButton(
-                  color: Color(0xFFFFD900),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Text(
-                    "Send Reset Link",
-                    style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xFF053361),
-                            fontWeight: FontWeight.w700)),
-                  ),
-                  onPressed: () {
-                    _auth.sendPasswordResetEmail(email);
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => StudentRestPass()));
-                  },
-                )),
-                SizedBox(height: size.height * 0.03),
-
-                InkWell(
-              onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => StudentSignIn()));
-              },
-              child: Text(
-                "Back to Sign In",
-                style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                        fontSize: 13,
-                        color: Color(0xFF0A61B7),
-                        fontWeight: FontWeight.w500)),
+            Container(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: size.height * 0.05),
+                  Text('Forgot Your Password?',
+                      style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              color: Color(0xFF053361),
+                              fontWeight: FontWeight.w700,
+                              fontSize: 18))),
+                ],
               ),
-            )
-          ])),
-        ]))
-    ])))
-    );
+            ),
+            SizedBox(height: size.height * 0.02),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('Enter your Email and we will send you a reset link',
+                      style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              color: Color(0xFF053361),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 13))),
+                ],
+              ),
+            ),
+            Container(
+                child: SingleChildScrollView(
+                    child: Form(
+                        key: _formKey,
+                        child: Column(children: <Widget>[
+                          SizedBox(height: size.height * 0.03),
+                          SizedBox(
+                            width: 328,
+                            height: 49,
+                            child: TextFormField(
+                              validator: (val) =>
+                                  val.isEmpty ? 'Enter email' : null,
+                              decoration: InputDecoration(
+                                  labelText: 'E-mail',
+                                  prefixIcon: Icon(Icons.email),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFC8CACC),
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10))),
+                              onChanged: (val) {
+                                setState(() => email = val);
+                              },
+                            ),
+                          ),
+                        ])))),
+            Container(
+                child: Column(children: <Widget>[
+              SizedBox(height: size.height * 0.03),
+              SizedBox(
+                  width: 328,
+                  height: 49,
+                  child: RaisedButton(
+                    color: Color(0xFFFFD900),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: Text(
+                      "Send Reset Link",
+                      style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              fontSize: 16,
+                              color: Color(0xFF053361),
+                              fontWeight: FontWeight.w700)),
+                    ),
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        dynamic result = _auth.sendPasswordResetEmail(email);
+                        if (result == null) {
+                          setState(
+                                  () => error = 'Failed To Sign In');
+                        } else {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => StudentRestPass()));
+                        }
+                      }},
+                  )),
+              SizedBox(height: size.height * 0.03),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => StudentSignIn()));
+                },
+                child: Text(
+                  "Back to Sign In",
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          fontSize: 13,
+                          color: Color(0xFF0A61B7),
+                          fontWeight: FontWeight.w500)),
+                ),
+              )
+            ])),
+          ]))
+        ]))));
   }
-
-
 }

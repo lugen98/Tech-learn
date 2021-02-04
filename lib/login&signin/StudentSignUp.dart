@@ -106,12 +106,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
                               padding: EdgeInsets.only(
                                   top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
                               onPressed: () async {
-                               // await _auth.signInGoogle();
-
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Dashboard()));
+                                await _auth.signInGoogle();
                               },
                               child: new Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -136,47 +131,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
                             ),
                           )
                         ])),
-                SizedBox(height: size.height * 0.03),
-                Container(
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          SizedBox(
-                            width: 328,
-                            height: 49,
-                            child: RaisedButton(
-                              color: Colors.white,
-                              elevation: 1.0,
-                              shape: RoundedRectangleBorder(
-                                  side: BorderSide(color: Color(0xFF6D747A)),
-                                  borderRadius: BorderRadius.circular(10.0)),
-                              highlightColor: Color(0xFF6D747A),
-                              padding: EdgeInsets.only(
-                                  top: 7.0, bottom: 7.0, right: 40.0, left: 10.0),
-                              onPressed: () {},
-                              child: new Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  SvgPicture.asset(
-                                    'images/facebook 1.svg',
-                                    height: 20.0,
-                                    width: 20.0,
-                                  ),
-                                  Padding(
-                                      padding: EdgeInsets.only(right: 20, left: 50.0),
-                                      child: Text(
-                                        "Sign up with Facebook",
-                                        style: GoogleFonts.poppins(
-                                            textStyle: TextStyle(
-                                                color: Color(0xFF053361),
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.w500)),
-                                      ))
-                                ],
-                              ),
-                            ),
-                          )
-                        ])),
+
                 OrDivider(),
                 Container(
                     child: SingleChildScrollView(

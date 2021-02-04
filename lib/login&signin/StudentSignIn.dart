@@ -7,6 +7,7 @@ import 'firstSignIn.dart';
 import 'StudentSignUp.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'orDivider.dart';
+
 class StudentSignIn extends StatefulWidget {
   final Function toggleView;
   StudentSignIn({this.toggleView});
@@ -31,7 +32,6 @@ class _StudentSignInState extends State<StudentSignIn> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -53,7 +53,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                           color: Color(0xFFFFD900),
                           fontWeight: FontWeight.w600,
                           fontSize: 20))),
-              Padding(padding: EdgeInsets.only(right: 30,left: 30) ),
+              Padding(padding: EdgeInsets.only(right: 30, left: 30)),
             ],
           ),
           leading: Container(
@@ -71,16 +71,13 @@ class _StudentSignInState extends State<StudentSignIn> {
             ),
           ),
         ),
-        body:
-        Container(
+        body: Container(
           child: SingleChildScrollView(
               child: Column(children: <Widget>[
-
-                Container(
-
-                  child:Column(
-                    children: <Widget>[
-                      SizedBox(height: size.height * 0.05),
+            Container(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: size.height * 0.05),
                   Text('Sign in to your TechLearn Account',
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
@@ -90,101 +87,51 @@ class _StudentSignInState extends State<StudentSignIn> {
                 ],
               ),
             ),
-
-                     Container(
-
-               child: Column(
-
-                    children: <Widget>[
-                      SizedBox(height: size.height * 0.04),
-                  SizedBox(
-                    width: 328,
-                    height: 49,
-                    child: RaisedButton(
-                      color: Colors.white,
-                      elevation: 1.0,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(color: Color(0xFF6D747A)),
-                          borderRadius: BorderRadius.circular(10.0)),
-                      highlightColor: Color(0xFF6D747A),
-                      padding: EdgeInsets.only(
-                          top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
-                      onPressed: () async {
-                        await _auth.handleSignIn();
-                      },
-                      child: new Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-
-                          SvgPicture.asset(
-                            'images/search 1.svg',
-                            height: 20.0,
-                            width: 20.0,
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(right: 40, left: 50.0),
-                              child: Text(
-                                "Sign in with google",
-                                style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                        color: Color(0xFF053361),
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w500)),
-                              ))
-                        ],
-                      ),
-                    ),
-                  )
-                ])),
-                SizedBox(height: size.height * 0.03),
             Container(
-
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                child: Column(children: <Widget>[
+              SizedBox(height: size.height * 0.04),
+              SizedBox(
+                width: 328,
+                height: 49,
+                child: RaisedButton(
+                  color: Colors.white,
+                  elevation: 1.0,
+                  shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Color(0xFF6D747A)),
+                      borderRadius: BorderRadius.circular(10.0)),
+                  highlightColor: Color(0xFF6D747A),
+                  padding: EdgeInsets.only(
+                      top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
+                  onPressed: () async {
+                    await _auth.signInGoogle();
+                  },
+                  child: new Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                  SizedBox(
-                    width: 328,
-                    height: 49,
-                    child: RaisedButton(
-                      color: Colors.white,
-                      elevation: 1.0,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(color: Color(0xFF6D747A)),
-                          borderRadius: BorderRadius.circular(10.0)),
-                      highlightColor: Color(0xFF6D747A),
-                      padding: EdgeInsets.only(
-                          top: 7.0, bottom: 7.0, right: 40.0, left: 10.0),
-                      onPressed: () {},
-                      child: new Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          SvgPicture.asset(
-                            'images/facebook 1.svg',
-                            height: 20.0,
-                            width: 20.0,
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(right: 20, left: 50.0),
-                              child: Text(
-                                "Sign in with Facebook",
-                                style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                        color: Color(0xFF053361),
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w500)),
-                              ))
-                        ],
+                      SvgPicture.asset(
+                        'images/search 1.svg',
+                        height: 20.0,
+                        width: 20.0,
                       ),
-                    ),
+                      Padding(
+                          padding: EdgeInsets.only(right: 40, left: 50.0),
+                          child: Text(
+                            "Sign in with google",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    color: Color(0xFF053361),
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.w500)),
+                          ))
+                    ],
                   ),
-                ])),
-
-
-    OrDivider(),
+                ),
+              )
+            ])),
+            SizedBox(height: size.height * 0.03),
+            OrDivider(),
             Container(
-
                 child: SingleChildScrollView(
-
                     child: Form(
                         key: _formKey,
                         child: Column(children: <Widget>[
@@ -221,14 +168,13 @@ class _StudentSignInState extends State<StudentSignIn> {
                                 decoration: InputDecoration(
                                     labelText: "Password",
                                     prefixIcon: Icon(Icons.lock),
-                                    suffixIcon:  IconButton(
+                                    suffixIcon: IconButton(
                                       icon: Icon(isHidePassword
                                           ? Icons.visibility
                                           : Icons.visibility_off),
-                                        color: isHidePassword
-                                            ? Color(0xFF0A61B7)
-                                            : Colors.grey,
-
+                                      color: isHidePassword
+                                          ? Color(0xFF0A61B7)
+                                          : Colors.grey,
                                       onPressed: () {
                                         _togglePasswordVisability();
                                       },
@@ -244,13 +190,10 @@ class _StudentSignInState extends State<StudentSignIn> {
                                   setState(() => password = val);
                                 }),
                           ),
-
                           Container(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-
-
                                 Checkbox(
                                     value: checkBokValue,
                                     onChanged: (bool value) {
@@ -268,7 +211,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                               fontSize: 14))),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only( left: 20),
+                                  padding: EdgeInsets.only(left: 20),
                                 ),
                                 InkWell(
                                   onTap: () {
@@ -292,7 +235,6 @@ class _StudentSignInState extends State<StudentSignIn> {
                             ),
                           ),
                           Container(
-
                             child: Column(children: <Widget>[
                               SizedBox(height: size.height * 0.03),
                               SizedBox(
@@ -313,8 +255,8 @@ class _StudentSignInState extends State<StudentSignIn> {
                                   ),
                                   onPressed: () async {
                                     if (_formKey.currentState.validate()) {
-                                      dynamic result =
-                                          await _auth.signInStudentEP(email, password);
+                                      dynamic result = await _auth
+                                          .signInStudentEP(email, password);
                                       if (result == null) {
                                         setState(
                                             () => error = 'Failed To Sign In');
@@ -331,10 +273,11 @@ class _StudentSignInState extends State<StudentSignIn> {
                               ),
                             ]),
                           ),
-                          SizedBox(height: size.height * 0.02),
+
                           Text(
                             error,
-                            style: TextStyle(color: Colors.red, fontSize: 14.0),
+                            style: TextStyle(
+                                color: Colors.red, fontSize: 12.0),
                           ),
                           Container(
                             child: Column(
@@ -367,7 +310,6 @@ class _StudentSignInState extends State<StudentSignIn> {
                               ],
                             ),
                           ),
-                          SizedBox(height: size.height * 0.03),
                         ]))))
           ])),
         ));
