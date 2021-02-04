@@ -4,7 +4,6 @@ import 'package:techlearning_app/UI/dashboardTest.dart';
 import 'package:techlearning_app/login&signin/TeacherSignIn.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'firstsignup.dart';
-import 'package:form_validation/form_validation.dart';
 
 class TeacherSign2 extends StatefulWidget {
   @override

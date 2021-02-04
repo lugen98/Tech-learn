@@ -105,9 +105,8 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                 highlightColor: Color(0xFF6D747A),
                 padding: EdgeInsets.only(
                     top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignInDemo()));
+                onPressed: () async {
+                  await _auth.signInGoogle();
                 },
                 child: new Row(
                   mainAxisSize: MainAxisSize.min,
@@ -132,48 +131,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
               ),
             )
           ])),
-
-          //signIn with Facebook
           SizedBox(height: size.height * 0.03),
-          Container(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                SizedBox(
-                  width: 328,
-                  height: 49,
-                  child: RaisedButton(
-                    color: Colors.white,
-                    elevation: 1.0,
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Color(0xFF6D747A)),
-                        borderRadius: BorderRadius.circular(10.0)),
-                    highlightColor: Color(0xFF6D747A),
-                    padding: EdgeInsets.only(
-                        top: 7.0, bottom: 7.0, right: 40.0, left: 10.0),
-                    onPressed: () {},
-                    child: new Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        SvgPicture.asset(
-                          'images/facebook 1.svg',
-                          height: 20.0,
-                          width: 20.0,
-                        ),
-                        Padding(
-                            padding: EdgeInsets.only(right: 20, left: 50.0),
-                            child: Text(
-                              "Sign in with Facebook",
-                              style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                      color: Color(0xFF053361),
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.w500)),
-                            ))
-                      ],
-                    ),
-                  ),
-                ),
 
                 OrDivider(),
 
@@ -216,7 +174,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                     obscureText: !isHidePassword,
                                     decoration: InputDecoration(
                                         suffixIcon: IconButton(
-                                          icon:  Icon(isHidePassword
+                                          icon: Icon(isHidePassword
                                               ? Icons.visibility
                                               : Icons.visibility_off),
                                           color: isHidePassword
@@ -325,6 +283,12 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                   ),
                                 ]),
                               ),
+
+                              Text(
+                                error,
+                                style: TextStyle(
+                                    color: Colors.red, fontSize: 12.0),
+                              ),
                               Container(
                                 child: Column(
                                   children: <Widget>[
@@ -356,17 +320,10 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                   ],
                                 ),
                               ),
-                              SizedBox(
-                                height: 12.0,
-                              ),
-                              Text(
-                                error,
-                                style: TextStyle(
-                                    color: Colors.red, fontSize: 12.0),
-                              ),
+
                             ]))))
               ])),
-        ]))));
+       ));
   }
 
   void _togglePasswordVisability() {
