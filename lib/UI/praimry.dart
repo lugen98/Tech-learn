@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
-import 'package:techlearning_app/UI/8th.dart';
-import 'objects.dart';
 
 class PrimaryPage extends StatefulWidget {
   @override
@@ -65,38 +63,16 @@ class _PrimaryPageState extends State<PrimaryPage> {
                   child: ListView(
 
                       children: <Widget>[
-                        InkWell(child: _bulidlevelItem(
-                            "First Grade ","Materials"),onTap: (){ Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ObjectsPage()
-                        ));},),
-                        InkWell(child: _bulidlevelItem(
-                            "The Second Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => EighthPage()
-                        ));},),
-                        InkWell(child: _bulidlevelItem(
-                            "Third Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => EighthPage()
-                        ));},),
-                        InkWell(child: _bulidlevelItem(
-                            "4th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>EighthPage()
-                        ));},),
-                        InkWell(child: _bulidlevelItem(
-                            "5th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>EighthPage()
-                        ));},),
-                        InkWell(child: _bulidlevelItem(
-                            "6th Grade","Materials"),onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>EighthPage()
-                        ));},),
-                      ]
-                  ),
-                ),
+                        InkWell(
 
-              )
+                  ),
+
+
+
             ]),
       ),
-
+    )
+    ]))
     );
   }
 
