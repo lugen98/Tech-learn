@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../dashboardTest.dart';
 import '../homeScreen.dart';
 import 'package:techlearning_app/services/auth.dart';
 
@@ -31,8 +30,6 @@ class _MydrawerState extends State<Mydrawer> {
                 style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold)),
             leading: Icon(Icons.home),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Dashboard()));
             }),
         ListTile(
             title: Text("Profile",
