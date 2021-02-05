@@ -7,7 +7,6 @@ import 'TeacherSignUp.dart';
 import 'firstSignIn.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'orDivider.dart';
-import 'signingoogle.dart';
 
 class TeacherSignIn extends StatefulWidget {
   @override

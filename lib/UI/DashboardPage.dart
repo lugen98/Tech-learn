@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:techlearning_app/UI/Drawer/Settings.dart';
-import 'package:techlearning_app/UI/Drawer/profile.dart';
 import 'package:techlearning_app/UI/Levels.dart';
 
 class GridviewPage extends StatefulWidget {
@@ -54,11 +52,7 @@ class GridDashboard extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 )),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder:(context ) =>ProfileScreen()
-              ));
-            },
+            onTap: () {},
           ),
           InkWell(
             child: GridTile(
@@ -76,9 +70,8 @@ class GridDashboard extends StatelessWidget {
                   ),
                 )),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder:(context ) =>LevelPage()
-              ));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => LevelPage()));
             },
           ),
           InkWell(
@@ -130,11 +123,7 @@ class GridDashboard extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 )),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder:(context ) =>SettingsPage()
-              ));
-            },
+            onTap: () {},
           ),
         ],
       ),
