@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/UI/dashboardTest.dart';
+import 'package:techlearning_app/UI/student_dashboard.dart';
 import 'package:techlearning_app/login&signin/StudentSignIn.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'firstsignup.dart';
@@ -346,7 +346,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        Dashboard()));
+                                                        studentDashboard()));
                                           }
                                         }
                                       },

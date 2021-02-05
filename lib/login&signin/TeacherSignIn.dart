@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/UI/dashboardTest.dart';
+import 'package:techlearning_app/UI/teacher_dashboard.dart';
 import 'package:techlearning_app/login&signin/TeacherForgotPass.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'TeacherSignUp.dart';
@@ -274,7 +274,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        Dashboard()));
+                                                        Teacherdashboard()));
                                           }
                                         }
                                       },

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
 import 'package:techlearning_app/UI/Classes.dart';
-import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/UI/dashboardTest.dart';
 import 'package:techlearning_app/UI/Drawer/Mydrawer.dart';
 import 'package:techlearning_app/UI/praimry.dart';
 
@@ -47,8 +46,7 @@ class _LevelPage extends State<LevelPage> {
                   icon: Icon(Icons.arrow_back),
                   color: Colors.white,
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Dashboard()));
+
                   },
                 ),
               ],

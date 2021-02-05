@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/UI/dashboardTest.dart';
+import 'package:techlearning_app/UI/student_dashboard.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'StudentForgetPass.dart';
 import 'firstSignIn.dart';
@@ -9,8 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'orDivider.dart';
 
 class StudentSignIn extends StatefulWidget {
-  final Function toggleView;
-  StudentSignIn({this.toggleView});
+
 
   @override
   _StudentSignInState createState() => _StudentSignInState();
@@ -265,7 +264,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    Dashboard()));
+                                                    studentDashboard()));
                                       }
                                     }
                                   },
