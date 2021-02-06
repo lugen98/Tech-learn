@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/login&signin/TeacherRestPass.dart';
 import 'package:techlearning_app/login&signin/TeacherSignIn.dart';
 import 'package:techlearning_app/services/auth.dart';
 
@@ -138,7 +137,7 @@ class _TeacherForgotPassState extends State<TeacherForgotPass> {
                               onPressed: () {
                                 _auth.sendPasswordResetEmail(email);
                                 Navigator.of(context).push(
-                                    MaterialPageRoute(builder: (context) => TeacherRestPass()));
+                                    MaterialPageRoute(builder: (context) => TeacherSignIn()));
                               },
                             )),
                         SizedBox(height: size.height * 0.03),

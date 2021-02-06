@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/login&signin/StudentRestPass.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'StudentSignIn.dart';
 
@@ -144,7 +143,7 @@ class _StudentForgotPassState extends State<StudentForgotPass> {
                                   () => error = 'Failed To Sign In');
                         } else {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => StudentRestPass()));
+                              builder: (context) => StudentSignIn()));
                         }
                       }},
                   )),

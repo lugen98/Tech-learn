@@ -264,7 +264,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    studentDashboard()));
+                                                    StudentDashboard()));
                                       }
                                     }
                                   },

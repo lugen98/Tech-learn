@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/UI/Drawer/Mydrawer.dart';
+import 'package:techlearning_app/drawer/teacher_drawer.dart';
 
 class Teacherdashboard extends StatelessWidget {
   @override
@@ -38,12 +38,16 @@ class Teacherdashboard extends StatelessWidget {
                 ),
                 backgroundColor: Colors.white,
                 elevation: 10,
-                leading: IconButton(
+              /*  leading: IconButton(
                   icon: Icon(Icons.menu),
                   color: Colors.grey,
                   iconSize: 30,
-                  onPressed: () {},
-                ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>TeacherDrawer()));
+                  },
+                ),*/
                 actions: <Widget>[
                   Padding(
                       child: IconButton(
@@ -522,7 +526,9 @@ class Teacherdashboard extends StatelessWidget {
                   ],
                 ),
               ),
-              drawer: Mydrawer(),
+              drawer: Drawer(
+                child: TeacherDrawer(),
+              ),
             )));
   }
 }

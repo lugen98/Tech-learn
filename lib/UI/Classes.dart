@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
 import 'package:techlearning_app/UI/Materials.dart';
-import 'objects.dart';
 
 class ClassesPage extends StatefulWidget {
   @override
@@ -52,8 +51,7 @@ class _ClassesPageState extends State<ClassesPage> {
                         InkWell(
                           child: _bulidlevelItem("7th Grade ", "Materials"),
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ObjectsPage()));
+
                           },
                         ),
                         InkWell(),
