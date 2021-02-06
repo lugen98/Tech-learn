@@ -346,7 +346,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        studentDashboard()));
+                                                        StudentDashboard()));
                                           }
                                         }
                                       },

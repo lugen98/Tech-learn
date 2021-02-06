@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/UI/Drawer/Mydrawer.dart';
+import 'package:techlearning_app/drawer/student_drawer.dart';
 
-class studentDashboard extends StatelessWidget {
+class StudentDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -510,7 +510,9 @@ class studentDashboard extends StatelessWidget {
                     },
                   ),
             ])),
-            drawer: Mydrawer(),
+            drawer: Drawer(
+              child: StudentDrawer(),
+            ),
           ),
         ));
   }
