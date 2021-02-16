@@ -1,27 +1,19 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 
-import 'Message.dart';
-
+import 'message.dart';
 
 class Notifications extends StatefulWidget {
-
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<Notifications> {
-
-
-
   @override
   Widget build(BuildContext context) {
-    return  MessagingWidget();
-
+    return MessagingWidget();
   }
-
 }
 
 class MessagingWidget extends StatefulWidget {
@@ -66,15 +58,12 @@ class _MessagingWidgetState extends State<MessagingWidget> {
   }
 
   @override
-  Widget build(BuildContext context) =>
-      ListView(
+  Widget build(BuildContext context) => ListView(
         children: messages.map(buildMessage).toList(),
       );
 
-  Widget buildMessage(Message message) =>
-      ListTile(
+  Widget buildMessage(Message message) => ListTile(
         title: Text(message.title),
         subtitle: Text(message.body),
       );
-
 }

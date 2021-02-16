@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/drawer/teacher_drawer.dart';
+import 'package:techlearning_app/menu/teacher_drawer.dart';
 
-class Teacherdashboard extends StatelessWidget {
+class TeacherDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -25,6 +25,7 @@ class Teacherdashboard extends StatelessWidget {
                 ),
                 centerTitle: true,
                 bottom: PreferredSize(
+                  preferredSize: Size.fromHeight(80.0),
                   child: Text(
                     "Lugain Fareed",
                     style: GoogleFonts.poppins(
@@ -34,11 +35,10 @@ class Teacherdashboard extends StatelessWidget {
                       color: Color(0xff0A61B7),
                     )),
                   ),
-                  preferredSize: null,
                 ),
                 backgroundColor: Colors.white,
                 elevation: 10,
-              /*  leading: IconButton(
+                /*  leading: IconButton(
                   icon: Icon(Icons.menu),
                   color: Colors.grey,
                   iconSize: 30,

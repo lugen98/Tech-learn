@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/login&signin/TeacherSignIn.dart';
+import 'package:techlearning_app/UI/student_dashboard.dart';
+import 'package:techlearning_app/_common_widgets/or_divider.dart';
 import 'package:techlearning_app/services/auth.dart';
-import 'firstsignup.dart';
-import 'TeacherSignUp2.dart';
-import 'orDivider.dart';
+import 'package:techlearning_app/sign_up_sign_in/student/student_sign_in.dart';
 
-class TeacherSignUp extends StatefulWidget {
-
+class StudentSignUp extends StatefulWidget {
   @override
-  _TeacherSignUpState createState() => _TeacherSignUpState();
+  _StudentSignUpState createState() => _StudentSignUpState();
 }
 
-class _TeacherSignUpState extends State<TeacherSignUp> {
+class _StudentSignUpState extends State<StudentSignUp> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
   bool isHidePassword = false;
   bool isshowPassword = false;
-  TextEditingController _email = new TextEditingController();
-  TextEditingController _password = new TextEditingController();
+
   //text filed state
   String firstName = '';
   String lastName = '';
@@ -54,7 +51,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                           color: Color(0xFFFFD900),
                           fontWeight: FontWeight.w600,
                           fontSize: 20))),
-              Padding(padding: EdgeInsets.only(right: 30,left: 30) ),
+              Padding(padding: EdgeInsets.only(right: 30, left: 30)),
             ],
           ),
           leading: Container(
@@ -62,8 +59,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
               color: Color(0xFF053361),
               iconSize: 24,
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => FirstSignUp()));
+                Navigator.pop(context);
               },
               icon: Icon(
                 Icons.arrow_back,
@@ -75,10 +71,10 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
         body: Container(
           child: SingleChildScrollView(
               child: Column(children: <Widget>[
-                Container(
-                  child:Column(
-                    children: <Widget>[
-                      SizedBox(height: size.height * 0.05),
+            Container(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: size.height * 0.05),
                   Text('Sign up For TechLearn',
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
@@ -89,50 +85,47 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
               ),
             ),
             Container(
-                child: Column(
+                child: Column(children: <Widget>[
+              SizedBox(height: size.height * 0.04),
+              SizedBox(
+                width: 328,
+                height: 49,
+                child: RaisedButton(
+                  color: Colors.white,
+                  elevation: 1.0,
+                  shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Color(0xFF6D747A)),
+                      borderRadius: BorderRadius.circular(10.0)),
+                  highlightColor: Color(0xFF6D747A),
+                  padding: EdgeInsets.only(
+                      top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
+                  onPressed: () async {
+                    await _auth.signInGoogle();
+                  },
+                  child: new Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      SizedBox(height: size.height * 0.04),
-                  SizedBox(
-                    width: 328,
-                    height: 49,
-                    child: RaisedButton(
-                      color: Colors.white,
-                      elevation: 1.0,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(color: Color(0xFF6D747A)),
-                          borderRadius: BorderRadius.circular(10.0)),
-                      highlightColor: Color(0xFF6D747A),
-                      padding: EdgeInsets.only(
-                          top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
-                      onPressed: () async {
-                       await _auth.signInGoogle();
-
-                      },
-                      child: new Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          SvgPicture.asset(
-                            'images/search 1.svg',
-                            height: 20.0,
-                            width: 20.0,
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(right: 40, left: 50.0),
-                              child: Text(
-                                "Sign up with google",
-                                style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                        color: Color(0xFF053361),
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w500)),
-                              ))
-                        ],
+                      SvgPicture.asset(
+                        'images/search 1.svg',
+                        height: 20.0,
+                        width: 20.0,
                       ),
-                    ),
-                  )
-                ])),
-
-                OrDivider(),
+                      Padding(
+                          padding: EdgeInsets.only(right: 40, left: 50.0),
+                          child: Text(
+                            "Sign up with google",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    color: Color(0xFF053361),
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.w500)),
+                          ))
+                    ],
+                  ),
+                ),
+              )
+            ])),
+            OrDivider(),
             Container(
                 child: SingleChildScrollView(
                     child: Form(
@@ -185,7 +178,6 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                             width: 328,
                             height: 49,
                             child: TextFormField(
-                              controller: _email,
                               validator: (val) =>
                                   val.isEmpty ? 'Enter email' : null,
                               decoration: InputDecoration(
@@ -207,7 +199,6 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                             width: 328,
                             height: 49,
                             child: TextFormField(
-                              controller: _password,
                                 validator: (val) => val.length < 6
                                     ? 'password Should be more than 6'
                                     : null,
@@ -217,7 +208,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                     labelText: "password",
                                     prefixIcon: Icon(Icons.lock),
                                     suffixIcon: IconButton(
-                                      icon:  Icon(isHidePassword
+                                      icon: Icon(isHidePassword
                                           ? Icons.visibility
                                           : Icons.visibility_off),
                                       color: isHidePassword
@@ -246,7 +237,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                 validator: (val) => val.length < 6
                                     ? 'Password does not match'
                                     : null,
-                                /* validator: (val) =>
+                                /*validator: (val) =>
                                     val.compareTo(password) != null
                                         ? "Password does not match"
                                         : null,*/
@@ -285,39 +276,36 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                               child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-
-                            Text('By signing up, you agree to our',
-                                style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                        color: Color(0xFF6D747A),
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 12))),
-
-                            InkWell(
-                              onTap: () {},
-                              child: Text('Terms and ',
-                                  style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                          color: Color(0xFF0A61B7),
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12))),
-                            )
-                          ])),
+                                Text('By signing up, you agree to our',
+                                    style: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                            color: Color(0xFF6D747A),
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12))),
+                                InkWell(
+                                  onTap: () {},
+                                  child: Text('Terms and ',
+                                      style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                              color: Color(0xFF0A61B7),
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 12))),
+                                )
+                              ])),
                           Container(
                               child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                            InkWell(
-                              onTap: () {},
-                              child: Text('Privacy Policy',
-                                  style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                          color: Color(0xFF0A61B7),
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12))),
-                            )
-                          ])),
-
+                                InkWell(
+                                  onTap: () {},
+                                  child: Text('Privacy Policy',
+                                      style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                              color: Color(0xFF0A61B7),
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 12))),
+                                )
+                              ])),
                           Container(
                             child: Column(children: <Widget>[
                               SizedBox(height: size.height * 0.03),
@@ -325,38 +313,42 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                 width: 328,
                                 height: 49,
                                 child: RaisedButton(
-                                    color: Color(0xFFFFD900),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10))),
-                                    child: Text(
-                                      "Next",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xFF053361),
-                                              fontWeight: FontWeight.w700)),
-                                    ),
-                                    onPressed: () async {
-                                      if (_formKey.currentState.validate()) {
-                                        dynamic result = await _auth.teacherRegisterEP(
-                                           firstName,lastName, email, password);
-                                        if (result == null) {
-                                          setState(() =>
-                                              error = 'Failed To Sign In');
-                                        } else {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherSign2()));
-                                        }
+                                  color: Color(0xFFFFD900),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(10))),
+                                  child: Text(
+                                    "Sign Up",
+                                    style: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                            fontSize: 16,
+                                            color: Color(0xFF053361),
+                                            fontWeight: FontWeight.w700)),
+                                  ),
+                                  onPressed: () async {
+                                    if (_formKey.currentState.validate()) {
+                                      dynamic result =
+                                          await _auth.studentRegisterEP(
+                                              firstName,
+                                              lastName,
+                                              email,
+                                              password);
+                                      if (result == null) {
+                                        setState(
+                                            () => error = 'Failed To Sign In');
+                                      } else {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    StudentDashboardScreen()));
                                       }
-                                    }),
-                              ),
+                                    }
+                                  },
+                                ),
+                              )
                             ]),
                           ),
-
                           Container(
                             child: Column(
                               children: <Widget>[
@@ -375,10 +367,10 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  TeacherSignIn()));
+                                                  StudentSignIn()));
                                     },
                                     child: Text(
-                                      "Click here to Sign In ",
+                                      "Click here to Sign in ",
                                       style: GoogleFonts.poppins(
                                           textStyle: TextStyle(
                                               fontSize: 13,
@@ -390,11 +382,12 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                           ),
                           SizedBox(
                             height: 12.0,
-                         child:
-                          Text(
-                            error,
-                            style: TextStyle(color: Colors.red, fontSize: 14.0),
-                          ),),
+                            child: Text(
+                              error,
+                              style:
+                                  TextStyle(color: Colors.red, fontSize: 14.0),
+                            ),
+                          ),
                         ]))))
           ])),
         ));

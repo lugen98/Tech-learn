@@ -1,38 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/UI/student_dashboard.dart';
-import 'package:techlearning_app/services/auth.dart';
-import 'StudentForgetPass.dart';
-import 'firstSignIn.dart';
-import 'StudentSignUp.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'orDivider.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:techlearning_app/UI/teacher_dashboard.dart';
+import 'package:techlearning_app/_common_widgets/or_divider.dart';
+import 'package:techlearning_app/services/auth.dart';
+import 'package:techlearning_app/shared/my_constants.dart';
+import 'package:techlearning_app/shared/shared_preferences_management.dart';
+import 'package:techlearning_app/sign_up_sign_in/teacher/teacher_forgot_password.dart';
 
-class StudentSignIn extends StatefulWidget {
+import 'teacher_sign_up.dart';
 
-
+class TeacherSignIn extends StatefulWidget {
   @override
-  _StudentSignInState createState() => _StudentSignInState();
+  _TeacherSignInState createState() => _TeacherSignInState();
 }
 
-class _StudentSignInState extends State<StudentSignIn> {
+class _TeacherSignInState extends State<TeacherSignIn> {
+  SharedPreferencesManagement _sharedPreferencesManagement;
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
+  bool isHidePassword = false;
 
   bool checkBokValue = false;
-  bool isHidePassword = false;
 
   //text filed state
   String email = '';
-  String password = '';
+  String _password = '';
   String error = '';
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return Scaffold(
         backgroundColor: Colors.white,
+
+        //techLearn appbar
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.transparent,
@@ -55,13 +57,14 @@ class _StudentSignInState extends State<StudentSignIn> {
               Padding(padding: EdgeInsets.only(right: 30, left: 30)),
             ],
           ),
+
+          //arrowBack
           leading: Container(
             child: IconButton(
               color: Color(0xFF053361),
               iconSize: 24,
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => FirstSignIn()));
+                Navigator.pop(context);
               },
               icon: Icon(
                 Icons.arrow_back,
@@ -81,11 +84,13 @@ class _StudentSignInState extends State<StudentSignIn> {
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
                               color: Color(0xFF053361),
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.bold,
                               fontSize: 18))),
                 ],
               ),
             ),
+
+            //signIn with Google
             Container(
                 child: Column(children: <Widget>[
               SizedBox(height: size.height * 0.04),
@@ -128,7 +133,10 @@ class _StudentSignInState extends State<StudentSignIn> {
               )
             ])),
             SizedBox(height: size.height * 0.03),
+
             OrDivider(),
+
+            //sign In Email&Password
             Container(
                 child: SingleChildScrollView(
                     child: Form(
@@ -136,13 +144,13 @@ class _StudentSignInState extends State<StudentSignIn> {
                         child: Column(children: <Widget>[
                           SizedBox(height: size.height * 0.01),
                           SizedBox(
-                            width: 328,
                             height: 49,
+                            width: 328,
                             child: TextFormField(
                               validator: (val) =>
                                   val.isEmpty ? 'Enter email' : null,
                               decoration: InputDecoration(
-                                  labelText: 'Email',
+                                  labelText: 'E-mail',
                                   prefixIcon: Icon(Icons.email),
                                   border: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -161,12 +169,10 @@ class _StudentSignInState extends State<StudentSignIn> {
                             height: 49,
                             child: TextFormField(
                                 validator: (val) => val.length < 6
-                                    ? 'password Should be more than 6'
+                                    ? 'password Should be more than6'
                                     : null,
                                 obscureText: !isHidePassword,
                                 decoration: InputDecoration(
-                                    labelText: "Password",
-                                    prefixIcon: Icon(Icons.lock),
                                     suffixIcon: IconButton(
                                       icon: Icon(isHidePassword
                                           ? Icons.visibility
@@ -178,6 +184,8 @@ class _StudentSignInState extends State<StudentSignIn> {
                                         _togglePasswordVisability();
                                       },
                                     ),
+                                    labelText: "password",
+                                    prefixIcon: Icon(Icons.lock),
                                     border: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0xFFC8CACC),
@@ -186,7 +194,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                         borderRadius:
                                             BorderRadius.circular(10))),
                                 onChanged: (val) {
-                                  setState(() => password = val);
+                                  setState(() => _password = val);
                                 }),
                           ),
                           Container(
@@ -218,7 +226,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                StudentForgotPass()));
+                                                TeacherForgotPass()));
                                   },
                                   child: Text('Forgot Password?',
                                       style: GoogleFonts.poppins(
@@ -233,6 +241,8 @@ class _StudentSignInState extends State<StudentSignIn> {
                               ],
                             ),
                           ),
+
+                          //sign In Button
                           Container(
                             child: Column(children: <Widget>[
                               SizedBox(height: size.height * 0.03),
@@ -255,16 +265,20 @@ class _StudentSignInState extends State<StudentSignIn> {
                                   onPressed: () async {
                                     if (_formKey.currentState.validate()) {
                                       dynamic result = await _auth
-                                          .signInStudentEP(email, password);
+                                          .signInTeacherEP(email, _password);
                                       if (result == null) {
                                         setState(
                                             () => error = 'Failed To Sign In');
                                       } else {
+                                        SharedPreferencesManagement.setUserEmail(
+                                            email);
+                                        SharedPreferencesManagement.setUserType(
+                                            MyConstants.USER_TYPE_TEACHER);
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    StudentDashboard()));
+                                                    TeacherDashboard()));
                                       }
                                     }
                                   },
@@ -275,8 +289,7 @@ class _StudentSignInState extends State<StudentSignIn> {
 
                           Text(
                             error,
-                            style: TextStyle(
-                                color: Colors.red, fontSize: 12.0),
+                            style: TextStyle(color: Colors.red, fontSize: 12.0),
                           ),
                           Container(
                             child: Column(
@@ -296,7 +309,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  StudentSignUp()));
+                                                  TeacherSignUp()));
                                     },
                                     child: Text(
                                       "Click here to Sign up ",

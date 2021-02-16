@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'package:techlearning_app/services/users.dart';
-import 'UI/SplashScreen.dart';
+
+import 'UI/splash_screen.dart';
 
 void main() {
-  runApp(
-      MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -19,24 +19,18 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-        builder: (context, constraints) {
-      return OrientationBuilder(
-          builder: (context, orientation) {
-            return StreamProvider<User>.value(
-                value: AuthService().user,
-                child: MaterialApp(
-                  theme: ThemeData(
-                    primarySwatch: Colors.indigo,
-                  ),
-                  debugShowCheckedModeBanner: false,
-                  home: SplashScreen(),
-                )
-            );
-          }
-          );
-      }
-    );
-
+    return LayoutBuilder(builder: (context, constraints) {
+      return OrientationBuilder(builder: (context, orientation) {
+        return StreamProvider<User>.value(
+            value: AuthService().user,
+            child: MaterialApp(
+              theme: ThemeData(
+                primarySwatch: Colors.indigo,
+              ),
+              debugShowCheckedModeBanner: false,
+              home: SplashScreen(),
+            ));
+      });
+    });
   }
 }

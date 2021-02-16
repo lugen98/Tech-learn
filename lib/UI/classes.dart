@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
-import 'package:techlearning_app/UI/Materials.dart';
+import 'package:techlearning_app/UI/materials_page.dart';
 
 class ClassesPage extends StatefulWidget {
   @override
@@ -50,9 +50,7 @@ class _ClassesPageState extends State<ClassesPage> {
                       child: ListView(children: <Widget>[
                         InkWell(
                           child: _bulidlevelItem("7th Grade ", "Materials"),
-                          onTap: () {
-
-                          },
+                          onTap: () {},
                         ),
                         InkWell(),
                         InkWell(

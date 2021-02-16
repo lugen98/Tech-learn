@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Profile',
-      home: MyHomePage(title: 'TeatcherProfile'),
+      home: MyHomePage(title: 'Teacher Profile'),
     );
   }
 }
@@ -48,7 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text("${selectedDate.toLocal()}".split(' ')[0]),
-            SizedBox(height: 20.0,),
+            SizedBox(
+              height: 20.0,
+            ),
             RaisedButton(
               onPressed: () => _selectDate(context),
               child: Text('Select date'),

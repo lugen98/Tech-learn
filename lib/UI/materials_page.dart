@@ -56,24 +56,24 @@ class _MaterialsPageState extends State<MaterialsPage> {
 
                       children: <Widget>[
 
-                        _bulidlevelItem(
+                        _buildLevelItem(
                             "التربية الأسلامية ", "المعلمين"),
-                        _bulidlevelItem(
+                        _buildLevelItem(
                             "اللغة العربية", "المعلمين"),
-                        _bulidlevelItem(
+                        _buildLevelItem(
                             "اللغة الانجليزية",  "المعلمين"),
-                        _bulidlevelItem(
+                        _buildLevelItem(
                             "الرياضيات",  "المعلمين"),
-                        _bulidlevelItem(
+                        _buildLevelItem(
                             "العلوم ", "المعلمين"),
-                        _bulidlevelItem(
+                        _buildLevelItem(
                             "الاجتماعيات ", "المعلمين"),
-                        _bulidlevelItem(
+                        _buildLevelItem(
                             "الحاسوب ", "المعلمين"),
-                        _bulidlevelItem("الفيزياء ", "المعلمين"),
-                        _bulidlevelItem("الكيمياء ", "المعلمين"),
-                        _bulidlevelItem("الأحياء ", "المعلمين"),
-                        _bulidlevelItem("علوم الأرض ", "المعلمين"),
+                        _buildLevelItem("الفيزياء ", "المعلمين"),
+                        _buildLevelItem("الكيمياء ", "المعلمين"),
+                        _buildLevelItem("الأحياء ", "المعلمين"),
+                        _buildLevelItem("علوم الأرض ", "المعلمين"),
 
 
                       ]
@@ -89,7 +89,7 @@ class _MaterialsPageState extends State<MaterialsPage> {
   }
 
 
-  Widget _bulidlevelItem( String levelName, className) {
+  Widget _buildLevelItem( String levelName, className) {
     return Container(
       child:  SingleChildScrollView(
         padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),

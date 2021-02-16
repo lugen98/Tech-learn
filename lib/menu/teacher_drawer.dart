@@ -1,56 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:techlearning_app/UI/teacher_dashboard.dart';
 import 'package:techlearning_app/menu/settings.dart';
+import 'package:techlearning_app/services/auth.dart';
+import 'package:techlearning_app/sign_up_sign_in/home_screen.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class TeacherDrawer extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    );
-  }
+  _TeacherDrawerState createState() => _TeacherDrawerState();
 }
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey,
-        title: Text(
-          "welcome",
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-      ),
-      //Now we are going to open a new file
-      // where we will create the layout of the Drawer
-      drawer: Drawer(
-        child: MainDrawer(),
-      ),
-    );
-  }
-}
-
-class MainDrawer extends StatelessWidget {
-  const MainDrawer({Key key}) : super(key: key);
+class _TeacherDrawerState extends State<TeacherDrawer> {
+  final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Container(
+        child: Column(children: [
       Container(
         child: Padding(
           padding: EdgeInsets.only(top: 50.0),
@@ -87,10 +53,14 @@ class MainDrawer extends StatelessWidget {
       //Now let's Add the button for the Menu
       //and let's copy that and modify it
       ListTile(
-        onTap: () {},
-        leading: Icon(
-          Icons.home,
-          color: Colors.black,
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => TeacherDashboard()));
+        },
+        leading: Image.asset(
+          'images/home.jpg',
+          height: 30,
+          width: 30,
         ),
         title: Text(
           "Home",
@@ -102,12 +72,12 @@ class MainDrawer extends StatelessWidget {
           )),
         ),
       ),
-
       ListTile(
         onTap: () {},
-        leading: Icon(
-          Icons.person,
-          color: Colors.black,
+        leading: Image.asset(
+          'images/user (3) 1.png',
+          height: 30,
+          width: 30,
         ),
         title: Text(
           "Profile",
@@ -119,12 +89,12 @@ class MainDrawer extends StatelessWidget {
           )),
         ),
       ),
-
       ListTile(
         onTap: () {},
-        leading: Icon(
-          Icons.notifications,
-          color: Colors.black,
+        leading: Image.asset(
+          'images/notification 1.png',
+          height: 30,
+          width: 30,
         ),
         title: Text(
           "Notifications",
@@ -144,9 +114,10 @@ class MainDrawer extends StatelessWidget {
             MaterialPageRoute(builder: (context) => Settings()),
           );
         },
-        leading: Icon(
-          Icons.settings,
-          color: Colors.black,
+        leading: Image.asset(
+          'images/settings 1.png',
+          height: 30,
+          width: 30,
         ),
         title: Text(
           "Settings",
@@ -161,9 +132,10 @@ class MainDrawer extends StatelessWidget {
 
       ListTile(
         onTap: () {},
-        leading: Icon(
-          Icons.feedback,
-          color: Colors.black,
+        leading: Image.asset(
+          'images/information-button 1.png',
+          height: 30,
+          width: 30,
         ),
         title: Text(
           "About",
@@ -178,9 +150,10 @@ class MainDrawer extends StatelessWidget {
 
       ListTile(
         onTap: () {},
-        leading: Icon(
-          Icons.language,
-          color: Colors.black,
+        leading: Image.asset(
+          'images/global 1.png',
+          height: 30,
+          width: 30,
         ),
         title: Text(
           "العربية",
@@ -194,10 +167,13 @@ class MainDrawer extends StatelessWidget {
       ),
 
       ListTile(
-        onTap: () {},
-        leading: Icon(
-          Icons.exit_to_app,
-          color: Colors.black,
+        onTap: () {
+          openSignOutPage();
+        },
+        leading: Image.asset(
+          'images/logout.png',
+          height: 30,
+          width: 30,
         ),
         title: Text(
           "Sign out",
@@ -209,6 +185,12 @@ class MainDrawer extends StatelessWidget {
           )),
         ),
       ),
-    ]);
+    ]));
+  }
+
+  void openSignOutPage() async {
+    await _auth.signOut();
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => MainHomePage()));
   }
 }
