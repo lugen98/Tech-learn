@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/login&signin/TeacherSignIn.dart';
 import 'package:techlearning_app/services/auth.dart';
+import 'package:techlearning_app/sign_up_sign_in/teacher/teacher_sign_in.dart';
 
 class TeacherForgotPass extends StatefulWidget {
   @override
@@ -46,8 +46,7 @@ class _TeacherForgotPassState extends State<TeacherForgotPass> {
               color: Color(0xFF053361),
               iconSize: 24,
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TeacherSignIn()));
+                Navigator.pop(context);
               },
               icon: Icon(
                 Icons.arrow_back,

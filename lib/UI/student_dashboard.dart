@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/drawer/student_drawer.dart';
+import 'package:techlearning_app/menu/student_drawer.dart';
 
-class StudentDashboard extends StatelessWidget {
+class StudentDashboardScreen extends StatefulWidget {
+  @override
+  _StudentDashboardScreenState createState() => _StudentDashboardScreenState();
+}
+
+class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -25,16 +30,19 @@ class StudentDashboard extends StatelessWidget {
               ),
               centerTitle: true,
               bottom: PreferredSize(
-                child: Text(
-                  "Lugain Fareed",
-                  style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16.0,
-                    color: Color(0xff0A61B7),
-                  )),
+                preferredSize: Size.fromHeight(6.0),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 3.0),
+                  child: Text(
+                    "Lugain Fareed",
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.0,
+                      color: Color(0xff0A61B7),
+                    )),
+                  ),
                 ),
-                preferredSize: null,
               ),
               backgroundColor: Colors.white,
               elevation: 10,
@@ -71,38 +79,46 @@ class StudentDashboard extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
-                    Container(
-                        height: 120,
-                        width: 300,
-                        child: ListTile(
-                          title: Image.asset(
-                            "images/Rectangle 14.jpg",
-                          ),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              SizedBox(height: size.height * 0.01),
-                              Text("First grade",
-                                  style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18,
-                                    color: Color(0xff053361),
-                                  ))),
-                              Container(
-                                child: Text(
-                                  "Maths , Sciences and ...",
-                                  style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 18.0,
-                                          color: Color(0xff6D747A))),
-                                  maxLines: null,
+                    InkWell(
+                      onTap: () {
+                        print('derp');
+
+                        // setState(() {
+                        // });
+                       },
+                      child: Container(
+                          height: 120,
+                          width: 300,
+                          child: ListTile(
+                            title: Image.asset(
+                              "images/Rectangle 14.jpg",
+                            ),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                SizedBox(height: size.height * 0.01),
+                                Text("First grade",
+                                    style: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18,
+                                      color: Color(0xff053361),
+                                    ))),
+                                Container(
+                                  child: Text(
+                                    "Maths , Sciences and ...",
+                                    style: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 18.0,
+                                            color: Color(0xff6D747A))),
+                                    maxLines: null,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        )),
+                              ],
+                            ),
+                          )),
+                    ),
                     Container(
                         height: 300,
                         width: 300,
@@ -491,7 +507,6 @@ class StudentDashboard extends StatelessWidget {
                 ),
               ),
               SizedBox(height: size.height * 0.02),
-
               Text(
                 'Search for training courses',
                 style: GoogleFonts.poppins(
@@ -503,12 +518,11 @@ class StudentDashboard extends StatelessWidget {
               InkWell(
                 onTap: () {},
               ),
-                  IconButton(
-                    icon: Icon(Icons.arrow_forward),
-                    color: Colors.black,
-                    onPressed: () {
-                    },
-                  ),
+              IconButton(
+                icon: Icon(Icons.arrow_forward),
+                color: Colors.black,
+                onPressed: () {},
+              ),
             ])),
             drawer: Drawer(
               child: StudentDrawer(),

@@ -21,10 +21,11 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  shared_preferences: ^0.5.12+4
   firebase_core:
   cloud_firestore:
   flutter_spinkit:
-  flutter_svg:
+  flutter_svg: ^0.19.2+1
   google_sign_in:
   sign_button:
   device_preview:
@@ -34,8 +35,8 @@ dependencies:
   font_awesome_flutter:
   google_fonts_arabic:
   flutter_staggered_grid_view:
-  flutter_localizations:
-    sdk: flutter
+#  flutter_localizations:
+#    sdk: flutter
   http:
   shimmer:
   scoped_model:
@@ -55,12 +56,15 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+dependency_overrides:
+  intl: ^0.17.0-nullsafety.2
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

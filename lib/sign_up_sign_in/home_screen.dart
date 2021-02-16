@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'file:///C:/Users/user/AndroidStudioProjects/techlearnproject_app/lib/login&signin/firstsignup.dart';
-import 'package:techlearning_app/login&signin/firstSignIn.dart';
+import 'package:techlearning_app/sign_up_sign_in/choose_user_type.dart';
 
 class MainHomePage extends StatefulWidget {
   MainHomePage({Key key}) : super(key: key);
@@ -19,8 +18,7 @@ class _MainHomePageState extends State<MainHomePage> {
         backgroundColor: Colors.white,
         body: Container(
             child: SingleChildScrollView(
-                child: Column(
-                    children: <Widget>[
+                child: Column(children: <Widget>[
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -41,19 +39,16 @@ class _MainHomePageState extends State<MainHomePage> {
               ],
             ),
           ),
-                Container(
-                  child: Column(children: <Widget>[
-                      SizedBox(height: size.height * 0.03),
-                      SvgPicture.asset(
-                        "images/Frame 1.svg",
-                        height: size.height * 0.30,
-                      ),
-              //
-                    //  SvgPicture.asset("images/Frame 1.svg"),
-                    ]
-                  )
-                ),
-
+          Container(
+              child: Column(children: <Widget>[
+            SizedBox(height: size.height * 0.03),
+            SvgPicture.asset(
+              "images/Frame 1.svg",
+              height: size.height * 0.30,
+            ),
+            //
+            //  SvgPicture.asset("images/Frame 1.svg"),
+          ])),
           Container(
             child: Column(children: <Widget>[
               SizedBox(height: size.height * 0.10),
@@ -65,21 +60,19 @@ class _MainHomePageState extends State<MainHomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => FirstSignUp()));
+                              builder: (context) =>
+                                  ChooseUserTypeScreen('Register')));
                     },
                     color: Color(0xFFFFD900),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
-                    child: InkWell(
-                      onTap: openRegPage,
-                      child: Text(
-                        "Create Free Account",
-                        style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                                fontSize: 16,
-                                color: Color(0xFF053361),
-                                fontWeight: FontWeight.w700)),
-                      ),
+                    child: Text(
+                      "Create Free Account",
+                      style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              fontSize: 16,
+                              color: Color(0xFF053361),
+                              fontWeight: FontWeight.w700)),
                     )),
               )
             ]),
@@ -96,13 +89,13 @@ class _MainHomePageState extends State<MainHomePage> {
                           fontSize: 13,
                           fontWeight: FontWeight.w700)),
                 ),
-
                 InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => FirstSignIn()));
+                              builder: (context) =>
+                                  ChooseUserTypeScreen('Login')));
                     },
                     child: Text(
                       " Click here to log in ",
@@ -113,16 +106,9 @@ class _MainHomePageState extends State<MainHomePage> {
                               fontWeight: FontWeight.w700)),
                     )),
                 SizedBox(height: size.height * 0.04),
-
               ],
             ),
           ),
         ]))));
-  }
-
-  void openRegPage() {
-    Navigator.pop(context);
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => FirstSignUp()));
   }
 }

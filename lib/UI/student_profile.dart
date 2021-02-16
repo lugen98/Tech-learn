@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FormScreen extends StatefulWidget {
+class StudentProfileScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return FormScreenState();
+    return StudentProfileScreenState();
   }
 }
 
-class FormScreenState extends State<FormScreen> {
-  bool checkboxvalue = false;
+class StudentProfileScreenState extends State<StudentProfileScreen> {
   bool checkBoxValue = false;
   bool showPassword = false;
   int selectedRadio;

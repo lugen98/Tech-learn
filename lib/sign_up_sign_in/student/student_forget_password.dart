@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/services/auth.dart';
-import 'StudentSignIn.dart';
+
+import 'student_sign_in.dart';
 
 class StudentForgotPass extends StatefulWidget {
   @override
@@ -16,7 +17,6 @@ class _StudentForgotPassState extends State<StudentForgotPass> {
   String email = '';
   @override
   Widget build(BuildContext context) {
-
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -48,8 +48,7 @@ class _StudentForgotPassState extends State<StudentForgotPass> {
               color: Color(0xFF053361),
               iconSize: 24,
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => StudentSignIn()));
+                Navigator.pop(context);
               },
               icon: Icon(
                 Icons.arrow_back,
@@ -139,13 +138,13 @@ class _StudentForgotPassState extends State<StudentForgotPass> {
                       if (_formKey.currentState.validate()) {
                         dynamic result = _auth.sendPasswordResetEmail(email);
                         if (result == null) {
-                          setState(
-                                  () => error = 'Failed To Sign In');
+                          setState(() => error = 'Failed To Sign In');
                         } else {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => StudentSignIn()));
                         }
-                      }},
+                      }
+                    },
                   )),
               SizedBox(height: size.height * 0.03),
               InkWell(

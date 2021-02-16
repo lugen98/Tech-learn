@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/UI/teacher_dashboard.dart';
-import 'package:techlearning_app/login&signin/TeacherSignIn.dart';
 import 'package:techlearning_app/services/auth.dart';
-import 'firstsignup.dart';
+import 'package:techlearning_app/sign_up_sign_in/teacher/teacher_sign_in.dart';
 
 class TeacherSign2 extends StatefulWidget {
   @override
@@ -15,13 +14,13 @@ class _TeacherSign2State extends State<TeacherSign2> {
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
   bool isHidePassword = false;
-  bool isshowPassword = false;
+  bool isShowPassword = false;
   //text filed state
   String email = '';
   String password = '';
   String degree = '';
   String major = '';
-  String phoneNumber = "";
+  String phoneNumber = '';
 
   String error = '';
 
@@ -58,8 +57,7 @@ class _TeacherSign2State extends State<TeacherSign2> {
               color: Color(0xFF053361),
               iconSize: 24,
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => FirstSignUp()));
+                Navigator.pop(context);
               },
               icon: Icon(
                 Icons.arrow_back,
@@ -224,7 +222,7 @@ class _TeacherSign2State extends State<TeacherSign2> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      Teacherdashboard()));
+                                                      TeacherDashboard()));
                                         }
                                       }
                                     }),
