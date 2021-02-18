@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/UI/student_dashboard.dart';
-import 'package:techlearning_app/UI/student_profile.dart';
+import 'package:techlearning_app/menu/settings.dart';
+import 'package:techlearning_app/profile/student_profile.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'package:techlearning_app/sign_up_sign_in/home_screen.dart';
 
@@ -113,7 +114,10 @@ class _StudentDrawerState extends State<StudentDrawer> {
       ),
 
       ListTile(
-        onTap: () {},
+        onTap: () { Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Settings()),
+        );},
         leading: Image.asset(
           'images/settings 1.png',
           height: 30,

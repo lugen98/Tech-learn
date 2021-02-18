@@ -1,6 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:techlearning_app/grades/primary/fifth_grade.dart';
+import 'package:techlearning_app/grades/primary/first_grade.dart';
+import 'package:techlearning_app/grades/primary/four_grade.dart';
+import 'package:techlearning_app/grades/primary/seconde_grade.dart';
+import 'package:techlearning_app/grades/primary/sixth_grade.dart';
+import 'package:techlearning_app/grades/primary/third_grade.dart';
 import 'package:techlearning_app/menu/student_drawer.dart';
 
 class StudentDashboardScreen extends StatefulWidget {
@@ -85,25 +91,41 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
 
                         // setState(() {
                         // });
-                       },
+                      },
                       child: Container(
                           height: 120,
                           width: 300,
                           child: ListTile(
-                            title: Image.asset(
-                              "images/Rectangle 14.jpg",
+                            title: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => FirstGrade()));
+                              },
+                              child: Image.asset(
+                                "images/Rectangle 14.jpg",
+                              ),
                             ),
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 SizedBox(height: size.height * 0.01),
-                                Text("First grade",
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18,
-                                      color: Color(0xff053361),
-                                    ))),
+                                InkWell(
+                                    child: Text("First grade",
+                                        style: GoogleFonts.poppins(
+                                            textStyle: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 18,
+                                          color: Color(0xff053361),
+                                        ))),
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  FirstGrade()));
+                                    }),
                                 Container(
                                   child: Text(
                                     "Maths , Sciences and ...",
@@ -123,20 +145,37 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
                         height: 300,
                         width: 300,
                         child: ListTile(
-                          title: Image.asset(
-                            "images/Rectsec.jpg",
+                          title: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SecondGrade()));
+                            },
+                            child: Image.asset(
+                              "images/Rectsec.jpg",
+                            ),
                           ),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               SizedBox(height: size.height * 0.01),
+                          InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            SecondGrade()));
+                              },
+                            child:
                               Text("Second grade",
                                   style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     color: Color(0xff053361),
-                                  ))),
+                                  ))),),
                               Container(
                                 child: Text(
                                   "Maths , Sciences and ...",
@@ -155,20 +194,35 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
                         height: 300,
                         width: 300,
                         child: ListTile(
-                          title: Image.asset(
+                          title:InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ThirdGrade()));
+                            },
+                            child: Image.asset(
                             "images/RectThird.png",
-                          ),
+                          ),),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               SizedBox(height: size.height * 0.01),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ThirdGrade()));
+                            },
+                            child:
                               Text("Third grade",
                                   style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     color: Color(0xff053361),
-                                  ))),
+                                  ))),),
                               Container(
                                 child: Text(
                                   "Maths , Sciences and ...",
@@ -187,20 +241,35 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
                         height: 300,
                         width: 300,
                         child: ListTile(
-                          title: Image.asset(
+                          title:InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => FourthGrade()));
+                            },
+                            child: Image.asset(
                             "images/RectFour.png",
-                          ),
+                          ),),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               SizedBox(height: size.height * 0.01),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => FourthGrade()));
+                            },
+                            child:
                               Text("Fourth grade",
                                   style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     color: Color(0xff053361),
-                                  ))),
+                                  ))),),
                               Container(
                                 child: Text(
                                   "Maths , Sciences and ...",
@@ -219,20 +288,35 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
                         height: 300,
                         width: 300,
                         child: ListTile(
-                          title: Image.asset(
+                          title: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => FifthGrade()));
+                            },
+                            child: Image.asset(
                             "images/RectFifth.png",
-                          ),
+                          ),),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               SizedBox(height: size.height * 0.01),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => FifthGrade()));
+                            },
+                            child:
                               Text("Fiveth grade",
                                   style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     color: Color(0xff053361),
-                                  ))),
+                                  ))),),
                               Container(
                                 child: Text(
                                   "Maths , Sciences and ...",
@@ -251,20 +335,35 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
                         height: 300,
                         width: 300,
                         child: ListTile(
-                          title: Image.asset(
+                          title: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SixthGrade()));
+                            },
+                            child: Image.asset(
                             "images/RectSix.png",
-                          ),
+                          ),),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               SizedBox(height: size.height * 0.01),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SixthGrade()));
+                            },
+                            child:
                               Text("Sixth grade",
                                   style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     color: Color(0xff053361),
-                                  ))),
+                                  ))),),
                               Container(
                                 child: Text(
                                   "Maths , Sciences and ...",
