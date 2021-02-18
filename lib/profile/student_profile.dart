@@ -57,7 +57,7 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
                     fontSize: 17,
                     color:Color(0xFF053361),
                     fontWeight: FontWeight.w500)),
-            hintText: "lugain",
+            hintText: " ",
             labelText: " First Name",
             floatingLabelBehavior: FloatingLabelBehavior.always,
             labelStyle: GoogleFonts.poppins(
