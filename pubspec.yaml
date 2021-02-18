@@ -25,7 +25,7 @@ dependencies:
   firebase_core:
   cloud_firestore:
   flutter_spinkit:
-  flutter_svg: ^0.19.2+1
+  flutter_svg:
   google_sign_in:
   sign_button:
   device_preview:
@@ -57,14 +57,13 @@ dev_dependencies:
     sdk: flutter
 
 dependency_overrides:
-  intl: ^0.17.0-nullsafety.2
+  intl:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
