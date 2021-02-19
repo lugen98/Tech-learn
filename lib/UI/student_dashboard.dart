@@ -67,6 +67,89 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
                 child: ListView(children: <Widget>[
               SizedBox(height: size.height * 0.03),
               Container(
+                padding: EdgeInsets.all(20),
+                child: Text(
+                  "Your Lectures",
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18.0,
+                    color: Color(0xff053361),
+                  )),
+                ),
+              ),
+              Container(
+                height: 218,
+                width: 360,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(08),
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 2,
+                    )),
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Container(
+                      height: 120,
+                      width: 300,
+                      child: ListTile(
+                        title: Text(
+                          "Maths - First grade",
+                          style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18.0,
+                            color: Color(0xff053361),
+                          )),
+                        ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Text(
+                                '20.0 JD',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xff053361),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              child: Text(
+                                "Additional details... ",
+                                style: GoogleFonts.poppins(
+                                    textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14.0,
+                                  color: Colors.grey,
+                                )),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Text(
+                                'Edit info',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xff053361),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
                 padding: EdgeInsets.only(right: 20, left: 10),
                 child: Text(
                   "Primary Classes",
