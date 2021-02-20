@@ -27,9 +27,12 @@ class _StudentDrawerState extends State<StudentDrawer> {
             children: [
               Row(
                 children: [
-                  Image.asset("images/frame1.jpg"),
+                  Padding(padding: EdgeInsets.only(left: 6,right: 6),),
+                  Image.asset("images/frame1.jpg"
+
+                  ),
                   SizedBox(
-                    width: 10.0,
+                   width: 10.0,
                   ),
                   Text(
                     "Heyam Zyoud",
@@ -71,7 +74,7 @@ class _StudentDrawerState extends State<StudentDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w500,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),
@@ -91,27 +94,11 @@ class _StudentDrawerState extends State<StudentDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w500,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),
-      ListTile(
-        onTap: () {},
-        leading: Image.asset(
-          'images/notification 1.png',
-          height: 30,
-          width: 30,
-        ),
-        title: Text(
-          "Notifications",
-          style: GoogleFonts.poppins(
-              textStyle: TextStyle(
-            color: Color(0xFF053361),
-            fontWeight: FontWeight.w500,
-            fontSize: 15,
-          )),
-        ),
-      ),
+
 
       ListTile(
         onTap: () { Navigator.push(
@@ -129,7 +116,7 @@ class _StudentDrawerState extends State<StudentDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w500,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),
@@ -147,7 +134,7 @@ class _StudentDrawerState extends State<StudentDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w500,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),
@@ -165,7 +152,7 @@ class _StudentDrawerState extends State<StudentDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w600,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),
@@ -185,7 +172,7 @@ class _StudentDrawerState extends State<StudentDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w500,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),

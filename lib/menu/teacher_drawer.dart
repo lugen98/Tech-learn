@@ -27,6 +27,7 @@ class _TeacherDrawerState extends State<TeacherDrawer> {
             children: [
               Row(
                 children: [
+                  Padding(padding: EdgeInsets.only(left: 6,right: 6),),
                   Image.asset("images/frame1.jpg"),
                   SizedBox(
                     width: 10.0,
@@ -69,7 +70,7 @@ class _TeacherDrawerState extends State<TeacherDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w500,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),
@@ -89,27 +90,11 @@ class _TeacherDrawerState extends State<TeacherDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w500,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),
-      ListTile(
-        onTap: () {},
-        leading: Image.asset(
-          'images/notification 1.png',
-          height: 30,
-          width: 30,
-        ),
-        title: Text(
-          "Notifications",
-          style: GoogleFonts.poppins(
-              textStyle: TextStyle(
-            color: Color(0xFF053361),
-            fontWeight: FontWeight.w500,
-            fontSize: 15,
-          )),
-        ),
-      ),
+
 
       ListTile(
         onTap: () {
@@ -129,7 +114,7 @@ class _TeacherDrawerState extends State<TeacherDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w500,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),
@@ -147,7 +132,7 @@ class _TeacherDrawerState extends State<TeacherDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w500,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),
@@ -165,7 +150,7 @@ class _TeacherDrawerState extends State<TeacherDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w600,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),
@@ -185,7 +170,7 @@ class _TeacherDrawerState extends State<TeacherDrawer> {
               textStyle: TextStyle(
             color: Color(0xFF053361),
             fontWeight: FontWeight.w500,
-            fontSize: 15,
+            fontSize: 17,
           )),
         ),
       ),

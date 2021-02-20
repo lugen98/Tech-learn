@@ -137,6 +137,7 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
             color: Color(0xFF053361),
             iconSize: 30,
             onPressed: () {
+              Navigator.pop(context);
             },
           ),
           backgroundColor: Colors.transparent,

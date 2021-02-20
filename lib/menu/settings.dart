@@ -11,21 +11,26 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
+        elevation: 0.0,
+
         title: Text(
           'Settings',
           style: GoogleFonts.poppins(
               textStyle: TextStyle(
-            color: Color(0xFF053361),
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
-          )),
+                color: Color(0xFF053361),
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+              )),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -47,10 +52,10 @@ class _SettingsState extends State<Settings> {
                 "Change email",
                 style: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                  color: Color(0xFF053361),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                )),
+                      color: Color(0xFF053361),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                    )),
               ),
               onTap: () {
                 Navigator.push(
@@ -67,10 +72,10 @@ class _SettingsState extends State<Settings> {
                 "Change password",
                 style: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                  color: Color(0xFF053361),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                )),
+                      color: Color(0xFF053361),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                    )),
               ),
               onTap: () {
                 Navigator.push(
@@ -83,3 +88,5 @@ class _SettingsState extends State<Settings> {
     );
   }
 }
+
+

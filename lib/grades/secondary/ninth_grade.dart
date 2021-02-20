@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:techlearning_app/UI/choose_teacher.dart';
 
 class NinthGrade extends StatefulWidget {
   @override
@@ -39,6 +40,7 @@ class _NinthGradeState extends State<NinthGrade> {
             color: Color(0xFF053361),
             iconSize: 27,
             onPressed: () {
+              Navigator.pop(context);
 
             },
             icon: Icon(
@@ -62,37 +64,70 @@ class _NinthGradeState extends State<NinthGrade> {
                 child: ListView(children: <Widget>[
                   InkWell(
                     child: _bulidlevelItem("Maths "),
-                    onTap: () {},
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},
                   ),
                   InkWell( child: _bulidlevelItem("Physics"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
                   InkWell(
                     child: _bulidlevelItem("Chemistry "),
-                    onTap: () {},
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},
                   ),
                   InkWell( child: _bulidlevelItem("Geology"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
                   InkWell(
                     child: _bulidlevelItem("Biology"),
-                    onTap: () {},
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},
                   ),
                   InkWell(
                     child: _bulidlevelItem("Islamic Education"),
-                    onTap: () {},
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},
                   ),
 
                   InkWell(
                     child: _bulidlevelItem("Arabic"),
-                    onTap: () {},
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},
                   ),
                   InkWell( child: _bulidlevelItem("English"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
                   InkWell( child: _bulidlevelItem("National Education"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
                   InkWell( child: _bulidlevelItem("History"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
                   InkWell( child: _bulidlevelItem("Geography"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
 
                 ]),
               )]),
@@ -131,7 +166,10 @@ class _NinthGradeState extends State<NinthGrade> {
             icon: Icon(Icons.arrow_forward),
             color: Color(0xFF053361),
             iconSize: 30,
-            onPressed: () {},
+            onPressed: () { Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ChooseTeacher()));},
           ),
         ],
       ),

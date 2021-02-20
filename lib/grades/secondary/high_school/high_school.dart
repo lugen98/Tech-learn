@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'high_school_literary_studies.dart';
+import 'high_school_professional_studies.dart';
+import 'high_school_scientific_studies.dart';
+
 class HighSchool extends StatefulWidget {
   @override
   _HighSchoolState createState() => _HighSchoolState();
@@ -39,6 +43,7 @@ class _HighSchoolState extends State<HighSchool> {
             color: Color(0xFF053361),
             iconSize: 27,
             onPressed: () {
+              Navigator.pop(context);
 
             },
             icon: Icon(
@@ -62,13 +67,28 @@ class _HighSchoolState extends State<HighSchool> {
                 child: ListView(children: <Widget>[
                   InkWell(
                     child: _bulidlevelItem("Literary Studies "),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HighSchoolLiteraryStudies()));
+                    },
                   ),
                   InkWell( child: _bulidlevelItem("Scientific Studies"),
-                    onTap: () {},),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HighSchoolScientificStudies()));
+                    },),
                   InkWell(
                     child: _bulidlevelItem("Professional Studies"),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HighSchoolProfessionalStudies()));
+                    },
                   ),
 
                 ]),

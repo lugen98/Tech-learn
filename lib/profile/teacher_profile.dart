@@ -170,7 +170,9 @@ class TeacherProfileState extends State<TeacherProfile> {
             icon: Icon(Icons.menu),
             color: Color(0xFF053361),
             iconSize: 30,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
           backgroundColor: Colors.transparent,
           elevation: 0.0,
@@ -186,6 +188,7 @@ class TeacherProfileState extends State<TeacherProfile> {
                 Padding(padding: EdgeInsets.only(right: 30, left: 30)),
               ])),
       body: Container(
+        margin: EdgeInsets.all(10),
         child: GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();

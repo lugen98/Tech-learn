@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'eleventh_grade_literary_studies.dart';
+import 'eleventh_grade_professional_studies.dart';
+import 'eleventh_grade_scientific_studies.dart';
+
 class EleventhGrade extends StatefulWidget {
   @override
   _EleventhGradeState createState() => _EleventhGradeState();
@@ -39,6 +43,7 @@ class _EleventhGradeState extends State<EleventhGrade> {
             color: Color(0xFF053361),
             iconSize: 27,
             onPressed: () {
+              Navigator.pop(context);
 
             },
             icon: Icon(
@@ -62,13 +67,28 @@ class _EleventhGradeState extends State<EleventhGrade> {
                 child: ListView(children: <Widget>[
                   InkWell(
                     child: _bulidlevelItem("Literary Studies "),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LiteraryStudies()));
+                    },
                   ),
                   InkWell( child: _bulidlevelItem("Scientific Studies"),
-                    onTap: () {},),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>  ScientificStudies()));
+                    },),
                   InkWell(
                     child: _bulidlevelItem("Professional Studies"),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProfessionalStudies()));
+                    },
                   ),
 
                 ]),

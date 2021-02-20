@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:techlearning_app/UI/choose_teacher.dart';
 
 class ScientificStudies extends StatefulWidget {
   @override
@@ -30,7 +31,6 @@ class _ScientificStudiesState extends State<ScientificStudies> {
                         color: Color(0xFF053361),
                         fontWeight: FontWeight.w600,
                         fontSize: 17))),
-            Padding(padding: EdgeInsets.only(right: 30, left: 30,top: 10)),
 
           ],
         ),
@@ -39,6 +39,7 @@ class _ScientificStudiesState extends State<ScientificStudies> {
             color: Color(0xFF053361),
             iconSize: 27,
             onPressed: () {
+              Navigator.pop(context);
 
             },
             icon: Icon(
@@ -62,37 +63,70 @@ class _ScientificStudiesState extends State<ScientificStudies> {
                 child: ListView(children: <Widget>[
                   InkWell(
                     child: _bulidlevelItem("Maths - 1st Semester"),
-                    onTap: () {},
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},
                   ),
                   InkWell( child: _bulidlevelItem("Maths - 2nd Semester"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
                   InkWell(
                     child: _bulidlevelItem("Physics "),
-                    onTap: () {},
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},
                   ),
                   InkWell( child: _bulidlevelItem("Chemistry"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
                   InkWell(
                     child: _bulidlevelItem("Geology"),
-                    onTap: () {},
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},
                   ),
                   InkWell(
                     child: _bulidlevelItem("Biology"),
-                    onTap: () {},
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},
                   ),
 
                   InkWell(
                     child: _bulidlevelItem("Islamic Education"),
-                    onTap: () {},
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},
                   ),
                   InkWell( child: _bulidlevelItem("Communication Skills"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
                   InkWell( child: _bulidlevelItem("English"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
                   InkWell( child: _bulidlevelItem("Jordan History"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
                   InkWell( child: _bulidlevelItem("Computer Science"),
-                    onTap: () {},),
+                    onTap: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseTeacher()));},),
 
                 ]),
               )]),
@@ -131,7 +165,10 @@ class _ScientificStudiesState extends State<ScientificStudies> {
             icon: Icon(Icons.arrow_forward),
             color: Color(0xFF053361),
             iconSize: 30,
-            onPressed: () {},
+            onPressed: () { Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ChooseTeacher()));},
           ),
         ],
       ),

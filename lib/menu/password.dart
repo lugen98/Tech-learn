@@ -8,11 +8,13 @@ class Password extends StatefulWidget {
 }
 
 class _PasswordState extends State<Password> {
-  bool hidePwd = true;
+  bool isHidePassword = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
         title:  Text('Change password',
           style: GoogleFonts.poppins(textStyle:TextStyle(
             color:Color(0xFF053361),
@@ -23,7 +25,8 @@ class _PasswordState extends State<Password> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+
         leading: IconButton(
           onPressed: (){Navigator.pop(context);},
           icon: Icon(
@@ -32,10 +35,11 @@ class _PasswordState extends State<Password> {
           ),
         ),
       ),
-      body: Column(
+      body:
+          Container(
+      child:
+      Column(
         children: <Widget>[
-
-
           Expanded(
             child: Container(
               child: Container(
@@ -50,9 +54,19 @@ class _PasswordState extends State<Password> {
                         children: <Widget>[
                           Expanded(
                             child: TextField(
-
-                              obscureText: hidePwd,
+                              obscureText: isHidePassword,
                               decoration: InputDecoration(
+                                suffixIcon: IconButton(
+                                  icon: Icon(isHidePassword
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                                  color: isHidePassword
+                                      ? Color(0xFF0A61B7)
+                                      : Colors.grey,
+                                  onPressed: () {
+                                    _togglePasswordVisability();
+                                  },
+                                ),
                                 hintText: 'Current password',
                                 hintStyle: GoogleFonts.poppins(textStyle:TextStyle(
                               fontWeight:FontWeight.w500  ,
@@ -68,18 +82,7 @@ class _PasswordState extends State<Password> {
                               ),
                             ),
                           ),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            child: IconButton(
-                                onPressed: togglePwdVisibility,
-                                icon: IconButton(
-                                  icon: hidePwd == true ? Icon(
-                                      Icons.visibility_off
-                                  ): Icon(Icons.visibility),
-                                )
-                            ),
-                          )
+
                         ],
                       ),
                     ),
@@ -100,8 +103,20 @@ class _PasswordState extends State<Password> {
                                   fontWeight: FontWeight.w600,
                                   color: Colors.black
                               ),
-                              obscureText: hidePwd,
+                              obscureText: isHidePassword,
                               decoration: InputDecoration(
+                               suffixIcon: IconButton(
+                              icon: Icon(isHidePassword
+                              ? Icons.visibility
+                                  : Icons.visibility_off),
+                      color: isHidePassword
+                          ? Color(0xFF0A61B7)
+                          : Colors.grey,
+                      onPressed: () {
+                        _togglePasswordVisability();
+                      },
+                    ),
+
 
                                 hintText: 'New password',
                                 hintStyle: GoogleFonts.poppins(textStyle:TextStyle(
@@ -118,18 +133,6 @@ class _PasswordState extends State<Password> {
                               ),
                             ),
                           ),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            child: IconButton(
-                                onPressed: togglePwdVisibility,
-                                icon: IconButton(
-                                  icon: hidePwd == true ? Icon(
-                                      Icons.visibility_off
-                                  ): Icon(Icons.visibility),
-                                )
-                            ),
-                          )
                         ],
                       ),
                     ),
@@ -147,8 +150,20 @@ class _PasswordState extends State<Password> {
                                   fontWeight: FontWeight.w600,
                                   color: Colors.black
                               ),
-                              obscureText: hidePwd,
-                              decoration: InputDecoration(
+                      obscureText: isHidePassword,
+                      decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                          icon: Icon(isHidePassword
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                          color: isHidePassword
+                              ? Color(0xFF0A61B7)
+                              : Colors.grey,
+                          onPressed: () {
+                            _togglePasswordVisability();
+                          },
+                        ),
+
 
                                 hintText: 'Confirm new password',
                                 hintStyle: GoogleFonts.poppins(textStyle:TextStyle(
@@ -165,18 +180,6 @@ class _PasswordState extends State<Password> {
                               ),
                             ),
                           ),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            child: IconButton(
-                                onPressed: togglePwdVisibility,
-                                icon: IconButton(
-                                  icon: hidePwd == true ? Icon(
-                                      Icons.visibility_off
-                                  ): Icon(Icons.visibility),
-                                )
-                            ),
-                          )
                         ],
                       ),
                     ),
@@ -222,18 +225,19 @@ class _PasswordState extends State<Password> {
           )
         ],
       ),
-    );
+          ) );
   }
   void openSignUpPage()
   {
     Navigator.pop(context);
 
   }
-  void togglePwdVisibility()
-  {
-    hidePwd = !hidePwd;
-    setState(() {
 
+  void _togglePasswordVisability() {
+    setState(() {
+      isHidePassword = !isHidePassword;
     });
   }
+
+
 }

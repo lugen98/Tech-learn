@@ -8,11 +8,13 @@ class Email extends StatefulWidget {
 }
 
 class _EmailState extends State<Email> {
-  bool hidePwd = true;
+  bool isHidePassword = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
+
         title:  Text('Change email',
           style: GoogleFonts.poppins(textStyle:TextStyle(
             color:Color(0xFF053361),
@@ -23,7 +25,7 @@ class _EmailState extends State<Email> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: (){Navigator.pop(context);},
           icon: Icon(
@@ -128,8 +130,19 @@ class _EmailState extends State<Email> {
                                   fontWeight: FontWeight.w600,
                                   color: Colors.black
                               ),
-                              obscureText: hidePwd,
+                              obscureText: isHidePassword,
                               decoration: InputDecoration(
+                                suffixIcon: IconButton(
+                                  icon: Icon(isHidePassword
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                                  color: isHidePassword
+                                      ? Color(0xFF0A61B7)
+                                      : Colors.grey,
+                                  onPressed: () {
+                                    _togglePasswordVisability();
+                                  },
+                                ),
                                 hintText: 'Password',
                                 hintStyle: GoogleFonts.poppins(textStyle:TextStyle(
                                   fontWeight:FontWeight.w500  ,
@@ -145,18 +158,6 @@ class _EmailState extends State<Email> {
                               ),
                             ),
                           ),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            child: IconButton(
-                                onPressed: togglePwdVisibility,
-                                icon: IconButton(
-                                  icon: hidePwd == true ? Icon(
-                                      Icons.visibility_off
-                                  ): Icon(Icons.visibility),
-                                )
-                            ),
-                          )
                         ],
                       ),
                     ),
@@ -216,11 +217,10 @@ class _EmailState extends State<Email> {
     Navigator.pop(context);
 
   }
-  void togglePwdVisibility()
-  {
-    hidePwd = !hidePwd;
-    setState(() {
 
+  void _togglePasswordVisability() {
+    setState(() {
+      isHidePassword = !isHidePassword;
     });
   }
 }

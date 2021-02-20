@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/UI/student_dashboard.dart';
+import 'package:techlearning_app/UI/choose_teacher.dart';
 
 class FirstGrade extends StatefulWidget {
   @override
@@ -41,12 +41,8 @@ class _FirstGradeState extends State<FirstGrade> {
             iconSize: 27,
             //StudentDashboardScreen
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          StudentDashboardScreen()));
-            },
+              Navigator.pop(context);
+              },
             icon: Icon(
               Icons.arrow_back,
               color: Color(0xFF053361),
@@ -68,24 +64,54 @@ class _FirstGradeState extends State<FirstGrade> {
                       child: ListView(children: <Widget>[
                         InkWell(
                           child: _bulidlevelItem("Maths "),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ChooseTeacher()));
+                          },
                         ),
                         InkWell(
                           child: _bulidlevelItem("Science "),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ChooseTeacher()));
+                          },
                         ),
                         InkWell(
                           child: _bulidlevelItem("Islamic Education"),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ChooseTeacher()));
+                          },
                         ),
                         InkWell(
                           child: _bulidlevelItem("Arabic"),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ChooseTeacher()));
+                          },
                         ),
                         InkWell( child: _bulidlevelItem("English"),
-                          onTap: () {},),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ChooseTeacher()));
+                          },),
                         InkWell( child: _bulidlevelItem("National Education"),
-                          onTap: () {},),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ChooseTeacher()));
+                          },),
                       ]),
                     )]),
     ),
@@ -123,7 +149,12 @@ class _FirstGradeState extends State<FirstGrade> {
             icon: Icon(Icons.arrow_forward),
             color: Color(0xFF053361),
             iconSize: 30,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ChooseTeacher()));
+            },
           ),
         ],
       ),
