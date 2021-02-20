@@ -23,9 +23,9 @@ environment:
 dependencies:
   shared_preferences: ^0.5.12+4
   firebase_core:
-  cloud_firestore:
+#  cloud_firestore:
   flutter_spinkit:
-  flutter_svg: ^0.19.2+1
+  flutter_svg:
   google_sign_in:
   sign_button:
   device_preview:

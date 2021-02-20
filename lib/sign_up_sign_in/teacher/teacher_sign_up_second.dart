@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/UI/teacher_dashboard.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'package:techlearning_app/sign_up_sign_in/teacher/teacher_sign_in.dart';
 
@@ -211,19 +210,19 @@ class _TeacherSign2State extends State<TeacherSign2> {
                                     ),
                                     onPressed: () async {
                                       if (_formKey.currentState.validate()) {
-                                        dynamic result =
-                                            await _auth.teacherRegisterEP(
-                                                major, degree, email, password);
-                                        if (result == email) {
-                                          setState(() => error =
-                                              'The email address is already in use by another account');
-                                        } else {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherDashboard()));
-                                        }
+                                        // dynamic result =
+                                        //     await _auth.teacherRegisterEP(
+                                        //         major, degree, email, password);
+                                        // if (result == email) {
+                                        //   setState(() => error =
+                                        //       'The email address is already in use by another account');
+                                        // } else {
+                                        //   Navigator.push(
+                                        //       context,
+                                        //       MaterialPageRoute(
+                                        //           builder: (context) =>
+                                        //               TeacherDashboard()));
+                                        // }
                                       }
                                     }),
                               ),

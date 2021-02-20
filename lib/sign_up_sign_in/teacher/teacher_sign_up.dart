@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/_common_widgets/or_divider.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'package:techlearning_app/sign_up_sign_in/teacher/teacher_sign_in.dart';
-import 'package:techlearning_app/sign_up_sign_in/teacher/teacher_sign_up_second.dart';
 
 class TeacherSignUp extends StatefulWidget {
   @override
@@ -329,24 +328,24 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                               fontWeight: FontWeight.w700)),
                                     ),
                                     onPressed: () async {
-                                      if (_formKey.currentState.validate()) {
-                                        dynamic result =
-                                            await _auth.teacherRegisterEP(
-                                                firstName,
-                                                lastName,
-                                                email,
-                                                password);
-                                        if (result == null) {
-                                          setState(() =>
-                                              error = 'Failed To Sign In');
-                                        } else {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherSign2()));
-                                        }
-                                      }
+                                      // if (_formKey.currentState.validate()) {
+                                      //   // dynamic result =
+                                      //   //     await _auth.teacherRegisterEP(
+                                      //   //         firstName,
+                                      //   //         lastName,
+                                      //   //         email,
+                                      //   //         password);
+                                      //   if (result == null) {
+                                      //     setState(() =>
+                                      //         error = 'Failed To Sign In');
+                                      //   } else {
+                                      //     Navigator.push(
+                                      //         context,
+                                      //         MaterialPageRoute(
+                                      //             builder: (context) =>
+                                      //                 TeacherSign2()));
+                                      //   }
+                                      // }
                                     }),
                               ),
                             ]),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/UI/student_dashboard.dart';
 import 'package:techlearning_app/_common_widgets/or_divider.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'package:techlearning_app/sign_up_sign_in/student/student_sign_in.dart';
@@ -326,24 +325,24 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                             fontWeight: FontWeight.w700)),
                                   ),
                                   onPressed: () async {
-                                    if (_formKey.currentState.validate()) {
-                                      dynamic result =
-                                          await _auth.studentRegisterEP(
-                                              firstName,
-                                              lastName,
-                                              email,
-                                              password);
-                                      if (result == null) {
-                                        setState(
-                                            () => error = 'Failed To Sign In');
-                                      } else {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    StudentDashboardScreen()));
-                                      }
-                                    }
+                                    // if (_formKey.currentState.validate()) {
+                                    //   dynamic result =
+                                    //       await _auth.studentRegisterEP(
+                                    //           firstName,
+                                    //           lastName,
+                                    //           email,
+                                    //           password);
+                                    //   if (result == null) {
+                                    //     setState(
+                                    //         () => error = 'Failed To Sign In');
+                                    //   } else {
+                                    //     Navigator.push(
+                                    //         context,
+                                    //         MaterialPageRoute(
+                                    //             builder: (context) =>
+                                    //                 StudentDashboardScreen()));
+                                    //   }
+                                    // }
                                   },
                                 ),
                               )
