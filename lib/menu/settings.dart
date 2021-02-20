@@ -44,26 +44,6 @@ class _SettingsState extends State<Settings> {
                 color: Color(0xFF053361),
               ),
               title: new Text(
-                "Change phone number",
-                style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                  color: Color(0xFF053361),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                )),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Phone()),
-                );
-              }),
-          new ListTile(
-              trailing: new Icon(
-                Icons.arrow_forward,
-                color: Color(0xFF053361),
-              ),
-              title: new Text(
                 "Change email",
                 style: GoogleFonts.poppins(
                     textStyle: TextStyle(
