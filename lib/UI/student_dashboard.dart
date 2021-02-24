@@ -24,9 +24,11 @@ class StudentDashboardScreen extends StatefulWidget {
 }
 
 class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
+  Size size;
+
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+     size = MediaQuery.of(context).size;
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -99,637 +101,24 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
     ListView(children: <Widget>[
                   SizedBox(height: size.height * 0.03),
 
-                  Container(
-              padding: EdgeInsets.only(right: 20, left: 10),
-                child: Text(
-                  "Primary Classes",
-                  style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 18,
-                    color: Color(0xff053361),
-                  )),
-                ),
-              ),
+             getPrimaryWidget(),
               SizedBox(height: size.height * 0.02),
-               Container(
-                  height: 218,
-                  width: 360,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                         Container(
-                            height: 120,
-                            width: 300,
-                            child: ListTile(
-                              title: InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => FirstGrade()));
-                                },
-                                child: Image.asset(
-                                  "images/Rectangle 14.jpg",
-                                ),
-                              ),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  SizedBox(height: size.height * 0.01),
-                                  InkWell(
-                                      child: Text("First grade",
-                                          style: GoogleFonts.poppins(
-                                              textStyle: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 18,
-                                            color: Color(0xff053361),
-                                          ))),
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    FirstGrade()));
-                                      }),
-                                  Container(
-                                    child: Text(
-                                      "Maths , Sciences and ...",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 18.0,
-                                              color: Color(0xff6D747A))),
-                                      maxLines: null,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )),
-
-                      Container(
-                          height: 300,
-                          width: 300,
-                          child: ListTile(
-                            title: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SecondGrade()));
-                              },
-                              child: Image.asset(
-                                "images/Rectsec.jpg",
-                              ),
-                            ),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(height: size.height * 0.01),
-                            InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              SecondGrade()));
-                                },
-                              child:
-                                Text("Second grade",
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18,
-                                      color: Color(0xff053361),
-                                    ))),),
-                                Container(
-                                  child: Text(
-                                    "Maths , Sciences and ...",
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 18.0,
-                                            color: Color(0xff6D747A))),
-                                    maxLines: null,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )),
-                      Container(
-                          height: 300,
-                          width: 300,
-                          child: ListTile(
-                            title:InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ThirdGrade()));
-                              },
-                              child: Image.asset(
-                              "images/RectThird.png",
-                            ),),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(height: size.height * 0.01),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ThirdGrade()));
-                              },
-                              child:
-                                Text("Third grade",
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18,
-                                      color: Color(0xff053361),
-                                    ))),),
-                                Container(
-                                  child: Text(
-                                    "Maths , Sciences and ...",
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 18.0,
-                                            color: Color(0xff6D747A))),
-                                    maxLines: null,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )),
-                      Container(
-                          height: 300,
-                          width: 300,
-                          child: ListTile(
-                            title:InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => FourthGrade()));
-                              },
-                              child: Image.asset(
-                              "images/RectFour.png",
-                            ),),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(height: size.height * 0.01),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => FourthGrade()));
-                              },
-                              child:
-                                Text("Fourth grade",
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18,
-                                      color: Color(0xff053361),
-                                    ))),),
-                                Container(
-                                  child: Text(
-                                    "Maths , Sciences and ...",
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 18.0,
-                                            color: Color(0xff6D747A))),
-                                    maxLines: null,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )),
-                      Container(
-                          height: 300,
-                          width: 300,
-                          child: ListTile(
-                            title: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => FifthGrade()));
-                              },
-                              child: Image.asset(
-                              "images/RectFifth.png",
-                            ),),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(height: size.height * 0.01),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => FifthGrade()));
-                              },
-                              child:
-                                Text("Fiveth grade",
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18,
-                                      color: Color(0xff053361),
-                                    ))),),
-                                Container(
-                                  child: Text(
-                                    "Maths , Sciences and ...",
-                                    maxLines: null,
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 18.0,
-                                            color: Color(0xff6D747A))),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )),
-                      Container(
-                          height: 300,
-                          width: 300,
-                          child: ListTile(
-                            title: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SixthGrade()));
-                              },
-                              child: Image.asset(
-                              "images/RectSix.png",
-                            ),),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(height: size.height * 0.01),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SixthGrade()));
-                              },
-                              child:
-                                Text("Sixth grade",
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18,
-                                      color: Color(0xff053361),
-                                    ))),),
-                                Container(
-                                  child: Text(
-                                    "Maths , Sciences and ...",
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 18.0,
-                                            color: Color(0xff6D747A))),
-                                    maxLines: null,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )),
-
-
-                ]),
-              ),
+              getPrimaryClassesList(),
               SizedBox(height: size.height * 0.03),
-              Container(
-                padding: EdgeInsets.only(right: 25, left: 15),
-                child: Text(
-                  "Secondry Classes",
-                  style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 18,
-                    color: Color(0xff053361),
-                  )),
-                ),
-              ),
+            getSecondaryWidget(),
               SizedBox(height: size.height * 0.02),
-              Container(
-                  height: 218,
-                  width: 360,
-                  child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        Container(
-                            height: 120,
-                            width: 300,
-                            child: ListTile(
-                              title:  InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => SeventhGrade()));
-                                },
-                                child:
-                              Image.asset(
-                                "images/Rectangle 15.jpg",
-                              ),),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  SizedBox(height: size.height * 0.01),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => SeventhGrade()));
-                                },
-                                child:
-                                  Text("Seventh grade",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18,
-                                        color: Color(0xff053361),
-                                      ))),),
-                                  Container(
-                                    child: Text(
-                                      "Maths , Sciences and ...",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 18.0,
-                                              color: Color(0xff6D747A))),
-                                      maxLines: null,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )),
-                        Container(
-                            height: 300,
-                            width: 300,
-                            child: ListTile(
-                              title:InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => EighthGrade()));
-                                },
-                                child:
-                              Image.asset(
-                                "images/RectSeven.png",
-                              ),),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  SizedBox(height: size.height * 0.01),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => EighthGrade()));
-                                },
-                                child:
-                                  Text("Eighth grade",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18,
-                                        color: Color(0xff053361),
-                                      ))),),
-                                  Container(
-                                    child: Text(
-                                      "Maths , Sciences and ...",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 18.0,
-                                              color: Color(0xff6D747A))),
-                                      maxLines: null,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )),
-                        Container(
-                            height: 300,
-                            width: 300,
-                            child: ListTile(
-                              title:InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => NinthGrade()));
-                                },
-                                child:
-                              Image.asset(
-                                "images/RectNinth.png",
-                              ),),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  SizedBox(height: size.height * 0.01),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => NinthGrade()));
-                                },
-                                child:
-                                  Text("Ninth grade",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18,
-                                        color: Color(0xff053361),
-                                      ))),),
-                                  Container(
-                                    child: Text(
-                                      "Maths , Sciences and ...",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 18.0,
-                                              color: Color(0xff6D747A))),
-                                      maxLines: null,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )),
-                        Container(
-                            height: 300,
-                            width: 300,
-                            child: ListTile(
-                              title:
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => TenthGrade()));
-                                  },
-                                  child:
-                              Image.asset(
-                                "images/RectTen.png",
-                              ),),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  SizedBox(height: size.height * 0.01),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => TenthGrade()));
-                                },
-                                child:
-                                  Text("Tenth grade",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18,
-                                        color: Color(0xff053361),
-                                      ))),),
-                                  Container(
-                                    child: Text(
-                                      "Maths , Sciences and ...",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 18.0,
-                                              color: Color(0xff6D747A))),
-                                      maxLines: null,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )),
-                        Container(
-                            height: 300,
-                            width: 300,
-                            child: ListTile(
-                              title:
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => EleventhGrade()));
-                                },
-                                child:
-                              Image.asset(
-                                "images/RectEleven.png",
-                              ),),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  SizedBox(height: size.height * 0.01),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => EleventhGrade()));
-                                },
-                                child:
-                                  Text("Eleventh grade",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18,
-                                        color: Color(0xff053361),
-                                      ))),),
-                                  Container(
-                                    child: Text(
-                                      "Maths , Sciences and ...",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 18.0,
-                                              color: Color(0xff6D747A))),
-                                      maxLines: null,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )),
-                        Container(
-                          height: 300,
-                          width: 300,
-                          child: ListTile(
-                            title:InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => HighSchool()));
-                              },
-                              child:
-                            Image.asset(
-                              "images/RectHight.png",
-                            ),),
-                            subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  SizedBox(height: size.height * 0.01),
-                            InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => HighSchool()));
-                                },
-                                child:
-                                  Text("High school",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18,
-                                        color: Color(0xff053361),
-                                      ))),),
-                                  Container(
-                                    child: Text(
-                                      "Maths , Sciences and ...",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 18.0,
-                                              color: Color(0xff6D747A))),
-                                      maxLines: null,
-                                    ),
-                                  ),
-                                ]),
-                          ),
-                        ),
-                      ])),
-              Padding(
-                padding: EdgeInsets.only(right: 20, left: 10),
-                child: Text(
-                  "Training Courses",
-                  style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                          color: Color(0xFF053361),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600)),
+             getSecondaryClassesList(),
+                Padding(
+                  padding: EdgeInsets.only(right: 20, left: 10),
+                  child: Text(
+                    "Training Courses",
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            color: Color(0xFF053361),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700)),
+                  ),
                 ),
-              ),
               SizedBox(height: size.height * 0.02),
     Container(
     child: Row(
@@ -770,4 +159,630 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
           ),
         ));
   }
+  Widget getPrimaryWidget(){
+    return      Container(
+      padding: EdgeInsets.only(right: 20, left: 10),
+      child: Text(
+        "Primary Classes",
+        style: GoogleFonts.poppins(
+            textStyle: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 18,
+              color: Color(0xff053361),
+            )),
+      ),
+    );
+  }
+  Widget getPrimaryClassesList(){
+   return Container(
+      height: 218,
+      width: 360,
+      child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            Container(
+                height: 120,
+                width: 300,
+                child: ListTile(
+                  title: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FirstGrade()));
+                    },
+                    child: Image.asset(
+                      "images/Rectangle 14.jpg",
+                    ),
+                  ),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: size.height * 0.01),
+                      InkWell(
+                          child: Text("First grade",
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    color: Color(0xff053361),
+                                  ))),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        FirstGrade()));
+                          }),
+                      Container(
+                        child: Text(
+                          "Maths , Sciences and ...",
+                          style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0,
+                                  color: Color(0xff6D747A))),
+                          maxLines: null,
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
+
+            Container(
+                height: 300,
+                width: 300,
+                child: ListTile(
+                  title: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SecondGrade()));
+                    },
+                    child: Image.asset(
+                      "images/Rectsec.jpg",
+                    ),
+                  ),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: size.height * 0.01),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      SecondGrade()));
+                        },
+                        child:
+                        Text("Second grade",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18,
+                                  color: Color(0xff053361),
+                                ))),),
+                      Container(
+                        child: Text(
+                          "Maths , Sciences and ...",
+                          style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0,
+                                  color: Color(0xff6D747A))),
+                          maxLines: null,
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
+            Container(
+                height: 300,
+                width: 300,
+                child: ListTile(
+                  title:InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ThirdGrade()));
+                    },
+                    child: Image.asset(
+                      "images/RectThird.png",
+                    ),),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: size.height * 0.01),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ThirdGrade()));
+                        },
+                        child:
+                        Text("Third grade",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18,
+                                  color: Color(0xff053361),
+                                ))),),
+                      Container(
+                        child: Text(
+                          "Maths , Sciences and ...",
+                          style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0,
+                                  color: Color(0xff6D747A))),
+                          maxLines: null,
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
+            Container(
+                height: 300,
+                width: 300,
+                child: ListTile(
+                  title:InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FourthGrade()));
+                    },
+                    child: Image.asset(
+                      "images/RectFour.png",
+                    ),),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: size.height * 0.01),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FourthGrade()));
+                        },
+                        child:
+                        Text("Fourth grade",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18,
+                                  color: Color(0xff053361),
+                                ))),),
+                      Container(
+                        child: Text(
+                          "Maths , Sciences and ...",
+                          style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0,
+                                  color: Color(0xff6D747A))),
+                          maxLines: null,
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
+            Container(
+                height: 300,
+                width: 300,
+                child: ListTile(
+                  title: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FifthGrade()));
+                    },
+                    child: Image.asset(
+                      "images/RectFifth.png",
+                    ),),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: size.height * 0.01),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FifthGrade()));
+                        },
+                        child:
+                        Text("Fiveth grade",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18,
+                                  color: Color(0xff053361),
+                                ))),),
+                      Container(
+                        child: Text(
+                          "Maths , Sciences and ...",
+                          maxLines: null,
+                          style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0,
+                                  color: Color(0xff6D747A))),
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
+            Container(
+                height: 300,
+                width: 300,
+                child: ListTile(
+                  title: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SixthGrade()));
+                    },
+                    child: Image.asset(
+                      "images/RectSix.png",
+                    ),),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: size.height * 0.01),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SixthGrade()));
+                        },
+                        child:
+                        Text("Sixth grade",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18,
+                                  color: Color(0xff053361),
+                                ))),),
+                      Container(
+                        child: Text(
+                          "Maths , Sciences and ...",
+                          style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0,
+                                  color: Color(0xff6D747A))),
+                          maxLines: null,
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
+
+
+          ]),
+    );
+  }
+  Widget getSecondaryWidget(){
+    return   Container(
+      padding: EdgeInsets.only(right: 25, left: 15),
+      child: Text(
+        "Secondry Classes",
+        style: GoogleFonts.poppins(
+            textStyle: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 18,
+              color: Color(0xff053361),
+            )),
+      ),
+    );
+  }
+  Widget getSecondaryClassesList(){
+   return Container(
+        height: 218,
+        width: 360,
+        child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              Container(
+                  height: 120,
+                  width: 300,
+                  child: ListTile(
+                    title:  InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SeventhGrade()));
+                      },
+                      child:
+                      Image.asset(
+                        "images/Rectangle 15.jpg",
+                      ),),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(height: size.height * 0.01),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SeventhGrade()));
+                          },
+                          child:
+                          Text("Seventh grade",
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    color: Color(0xff053361),
+                                  ))),),
+                        Container(
+                          child: Text(
+                            "Maths , Sciences and ...",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18.0,
+                                    color: Color(0xff6D747A))),
+                            maxLines: null,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                  height: 300,
+                  width: 300,
+                  child: ListTile(
+                    title:InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EighthGrade()));
+                      },
+                      child:
+                      Image.asset(
+                        "images/RectSeven.png",
+                      ),),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(height: size.height * 0.01),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EighthGrade()));
+                          },
+                          child:
+                          Text("Eighth grade",
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    color: Color(0xff053361),
+                                  ))),),
+                        Container(
+                          child: Text(
+                            "Maths , Sciences and ...",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18.0,
+                                    color: Color(0xff6D747A))),
+                            maxLines: null,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                  height: 300,
+                  width: 300,
+                  child: ListTile(
+                    title:InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NinthGrade()));
+                      },
+                      child:
+                      Image.asset(
+                        "images/RectNinth.png",
+                      ),),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(height: size.height * 0.01),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NinthGrade()));
+                          },
+                          child:
+                          Text("Ninth grade",
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    color: Color(0xff053361),
+                                  ))),),
+                        Container(
+                          child: Text(
+                            "Maths , Sciences and ...",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18.0,
+                                    color: Color(0xff6D747A))),
+                            maxLines: null,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                  height: 300,
+                  width: 300,
+                  child: ListTile(
+                    title:
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TenthGrade()));
+                      },
+                      child:
+                      Image.asset(
+                        "images/RectTen.png",
+                      ),),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(height: size.height * 0.01),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TenthGrade()));
+                          },
+                          child:
+                          Text("Tenth grade",
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    color: Color(0xff053361),
+                                  ))),),
+                        Container(
+                          child: Text(
+                            "Maths , Sciences and ...",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18.0,
+                                    color: Color(0xff6D747A))),
+                            maxLines: null,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                  height: 300,
+                  width: 300,
+                  child: ListTile(
+                    title:
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EleventhGrade()));
+                      },
+                      child:
+                      Image.asset(
+                        "images/RectEleven.png",
+                      ),),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(height: size.height * 0.01),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EleventhGrade()));
+                          },
+                          child:
+                          Text("Eleventh grade",
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    color: Color(0xff053361),
+                                  ))),),
+                        Container(
+                          child: Text(
+                            "Maths , Sciences and ...",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18.0,
+                                    color: Color(0xff6D747A))),
+                            maxLines: null,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                height: 300,
+                width: 300,
+                child: ListTile(
+                  title:InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HighSchool()));
+                    },
+                    child:
+                    Image.asset(
+                      "images/RectHight.png",
+                    ),),
+                  subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(height: size.height * 0.01),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HighSchool()));
+                          },
+                          child:
+                          Text("High school",
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    color: Color(0xff053361),
+                                  ))),),
+                        Container(
+                          child: Text(
+                            "Maths , Sciences and ...",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18.0,
+                                    color: Color(0xff6D747A))),
+                            maxLines: null,
+                          ),
+                        ),
+                      ]),
+                ),
+              ),
+            ]));
+  }
+
 }

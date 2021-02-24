@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:techlearning_app/entities/loginModel.dart';
 
 
 class ViewInfo extends StatefulWidget {
@@ -125,7 +126,7 @@ class ViewInfoState extends State<ViewInfo> {
                 SizedBox(
                   // width: 79,
                   //height: 23,
-                  child:Text('Ahmad.Ali.90@gmail.com',
+                  child:Text('loginMode',
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                           color: Color(0xFF053361),

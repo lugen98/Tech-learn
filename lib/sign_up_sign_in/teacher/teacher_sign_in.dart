@@ -3,8 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/UI/teacher_dashboard.dart';
 import 'package:techlearning_app/_common_widgets/or_divider.dart';
+import 'package:techlearning_app/entities/loginModel.dart';
 import 'package:techlearning_app/services/auth.dart';
-import 'package:techlearning_app/shared/my_constants.dart';
+import 'package:techlearning_app/services/auth_provider.dart';
 import 'package:techlearning_app/shared/shared_preferences_management.dart';
 import 'package:techlearning_app/sign_up_sign_in/teacher/teacher_forgot_password.dart';
 
@@ -18,6 +19,8 @@ class TeacherSignIn extends StatefulWidget {
 class _TeacherSignInState extends State<TeacherSignIn> {
   SharedPreferencesManagement _sharedPreferencesManagement;
   final AuthService _auth = AuthService();
+  AuthProvider _loginProvider = AuthProvider();
+
   final _formKey = GlobalKey<FormState>();
   bool isHidePassword = false;
 
@@ -73,7 +76,11 @@ class _TeacherSignInState extends State<TeacherSignIn> {
             ),
           ),
         ),
-        body: Container(
+        body: _loginProvider.isLoading
+            ? Container(
+          child: Center(child: CircularProgressIndicator()),
+        )
+            : Container(
           child: SingleChildScrollView(
               child: Column(children: <Widget>[
             Container(
@@ -241,7 +248,10 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                               ],
                             ),
                           ),
-
+                          Text(
+                            error,
+                            style: TextStyle(color: Colors.red, fontSize: 12.0),
+                          ),
                           //sign In Button
                           Container(
                             child: Column(children: <Widget>[
@@ -263,17 +273,22 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                             fontWeight: FontWeight.w700)),
                                   ),
                                   onPressed: () async {
-                                    if (_formKey.currentState.validate()) {
-                                      dynamic result = await _auth
-                                          .signInTeacherEP(email, _password);
+                                    setState(() {
+                                      _loginProvider.isLoading = true;
+                                    });
+                                    if (_formKey.currentState
+                                        .validate()) {
+                                      LoginModel result =
+                                      await _loginProvider.login(
+                                          email, _password);
                                       if (result == null) {
-                                        setState(
-                                            () => error = 'Failed To Sign In');
+                                        setState(() =>
+                                        error = 'Failed To Sign In');
                                       } else {
-                                        SharedPreferencesManagement.setUserEmail(
-                                            email);
-                                        SharedPreferencesManagement.setUserType(
-                                            MyConstants.USER_TYPE_TEACHER);
+                                        print(result.firstname);
+                                        print(result.lastname);
+                                        print(result.email);
+                                        print(result.usertype);
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
@@ -287,10 +302,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                             ]),
                           ),
 
-                          Text(
-                            error,
-                            style: TextStyle(color: Colors.red, fontSize: 12.0),
-                          ),
+
                           Container(
                             child: Column(
                               children: <Widget>[

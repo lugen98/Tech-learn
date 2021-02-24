@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:techlearning_app/UI/student_dashboard.dart';
 import 'package:techlearning_app/_common_widgets/or_divider.dart';
+import 'package:techlearning_app/entities/registerModel.dart';
 import 'package:techlearning_app/services/auth.dart';
+import 'package:techlearning_app/services/auth_provider.dart';
 import 'package:techlearning_app/sign_up_sign_in/student/student_sign_in.dart';
 
 class StudentSignUp extends StatefulWidget {
@@ -12,6 +15,8 @@ class StudentSignUp extends StatefulWidget {
 
 class _StudentSignUpState extends State<StudentSignUp> {
   final AuthService _auth = AuthService();
+  AuthProvider _registerProvider = AuthProvider();
+
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
   bool isHidePassword = false;
@@ -325,24 +330,29 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                             fontWeight: FontWeight.w700)),
                                   ),
                                   onPressed: () async {
-                                    // if (_formKey.currentState.validate()) {
-                                    //   dynamic result =
-                                    //       await _auth.studentRegisterEP(
-                                    //           firstName,
-                                    //           lastName,
-                                    //           email,
-                                    //           password);
-                                    //   if (result == null) {
-                                    //     setState(
-                                    //         () => error = 'Failed To Sign In');
-                                    //   } else {
-                                    //     Navigator.push(
-                                    //         context,
-                                    //         MaterialPageRoute(
-                                    //             builder: (context) =>
-                                    //                 StudentDashboardScreen()));
-                                    //   }
-                                    // }
+                                    setState(() {
+                                      _registerProvider.isLoading = true;
+                                    });
+                                    if (_formKey.currentState
+                                        .validate()) {
+                                      RegisterModel result =
+                                      await _registerProvider.register(firstName,lastName,
+                                          email, password,"","","",1);
+                                      if (result == null) {
+                                        setState(() =>
+                                        error = 'Failed To Sign In');
+                                      } else {
+                                        print(result.firstname);
+                                        print(result.lastname);
+                                        print(result.email);
+                                        print(result.usertype);
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    StudentDashboardScreen()));
+                                      }
+                                    }
                                   },
                                 ),
                               )

@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     SharedPreferencesManagement.init();
     super.initState();
-    Timer(Duration(seconds: 5), () => goToNextPage());
+    Timer(Duration(seconds: 7), () => goToNextPage());
   }
 
   goToNextPage() {
@@ -79,12 +79,30 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             child: Column(
               children: <Widget>[
-                SizedBox(height: size.height * 0.04),
+                SizedBox(height: size.height * 0.02),
                 SvgPicture.asset(
                   "images/Frame 1.svg",
-                  height: size.height * 0.25,
+                  height: 120,
+                  width: 120,
                 ),
-              ],
+
+                  //progresslogo.svg
+                  Image.asset("images/gfplogo.jpeg",
+                    height: 120,
+                    width: 120,
+                  ),
+                  Image.asset("images/progressSoftlogo.jpg",
+                  height: 120,
+                    width: 120,
+                  ),
+                      //mafraq.jpeg
+                      Image.asset("images/mafraq.jpeg",
+                        height: 120,
+                        width: 120,
+                      ),
+
+
+            ],
             ),
           ),
           SizedBox(height: size.height * 0.06),
