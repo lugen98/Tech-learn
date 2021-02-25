@@ -30,17 +30,15 @@ class TeacherDashboard extends StatefulWidget {
 }
 
 class _TeacherDashboardState extends State<TeacherDashboard> {
-  final url = AppUrls();
-  AuthProvider _loginProvider = AuthProvider();
 
-  GetCoursesByTeacherIdProvider getCoursesProvider =
-      GetCoursesByTeacherIdProvider();
+  GetCoursesByTeacherIdProvider getCoursesProvider = GetCoursesByTeacherIdProvider();
   List<GetCourseByTeacherId> allTeacherCoursesList = [];
   Size size;
   @override
   void initState() {
     super.initState();
     getCoursesTeacher();
+
   }
 
   getCoursesTeacher() async {
@@ -86,8 +84,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                     preferredSize: Size.fromHeight(6.0),
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 3.0),
-                      child: Text(
-                        "Lugain Fareed",
+                      child: Text("lugain",
                         style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                           fontWeight: FontWeight.w500,
@@ -233,7 +230,8 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                                             child:
                                           Align(
                                             alignment: Alignment.bottomRight,
-                                            child: Text(
+                                            child:
+                                             Text(
                                               'Edit info',
                                               textAlign: TextAlign.left,
                                               style: TextStyle(

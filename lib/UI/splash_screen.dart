@@ -79,33 +79,47 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             child: Column(
               children: <Widget>[
-                SizedBox(height: size.height * 0.02),
+
                 SvgPicture.asset(
                   "images/Frame 1.svg",
-                  height: 120,
-                  width: 120,
+                height: size.height * 0.09
+
+                  // width: 120,
                 ),
+                SizedBox(height: size.height * 0.03),
 
-                  //progresslogo.svg
-                  Image.asset("images/gfplogo.jpeg",
-                    height: 120,
-                    width: 120,
-                  ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
                   Image.asset("images/progressSoftlogo.jpg",
-                  height: 120,
-                    width: 120,
-                  ),
-                      //mafraq.jpeg
-                      Image.asset("images/mafraq.jpeg",
-                        height: 120,
-                        width: 120,
-                      ),
+                      height: size.height * 0.09
 
+                    // width: 120,
+                  ),
+                      Image.asset("images/codejologo.jpeg",
+                          height: size.height * 0.20
+                      )]),
+                SizedBox(height: size.height * 0.04),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset("images/gfplogo.jpeg",
+                    height: size.height * 0.20
+
+                  // width: 120,
+                ),
+                      Padding(padding: EdgeInsets.only(right: 20,left: 20),),
+                      //
+                      Image.asset("images/mafraq.jpeg",
+                          height: size.height * 0.20
+                      ),
+]),
 
             ],
             ),
           ),
-          SizedBox(height: size.height * 0.06),
+          SizedBox(height: size.height * 0.04),
           Container(
             child: Column(
               children: <Widget>[

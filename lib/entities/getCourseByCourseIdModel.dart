@@ -1,6 +1,4 @@
-
 import 'dart:convert';
-
 GetCoursebyCourseId getCoursebyCourseIdFromJson(String str) => GetCoursebyCourseId.fromJson(json.decode(str));
 
 String getCoursebyCourseIdToJson(GetCoursebyCourseId data) => json.encode(data.toJson());
@@ -17,9 +15,9 @@ class GetCoursebyCourseId {
     this.coursedetails,
   });
 
- dynamic id;
- dynamic ownerid;
- dynamic coursetype;
+  int id;
+  int ownerid;
+  int coursetype;
   String coursename;
   String coursegrade;
   String coursesubject;

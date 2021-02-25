@@ -14,7 +14,7 @@ import 'package:techlearning_app/grades/secondary/high_school/high_school.dart';
 import 'package:techlearning_app/grades/secondary/ninth_grade.dart';
 import 'package:techlearning_app/grades/secondary/seventh_grade.dart';
 import 'package:techlearning_app/grades/secondary/tenth_grade.dart';
-import 'package:techlearning_app/menu/teacher_drawer.dart';
+import 'package:techlearning_app/menu/student_drawer.dart';
 import 'package:techlearning_app/profile/student_profile.dart';
 var scaffoldkey = GlobalKey<ScaffoldState>();
 
@@ -39,7 +39,7 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
             backgroundColor: Colors.white,
             key: scaffoldkey,
             drawer: Drawer(
-              child: TeacherDrawer(),
+              child: StudentDrawer(),
             ),
             appBar: AppBar(
               leading: IconButton(
