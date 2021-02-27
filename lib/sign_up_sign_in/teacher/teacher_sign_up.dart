@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/UI/teacher_dashboard.dart';
 import 'package:techlearning_app/_common_widgets/or_divider.dart';
 import 'package:techlearning_app/entities/registerModel.dart';
-import 'package:techlearning_app/services/auth.dart';
 import 'package:techlearning_app/services/auth_provider.dart';
 import 'package:techlearning_app/sign_up_sign_in/teacher/teacher_sign_in.dart';
 
@@ -235,48 +234,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                   setState(() => password = val);
                                 }),
                           ),
-                          SizedBox(height: size.height * 0.03),
-                          SizedBox(
-                            height: 49,
-                            width: 328,
-                            child: TextFormField(
-                                validator: (val) => val.length < 6
-                                    ? 'Password does not match'
-                                    : null,
-                                /* validator: (val) =>
-                                    val.compareTo(password) != null
-                                        ? "Password does not match"
-                                        : null,*/
-                                obscureText: !isShowPassword,
-                                decoration: InputDecoration(
-                                  suffixIcon: IconButton(
-                                    icon: Icon(isShowPassword
-                                        ? Icons.visibility
-                                        : Icons.visibility_off),
-                                    color: isShowPassword
-                                        ? Color(0xFF0A61B7)
-                                        : Colors.grey,
-                                    onPressed: () {
-                                      _togglePassVisability();
-                                    },
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    borderSide: BorderSide(width: 1),
-                                  ),
-                                  hintText: "Confirm password",
-                                  prefixIcon: Icon(Icons.lock),
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFC8CACC),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10)),
-                                ),
-                                onChanged: (val) {
-                                  setState(() => confirmPass = val);
-                                }),
-                          ),
+
                           SizedBox(height: size.height * 0.03),
                           SizedBox(
                             width: 328,

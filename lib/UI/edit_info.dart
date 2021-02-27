@@ -21,7 +21,7 @@ class EditInformation extends StatelessWidget {
                       textStyle: TextStyle(
                           color: Color(0xFF053361),
                           fontWeight: FontWeight.w600,
-                          fontSize: 20))),
+                          fontSize: 18))),
               Padding(padding: EdgeInsets.only(right: 30, left: 30)),
             ],
           ),
@@ -44,9 +44,9 @@ class EditInformation extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SizedBox(height: size.height * 0.05),
+                SizedBox(height: size.height * 0.01),
                 TextFormField(
-                  keyboardType:  TextInputType.number,
+
                   decoration: InputDecoration(
                     hintText: '20',
                     prefixIcon: Image.asset(
@@ -71,17 +71,16 @@ class EditInformation extends StatelessWidget {
                           icon: Icon(Icons.chat),
                           onPressed: () {},
                         ),
+
                         Expanded(
-                          child: Text(
-                            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer',
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                  color: Color(0xFF6D747A),
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15),
-                            ),
-                          ),
+                            child:
+                            TextFormField(
+                              decoration: const InputDecoration(
+                                hintText: 'Additional details',
+
+
+                              ),
+                            )
                         ),
 
                       ],
@@ -150,6 +149,7 @@ class EditInformation extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
                                 SizedBox(height: size.height * 0.03),
+
                                 Text(
                                   "Cancel",
                                   style: GoogleFonts.poppins(
@@ -157,7 +157,7 @@ class EditInformation extends StatelessWidget {
                                           fontSize: 16,
                                           color: Color(0xFFC8CACC),
                                           fontWeight: FontWeight.bold)),
-                                ),
+                                 ),
                                 Padding(
                                   padding:
                                   EdgeInsets.only(left: 5.0, right: 5.0),

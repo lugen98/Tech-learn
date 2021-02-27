@@ -15,14 +15,14 @@ class AddCourse extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('First Grade  -',
+            Text('Add -',
                 style: GoogleFonts.poppins(
                     textStyle: TextStyle(
                         color: Color(0xFF053361),
                         fontWeight: FontWeight.w500,
                         fontSize: 16))),
             Padding(padding: EdgeInsets.only(right: 5)),
-            Text('Maths',
+            Text('Information',
                 style: GoogleFonts.poppins(
                     textStyle: TextStyle(
                         color: Color(0xFF053361),

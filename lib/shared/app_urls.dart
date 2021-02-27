@@ -16,4 +16,7 @@ class AppUrls {
   static String registerUrl() {
     return BASE_URL + '/register';
   }
+  static String editCourseUrl() {
+    return BASE_URL + '/editcourse';
+  }
 }

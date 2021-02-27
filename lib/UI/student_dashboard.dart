@@ -56,27 +56,13 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
                 "Welcome",
                 style: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14.0,
-                  color: Color(0xff6D747A),
+                  fontWeight: FontWeight.w600,
+                  fontSize: 17.0,
+                  color: Color(0xFF0A61B7),
                 )),
               ),
               centerTitle: true,
-              bottom: PreferredSize(
-                preferredSize: Size.fromHeight(6.0),
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 3.0),
-                  child: Text(
-                    "Lugain Fareed",
-                    style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16.0,
-                      color: Color(0xff0A61B7),
-                    )),
-                  ),
-                ),
-              ),
+
               backgroundColor: Colors.white,
               elevation: 5,
               actions: <Widget>[

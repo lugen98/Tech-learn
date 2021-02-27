@@ -49,7 +49,7 @@ class ViewCourseInfo extends StatelessWidget {
         margin: EdgeInsets.all(20),
         child: Column(
           children: <Widget>[
-            SizedBox(height: size.height * 0.04),
+            SizedBox(height: size.height * 0.01),
 
             SizedBox(
               // width: 328,

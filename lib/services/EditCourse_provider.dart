@@ -16,13 +16,13 @@ class EditCourseProvider {
 
   // ignore: missing_return
   Future<EditCourseModel> putEditCourse() async {
-    var url = AppUrls.loginUrl();
+    var url = AppUrls.editCourseUrl();
     Map<String, String> headers = {"Content-type": "application/json"};
 
     isLoading = true;
 
 
-    Response apiResponse = await post(url, headers: headers);
+    Response apiResponse = await put(url, headers: headers);
     print("SendApi Response status: ${apiResponse.statusCode}");
     print("SendApi ${apiResponse.headers}");
     print("SendApi ${apiResponse.request}");

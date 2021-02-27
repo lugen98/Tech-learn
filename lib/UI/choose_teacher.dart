@@ -71,14 +71,16 @@ class _ChooseTeacherState extends State<ChooseTeacher> {
           ? Container(
               child: Center(child: CircularProgressIndicator()),
             )
-          : Container(
+          : SingleChildScrollView(
+    child:
+      Container(
               child: Column(
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.all(20),
                     child: Column(
                       children: <Widget>[
-                        SizedBox(height: size.height * 0.02),
+                       // SizedBox(height: size.height * 0.01),
                         SizedBox(
                           child: TextFormField(
                             decoration: const InputDecoration(
@@ -93,7 +95,7 @@ class _ChooseTeacherState extends State<ChooseTeacher> {
                   /////////////////////////box1
 
                   SizedBox(
-                      height: 600,
+                      height: 650,
                       child: Container(
                         child: Expanded(
                           child:
@@ -102,7 +104,7 @@ class _ChooseTeacherState extends State<ChooseTeacher> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
-                                  height: 170,
+                                  height: 160,
                                   width: 360,
                                   decoration: BoxDecoration(
                                       color: Colors.white,
@@ -134,8 +136,8 @@ class _ChooseTeacherState extends State<ChooseTeacher> {
                                           Align(
                                             alignment: Alignment.topLeft,
                                             child: Text(
-                                              allCoursesByIdList.coursegrade +
-                                                  allCoursesByIdList.coursesubject+"     "+allCoursesByIdList.courseprice,
+                                              allCoursesByIdList.coursegrade +"\n"+
+                                                  allCoursesByIdList.coursesubject+"      "+allCoursesByIdList.courseprice,
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                 fontSize: 16,
@@ -199,6 +201,6 @@ class _ChooseTeacherState extends State<ChooseTeacher> {
 /////////////////////////////////
               ),
             ),
-    );
+    ));
   }
 }

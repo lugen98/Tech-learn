@@ -74,26 +74,13 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                     "Welcome",
                     style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.0,
-                      color: Color(0xff6D747A),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 17.0,
+                      color: Color(0xFF0A61B7),
                     )),
                   ),
                   centerTitle: true,
-                  bottom: PreferredSize(
-                    preferredSize: Size.fromHeight(6.0),
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 3.0),
-                      child: Text("lugain",
-                        style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16.0,
-                          color: Color(0xff0A61B7),
-                        )),
-                      ),
-                    ),
-                  ),
+
                   backgroundColor: Colors.white,
                   elevation: 5,
                   actions: <Widget>[
@@ -202,8 +189,8 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                                     width: 300,
                                     child: ListTile(
                                       title: Text(
-                                        allTeacherCoursesList[index].coursename +
-                                            allTeacherCoursesList[index].coursegrade,
+                                        allTeacherCoursesList[index].coursegrade+ "\n"+
+                                            allTeacherCoursesList[index].coursename,
                                         style: GoogleFonts.poppins(
                                             textStyle: TextStyle(
                                           fontWeight: FontWeight.w500,
@@ -211,8 +198,10 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                                           color: Color(0xff053361),
                                         )),
                                       ),
+
                                       subtitle: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+
+                                       // crossAxisAlignment: CrossAxisAlignment.center,
                                         children: <Widget>[
                                           Align(
                                             alignment: Alignment.bottomRight,
@@ -221,8 +210,8 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                 fontSize: 16,
-                                                fontWeight: FontWeight.w500,
-                                                color: Color(0xff053361),
+                                                fontWeight: FontWeight.w600,
+                                                color: Color(0xff6D747A),
                                               ),
                                             ),
                                           ),
@@ -236,8 +225,8 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                 fontSize: 16,
-                                                fontWeight: FontWeight.w500,
-                                                color: Color(0xff053361),
+                                                fontWeight: FontWeight.w700,
+                                                color:  Color(0xFF0A61B7),
                                               ),
                                             ),
                                              ),
