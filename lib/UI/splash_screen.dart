@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     SharedPreferencesManagement.init();
     super.initState();
-    Timer(Duration(seconds: 5), () => goToNextPage());
+    Timer(Duration(seconds: 7), () => goToNextPage());
   }
 
   goToNextPage() {
@@ -60,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(height: size.height * 0.30),
+                SizedBox(height: size.height * 0.20),
                 Text('Tech',
                     style: GoogleFonts.poppins(
                         textStyle: TextStyle(
@@ -79,18 +79,57 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             child: Column(
               children: <Widget>[
-                SizedBox(height: size.height * 0.04),
+                Padding(padding:EdgeInsets.only(right: 15.0),),
+
                 SvgPicture.asset(
                   "images/Frame 1.svg",
-                  height: size.height * 0.25,
+                height: size.height * 0.07
+
+                  // width: 120,
                 ),
-              ],
+                SizedBox(height: size.height * 0.03),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+                    children: <Widget>[
+                  Image.asset("images/progressSoftlogo.jpg",
+                      height: size.height * 0.09
+
+                    // width: 120,
+                  ),
+                      Image.asset("images/codejologo.jpeg",
+                          height: size.height * 0.20
+                      )]),
+                SizedBox(height: size.height * 0.04),
+
+            Row(
+
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Padding(padding:EdgeInsets.only(right: 15.0),),
+
+                Image.asset("images/gfplogo.jpeg",
+                    height: size.height * 0.20
+
+                  // width: 120,
+                ),
+                      Padding(padding: EdgeInsets.only(right: 20,left: 20),),
+                      //
+                      Image.asset("images/mafraq.jpeg",
+                          height: size.height * 0.20
+                      ),
+]),
+
+            ],
             ),
           ),
-          SizedBox(height: size.height * 0.06),
+          SizedBox(height: size.height * 0.04),
           Container(
+
             child: Column(
               children: <Widget>[
+
+
                 SizedBox(height: size.height * 0.10),
                 CircularProgressIndicator(),
                 SizedBox(height: size.height * 0.03),

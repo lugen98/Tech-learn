@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/UI/choose_teacher.dart';
 import 'package:techlearning_app/UI/course_detailes.dart';
 
 
@@ -70,7 +69,7 @@ class _FirstGradeState extends State<FirstGrade> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>  ChooseTeacher()));
+                                    builder: (context) =>   AddCourse()));
                           },
                         ),
                         InkWell(
@@ -79,7 +78,7 @@ class _FirstGradeState extends State<FirstGrade> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ChooseTeacher()));
+                                    builder: (context) =>  AddCourse()));
                           },
                         ),
                         InkWell(
@@ -88,7 +87,7 @@ class _FirstGradeState extends State<FirstGrade> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ChooseTeacher()));
+                                    builder: (context) => AddCourse()));
                           },
                         ),
                         InkWell(
@@ -97,7 +96,7 @@ class _FirstGradeState extends State<FirstGrade> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ChooseTeacher()));
+                                    builder: (context) => AddCourse()));
                           },
                         ),
                         InkWell( child: _bulidlevelItem("English"),
@@ -105,14 +104,14 @@ class _FirstGradeState extends State<FirstGrade> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ChooseTeacher()));
+                                    builder: (context) => AddCourse()));
                           },),
                         InkWell( child: _bulidlevelItem("National Education"),
                           onTap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ChooseTeacher()));
+                                    builder: (context) => AddCourse()));
                           },),
                       ]),
                     )]),
@@ -155,7 +154,7 @@ class _FirstGradeState extends State<FirstGrade> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ChooseTeacher()));
+                      builder: (context) => AddCourse()));
             },
           ),
         ],

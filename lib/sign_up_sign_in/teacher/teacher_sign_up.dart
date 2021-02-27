@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:techlearning_app/UI/teacher_dashboard.dart';
 import 'package:techlearning_app/_common_widgets/or_divider.dart';
+import 'package:techlearning_app/entities/registerModel.dart';
 import 'package:techlearning_app/services/auth.dart';
+import 'package:techlearning_app/services/auth_provider.dart';
 import 'package:techlearning_app/sign_up_sign_in/teacher/teacher_sign_in.dart';
 
 class TeacherSignUp extends StatefulWidget {
@@ -11,19 +14,20 @@ class TeacherSignUp extends StatefulWidget {
 }
 
 class _TeacherSignUpState extends State<TeacherSignUp> {
-  final AuthService _auth = AuthService();
+  AuthProvider _registerProvider = AuthProvider();
   final _formKey = GlobalKey<FormState>();
-  bool loading = false;
   bool isHidePassword = false;
   bool isShowPassword = false;
-  TextEditingController _email = new TextEditingController();
-  TextEditingController _password = new TextEditingController();
+
   //text filed state
   String firstName = '';
   String lastName = '';
   String email = '';
   String password = '';
   String confirmPass = '';
+  String degree = '';
+  String major = '';
+  String phoneNumber = '';
 
   String error = '';
 
@@ -100,7 +104,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                   padding: EdgeInsets.only(
                       top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
                   onPressed: () async {
-                    await _auth.signInGoogle();
+                   // await _auth.signInGoogle();
                   },
                   child: new Row(
                     mainAxisSize: MainAxisSize.min,
@@ -178,7 +182,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                             width: 328,
                             height: 49,
                             child: TextFormField(
-                              controller: _email,
+
                               validator: (val) =>
                                   val.isEmpty ? 'Enter email' : null,
                               decoration: InputDecoration(
@@ -200,7 +204,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                             width: 328,
                             height: 49,
                             child: TextFormField(
-                                controller: _password,
+
                                 validator: (val) => val.length < 6
                                     ? 'password Should be more than 6'
                                     : null,
@@ -273,6 +277,74 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                   setState(() => confirmPass = val);
                                 }),
                           ),
+                          SizedBox(height: size.height * 0.03),
+                          SizedBox(
+                            width: 328,
+                            height: 49,
+                            child: TextFormField(
+                              validator: (val) =>
+                                  val.isEmpty ? 'Enter your Degree' : null,
+                              decoration: InputDecoration(
+                                  hintText: 'Degree',
+                                  labelText: 'Degree',
+                                  prefixIcon: Image.asset(
+                                    'images/Degree Icon.png',
+                                    height: 30,
+                                    width: 30,
+                                  ),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFC8CACC),
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10))),
+                              onChanged: (val) {
+                                setState(() => degree = val);
+                              },
+                            ),
+                          ),
+                          SizedBox(height: size.height * 0.03),
+                          SizedBox(
+                            width: 328,
+                            height: 49,
+                            child: TextFormField(
+                              validator: (val) =>
+                                  val.isEmpty ? 'Enter your Major' : null,
+                              decoration: InputDecoration(
+                                  hintText: 'Major',
+                                  labelText: 'Major',
+                                  prefixIcon: Icon(Icons.bookmark),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFC8CACC),
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10))),
+                              onChanged: (val) {
+                                setState(() => major = val);
+                              },
+                            ),
+                          ),
+                          SizedBox(height: size.height * 0.03),
+                          SizedBox(
+                            width: 328,
+                            height: 49,
+                            child: TextFormField(
+                              keyboardType: TextInputType.phone,
+                              decoration: InputDecoration(
+                                  labelText: 'Phone Number',
+                                  prefixIcon: Icon(Icons.phone),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFC8CACC),
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10))),
+                              onChanged: (val) {
+                                setState(() => phoneNumber = val);
+                              },
+                            ),
+                          ),
                           SizedBox(height: size.height * 0.02),
                           Container(
                               child: Row(
@@ -308,6 +380,14 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                               fontSize: 12))),
                                 )
                               ])),
+                          SizedBox(
+                            height: 12.0,
+                            child: Text(
+                              error,
+                              style:
+                                  TextStyle(color: Colors.red, fontSize: 14.0),
+                            ),
+                          ),
                           Container(
                             child: Column(children: <Widget>[
                               SizedBox(height: size.height * 0.03),
@@ -320,32 +400,46 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10))),
                                     child: Text(
-                                      "Next",
+                                      "Sign Up",
                                       style: GoogleFonts.poppins(
                                           textStyle: TextStyle(
-                                              fontSize: 16,
+                                              fontSize: 17,
                                               color: Color(0xFF053361),
                                               fontWeight: FontWeight.w700)),
                                     ),
                                     onPressed: () async {
-                                      // if (_formKey.currentState.validate()) {
-                                      //   // dynamic result =
-                                      //   //     await _auth.teacherRegisterEP(
-                                      //   //         firstName,
-                                      //   //         lastName,
-                                      //   //         email,
-                                      //   //         password);
-                                      //   if (result == null) {
-                                      //     setState(() =>
-                                      //         error = 'Failed To Sign In');
-                                      //   } else {
-                                      //     Navigator.push(
-                                      //         context,
-                                      //         MaterialPageRoute(
-                                      //             builder: (context) =>
-                                      //                 TeacherSign2()));
-                                      //   }
-                                      // }
+                                      setState(() {
+                                        _registerProvider.isLoading = true;
+                                      });
+                                      if (_formKey.currentState.validate()) {
+                                        RegisterModel result =
+                                            await _registerProvider.register(
+                                                firstName,
+                                                lastName,
+                                                email,
+                                                password,
+                                                degree,
+                                                major,
+                                                phoneNumber,
+                                                0);
+                                        if (result == null) {
+                                          setState(() =>
+                                              error = 'Failed To Sign In');
+                                        } else {
+                                          print(result.firstname);
+                                          print(result.lastname);
+                                          print(result.email);
+                                          print(result.degree);
+                                          print(result.major);
+                                          print(result.phone);
+                                          print(result.usertype);
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TeacherDashboard()));
+                                        }
+                                      }
                                     }),
                               ),
                             ]),
@@ -353,7 +447,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                           Container(
                             child: Column(
                               children: <Widget>[
-                                SizedBox(height: size.height * 0.03),
+                                SizedBox(height: size.height * 0.02),
                                 Text(
                                   'Already have an account?',
                                   style: GoogleFonts.poppins(
@@ -381,14 +475,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                               ],
                             ),
                           ),
-                          SizedBox(
-                            height: 12.0,
-                            child: Text(
-                              error,
-                              style:
-                                  TextStyle(color: Colors.red, fontSize: 14.0),
-                            ),
-                          ),
+                          SizedBox(height: size.height * 0.02),
                         ]))))
           ])),
         ));

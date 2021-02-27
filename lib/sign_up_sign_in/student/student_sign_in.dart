@@ -236,6 +236,11 @@ class _StudentSignInState extends State<StudentSignIn> {
                                     ],
                                   ),
                                 ),
+                                Text(
+                                  error,
+                                  style: TextStyle(
+                                      color: Colors.red, fontSize: 12.0),
+                                ),
                                 Container(
                                   child: Column(children: <Widget>[
                                     SizedBox(height: size.height * 0.03),
@@ -284,11 +289,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                                     ),
                                   ]),
                                 ),
-                                Text(
-                                  error,
-                                  style: TextStyle(
-                                      color: Colors.red, fontSize: 12.0),
-                                ),
+
                                 Container(
                                   child: Column(
                                     children: <Widget>[

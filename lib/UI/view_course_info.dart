@@ -110,7 +110,7 @@ class ViewCourseInfo extends StatelessWidget {
                           width: 125,
                           height: 21,
                           child:
-                          Text("Maths-First grade",
+                          Text("photoshop",
                             // textAlign:TextAlign.left ,
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
@@ -125,7 +125,7 @@ class ViewCourseInfo extends StatelessWidget {
                       ],
                     ),
                     //////////////////////
-                    Row(
+                  /*  Row(
                       children: <Widget>[
                         Padding(padding:EdgeInsets.only(left: 16.0),),
 
@@ -147,7 +147,7 @@ class ViewCourseInfo extends StatelessWidget {
                         ),
 
                       ],
-                    ),
+                    ),*/
 ////////////////////////////////////////////////
                     Container(
                       child:Row(
@@ -226,178 +226,10 @@ class ViewCourseInfo extends StatelessWidget {
             ),
 //////////////////////////////////////////////////////////////////
             //Box2
-            Column(
-
-              children: <Widget>[
-
-                SizedBox(height: 40.0),
-                SizedBox(
-                  width: 313,
-                  height: 134,
-                  child:Container(
-                    child: Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Padding(padding:EdgeInsets.only(left: 16.0),),
-
-                            Text('Ahmad Ali',
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                    color: Color(0xFF053361),
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18),
-                              ),
-
-                            ),
-                            Padding(padding:EdgeInsets.only(left: 120.0,right: 20.0),),
-
-                            Text("JOD 20",
-                              // textAlign:TextAlign.left ,
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-
-                                    color: Color(0xFF053361),
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14),
-                              ),
-
-                            ),
-                          ],
-                        ),
-
-
-
-
-                        Row(
-                          children: <Widget>[
-                            Padding(padding:EdgeInsets.only(left: 16.0),),
-
-                            SizedBox(height: 6.0),
-                            SizedBox(
-                              width: 125,
-                              height: 21,
-                              child:
-                              Text("Maths-First grade",
-                                // textAlign:TextAlign.left ,
-                                style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                      color: Color(0xFF053361),
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),
-
-                          ],
-                        ),
-                        //////////////////////
-                        Row(
-                          children: <Widget>[
-                            Padding(padding:EdgeInsets.only(left: 16.0),),
-
-                            SizedBox(height: 6.0),
-                            SizedBox(
-                              width: 125,
-                              height: 21,
-                              child:
-                              Text("Course Training",
-                                // textAlign:TextAlign.left ,
-                                style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                      color: Color(0xFF053361),
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),
-
-                          ],
-                        ),
-///////////////////////////////////////////////////////////
-                        Row(
-                          children: <Widget>[
-                            Padding(padding:EdgeInsets.only(left: 16.0),),
-
-                            SizedBox(height: 6.0),
-                            SizedBox(
-                              width: 125,
-                              height: 21,
-                              child:
-                              Text("25 hours",
-                                // textAlign:TextAlign.left ,
-                                style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                      color: Color(0xFF053361),
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),
-
-                          ],
-                        ),
-                        ////////////////////////
-                        Row(
-                          children: <Widget>[
-                            //Padding(padding:EdgeInsets.only(bottom: 79.0)),
-
-                            Padding(padding:EdgeInsets.only(right: 230.0),),
-                            SizedBox(height: 6.0),
-                            SizedBox(
-                              width: 65,
-                              height: 21,
-                              child:
-                              InkWell(
-
-                                onTap: (){
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>ViewInfo(),
-                                    ),
-                                  );
-                                },
-                                child:Text("View Info",
-                                  // textAlign:TextAlign.left ,
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                        color: Color(0xFF0A61B7),
-                                        fontStyle: FontStyle.normal,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 14),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-
-
-
-
-
-                      ],
-                    ),
-                    decoration: BoxDecoration(
-                      border:Border.all(color: Color(0xFFC8CACC),width: 1),
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                    ),
-                  ),
-                ),
-
-
-              ],
-
-            ),
+            //
 //////////////////////////////////////////////////////////////////////////////////
             //box3
-            Column(
+          /* Column(
               children: <Widget>[
 
                 SizedBox(height: 40.0),
@@ -564,7 +396,7 @@ class ViewCourseInfo extends StatelessWidget {
 
               ],
 
-            ),
+            ),*/
 
 
 
