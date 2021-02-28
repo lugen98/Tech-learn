@@ -1,12 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:techlearning_app/UI/teacher_dashboard.dart';
 import 'package:techlearning_app/_common_widgets/or_divider.dart';
-import 'package:techlearning_app/entities/loginModel.dart';
+import 'package:techlearning_app/entities/registerModel.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'package:techlearning_app/services/auth_provider.dart';
-import 'package:techlearning_app/shared/shared_preferences_management.dart';
 import 'package:techlearning_app/sign_up_sign_in/teacher/teacher_forgot_password.dart';
 
 import 'teacher_sign_up.dart';
@@ -17,7 +19,6 @@ class TeacherSignIn extends StatefulWidget {
 }
 
 class _TeacherSignInState extends State<TeacherSignIn> {
-  SharedPreferencesManagement _sharedPreferencesManagement;
   final AuthService _auth = AuthService();
   AuthProvider _loginProvider = AuthProvider();
 
@@ -278,22 +279,19 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                     });
                                     if (_formKey.currentState
                                         .validate()) {
-                                      LoginModel result =
+                                      UserModel result =
                                       await _loginProvider.login(
                                           email, _password);
                                       if (result == null) {
                                         setState(() =>
                                         error = 'Failed To Sign In');
                                       } else {
+                                        saveUserInSharedPreferences(result);
                                         print(result.firstname);
                                         print(result.lastname);
                                         print(result.email);
                                         print(result.usertype);
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    TeacherDashboard()));
+
                                       }
                                     }
                                   },
@@ -343,5 +341,16 @@ class _TeacherSignInState extends State<TeacherSignIn> {
     setState(() {
       isHidePassword = !isHidePassword;
     });
+  }
+
+  saveUserInSharedPreferences(UserModel userModel) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    String user = jsonEncode(userModel);
+    pref.setString('userData', user);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                TeacherDashboard()));
   }
 }

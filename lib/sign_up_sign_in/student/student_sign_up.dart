@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:techlearning_app/UI/student_dashboard.dart';
 import 'package:techlearning_app/_common_widgets/or_divider.dart';
 import 'package:techlearning_app/entities/registerModel.dart';
@@ -234,48 +237,6 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                 }),
                           ),
                           SizedBox(height: size.height * 0.03),
-                          SizedBox(
-                            height: 49,
-                            width: 328,
-                            child: TextFormField(
-                                validator: (val) => val.length < 6
-                                    ? 'Password does not match'
-                                    : null,
-                                /*validator: (val) =>
-                                    val.compareTo(password) != null
-                                        ? "Password does not match"
-                                        : null,*/
-                                obscureText: !isshowPassword,
-                                decoration: InputDecoration(
-                                  suffixIcon: IconButton(
-                                    icon: Icon(isshowPassword
-                                        ? Icons.visibility
-                                        : Icons.visibility_off),
-                                    color: isshowPassword
-                                        ? Color(0xFF0A61B7)
-                                        : Colors.grey,
-                                    onPressed: () {
-                                      _togglePassVisability();
-                                    },
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    borderSide: BorderSide(width: 1),
-                                  ),
-                                  hintText: "Confirm password",
-                                  prefixIcon: Icon(Icons.lock),
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFC8CACC),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10)),
-                                ),
-                                onChanged: (val) {
-                                  setState(() => confirmPass = val);
-                                }),
-                          ),
-                          SizedBox(height: size.height * 0.02),
                           Container(
                               child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -335,22 +296,19 @@ class _StudentSignUpState extends State<StudentSignUp> {
                                     });
                                     if (_formKey.currentState
                                         .validate()) {
-                                      RegisterModel result =
+                                      UserModel result =
                                       await _registerProvider.register(firstName,lastName,
                                           email, password,"","","",1);
                                       if (result == null) {
                                         setState(() =>
                                         error = 'Failed To Sign In');
                                       } else {
+                                        saveUserInSharedPreferences(result);
                                         print(result.firstname);
                                         print(result.lastname);
                                         print(result.email);
                                         print(result.usertype);
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    StudentDashboardScreen()));
+
                                       }
                                     }
                                   },
@@ -408,9 +366,15 @@ class _StudentSignUpState extends State<StudentSignUp> {
     });
   }
 
-  void _togglePassVisability() {
-    setState(() {
-      isshowPassword = !isshowPassword;
-    });
+
+  saveUserInSharedPreferences(UserModel userModel) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    String user = jsonEncode(userModel);
+    pref.setString('userData', user);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                StudentDashboardScreen()));
   }
 }

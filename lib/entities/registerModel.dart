@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-RegisterModel registerModelFromJson(String str) => RegisterModel.fromJson(json.decode(str));
+UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 
-String registerModelToJson(RegisterModel data) => json.encode(data.toJson());
+String userModelToJson(UserModel data) => json.encode(data.toJson());
 
-class RegisterModel {
-  RegisterModel({
+class UserModel {
+  UserModel({
     this.id,
     this.email,
     this.firstname,
@@ -27,7 +27,7 @@ class RegisterModel {
   String phone;
   String usertype;
 
-  factory RegisterModel.fromJson(Map<String, dynamic> json) => RegisterModel(
+  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
     id: json["id"] == null ? null : json["id"],
     email: json["email"] == null ? null : json["email"],
     firstname: json["firstname"] == null ? null : json["firstname"],

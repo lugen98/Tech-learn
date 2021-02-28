@@ -1,12 +1,14 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:techlearning_app/UI/student_dashboard.dart';
 import 'package:techlearning_app/UI/teacher_dashboard.dart';
+import 'package:techlearning_app/entities/registerModel.dart';
 import 'package:techlearning_app/shared/my_constants.dart';
-import 'package:techlearning_app/shared/shared_preferences_management.dart';
 import 'package:techlearning_app/sign_up_sign_in/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,29 +19,16 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    SharedPreferencesManagement.init();
     super.initState();
     Timer(Duration(seconds: 7), () => goToNextPage());
   }
 
   goToNextPage() {
-    String savedUserType = SharedPreferencesManagement.getUserType.toString();
-    print('###################################');
-    print('###################################');
-    print('###################################');
-    print('###################################');
-
-    print(savedUserType);
-    print('###################################');
-    print('###################################');
-    print('###################################');
-
-    if (SharedPreferencesManagement.getUserType.toString() ==
-        MyConstants.USER_TYPE_TEACHER.toString()) {
+  //  UserModel userModel =g
+    if (UserModel == MyConstants.USER_TYPE_TEACHER.toString()) {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => TeacherDashboard()));
-    } else if (SharedPreferencesManagement.getUserType.toString() ==
-        MyConstants.USER_TYPE_STUDENT.toString()) {
+    } else if (UserModel == MyConstants.USER_TYPE_STUDENT.toString()) {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => StudentDashboardScreen()));
     } else {
@@ -147,4 +136,13 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
         ]))));
   }
+  Future<UserModel> getUser() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    String userString = pref.getString('userData');
+    Map json = jsonDecode(userString);
+    UserModel user = UserModel.fromJson(json);
+    return user;
+  }
+
+
 }

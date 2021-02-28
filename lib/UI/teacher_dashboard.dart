@@ -125,8 +125,8 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                       getTrainingCoursesWidget(),
                       ]),
                       SizedBox(height: size.height * 0.02),
-                      getAddCourseWidget(),
-                      SizedBox(height: size.height * 0.02),
+                     // getAddCourseWidget(),
+                    //  SizedBox(height: size.height * 0.02),
                       getNextButton(),
                       SizedBox(height: size.height * 0.04),
                     ]),
@@ -868,23 +868,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
     );
   }
 
-  Widget getAddCourseWidget() {
-    return SizedBox(
-      height: 49,
-      width: 328,
-      child: TextFormField(
-        validator: (val) => val.isEmpty ? 'please Enter Course Name' : null,
-        decoration: InputDecoration(
-            hintText: "Enter Course Name",
-            border: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Color(0xFFC8CACC),
-                  width: 2,
-                ),
-                borderRadius: BorderRadius.circular(10))),
-      ),
-    );
-  }
+
 
   Widget getNextButton() {
     return SizedBox(

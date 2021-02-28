@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:techlearning_app/UI/teacher_dashboard.dart';
 import 'package:techlearning_app/_common_widgets/or_divider.dart';
 import 'package:techlearning_app/entities/registerModel.dart';
@@ -370,7 +373,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                         _registerProvider.isLoading = true;
                                       });
                                       if (_formKey.currentState.validate()) {
-                                        RegisterModel result =
+                                        UserModel result =
                                             await _registerProvider.register(
                                                 firstName,
                                                 lastName,
@@ -384,6 +387,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                           setState(() =>
                                               error = 'Failed To Sign In');
                                         } else {
+                                          saveUserInSharedPreferences(result);
                                           print(result.firstname);
                                           print(result.lastname);
                                           print(result.email);
@@ -391,11 +395,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                           print(result.major);
                                           print(result.phone);
                                           print(result.usertype);
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherDashboard()));
+
                                         }
                                       }
                                     }),
@@ -444,10 +444,15 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
       isHidePassword = !isHidePassword;
     });
   }
-
-  void _togglePassVisability() {
-    setState(() {
-      isShowPassword = !isShowPassword;
-    });
+  saveUserInSharedPreferences(UserModel userModel) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    String user = jsonEncode(userModel);
+    pref.setString('userData', user);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                TeacherDashboard()));
   }
+
 }
