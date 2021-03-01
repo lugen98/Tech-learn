@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/menu/student_drawer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
+import 'package:techlearning_app/entities/registerModel.dart';
 
 class StudentProfileScreen extends StatefulWidget {
   @override
@@ -29,15 +31,14 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
 
   String _name;
   String _lastname;
-  // ignore: non_constant_identifier_names
-  String _Date;
   @override
   void initState() {
+    getUser();
     super.initState();
     selectedRadio = 0;
   }
 
-  void Date() {
+  void date() {
     Text("${selectedDate.toLocal()}".split(' ')[0]);
     SizedBox(
       height: 20.0,
@@ -47,15 +48,13 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
     Widget _buildName() {
       return TextFormField(
         decoration: InputDecoration(
-            hintStyle:GoogleFonts.poppins(
+            hintStyle: GoogleFonts.poppins(
                 textStyle: TextStyle(
                     fontSize: 17,
-                    color:Color(0xFF053361),
+                    color: Color(0xFF053361),
                     fontWeight: FontWeight.w500)),
             hintText: "lugain",
             labelText: " First Name",
@@ -79,10 +78,10 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
           _lastname = value;
         },
         decoration: InputDecoration(
-            hintStyle:GoogleFonts.poppins(
+            hintStyle: GoogleFonts.poppins(
                 textStyle: TextStyle(
                     fontSize: 17,
-                    color:Color(0xFF053361),
+                    color: Color(0xFF053361),
                     fontWeight: FontWeight.w500)),
             hintText: " fareed ",
             labelText: " Last Name",
@@ -94,31 +93,31 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
                     fontWeight: FontWeight.w700))),
       );
     }
+
     SizedBox(height: size.height * 0.02);
 
     Widget _buildDate() {
       return TextFormField(
-        onTap:() {setState(() {
-          _selectDate(context);
-        });},
+        onTap: () {
+          setState(() {
+            _selectDate(context);
+          });
+        },
         readOnly: true,
         decoration: InputDecoration(
-          hintStyle:GoogleFonts.poppins(
+          hintStyle: GoogleFonts.poppins(
               textStyle: TextStyle(
                   fontSize: 17,
-                  color:Color(0xFF053361),
+                  color: Color(0xFF053361),
                   fontWeight: FontWeight.w500)),
           hintText: (selectedDate.toString().split(' ')[0]),
           labelText: "Date of birth",
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon:
-          Image.asset(
+          suffixIcon: Image.asset(
             'images/Vector.jpg',
             height: 20,
             width: 20,
           ),
-
-
           labelStyle: GoogleFonts.poppins(
               textStyle: TextStyle(
                   fontSize: 18,
@@ -250,7 +249,6 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
                       onPressed: () {
                         print(_name);
                         print(_lastname);
-                        print(_Date);
                       },
                     ),
                   )
@@ -267,5 +265,17 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
     setState(() {
       selectedRadio = val;
     });
+  }
+
+  Future<UserModel> getUser() async {
+    try {
+      SharedPreferences pref = await SharedPreferences.getInstance();
+      String userString = pref.getString('userData');
+      Map json = jsonDecode(userString);
+      UserModel user = UserModel.fromJson(json);
+      return user;
+    } catch (e) {
+      return null;
+    }
   }
 }

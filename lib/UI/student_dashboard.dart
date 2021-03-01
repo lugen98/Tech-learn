@@ -140,7 +140,9 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
                 builder: (context) => ViewCourseInfo()));},
       ),
     ],)),
-]))
+      SizedBox(height: size.height * 0.02),
+
+    ]))
           ),
         ));
   }

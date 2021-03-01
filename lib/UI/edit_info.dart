@@ -2,7 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class EditInformation extends StatelessWidget {
+class EditInformation extends StatefulWidget {
+  @override
+  _EditInformationState createState() => _EditInformationState();
+}
+
+class _EditInformationState extends State<EditInformation> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
