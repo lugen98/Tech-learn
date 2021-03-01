@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'package:techlearning_app/services/users.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'UI/splash_screen.dart';
 
 void main() {
+  //SharedPreferences.setMockInitialValues({});
   runApp(MyApp());
 }
 
@@ -19,7 +21,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
       return OrientationBuilder(builder: (context, orientation) {
         return StreamProvider<User>.value(
             value: AuthService().user,
@@ -31,6 +32,6 @@ class _MyAppState extends State<MyApp> {
               home: SplashScreen(),
             ));
       });
-    });
+
   }
 }

@@ -4,9 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/entities/GetCoursebyTeacherId.dart';
 import 'package:techlearning_app/menu/teacher_drawer.dart';
 import 'package:techlearning_app/profile/teacher_profile.dart';
-import 'package:techlearning_app/services/auth_provider.dart';
 import 'package:techlearning_app/services/get_course_by_teacher_id_provider.dart';
-import 'package:techlearning_app/shared/app_urls.dart';
 import 'package:techlearning_app/teacher_grades/teacher_primary/fifth_grade.dart';
 import 'package:techlearning_app/teacher_grades/teacher_primary/first_grade.dart';
 import 'package:techlearning_app/teacher_grades/teacher_primary/four_grade.dart';
@@ -19,7 +17,7 @@ import 'package:techlearning_app/teacher_grades/teacher_secondary/high_school/hi
 import 'package:techlearning_app/teacher_grades/teacher_secondary/ninth_grade.dart';
 import 'package:techlearning_app/teacher_grades/teacher_secondary/seventh_grade.dart';
 import 'package:techlearning_app/teacher_grades/teacher_secondary/tenth_grade.dart';
-import 'course_detailes.dart';
+import 'add_course_training.dart';
 import 'edit_info.dart';
 
 var scaffoldKey = GlobalKey<ScaffoldState>();
@@ -889,7 +887,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
         //CourseDetails
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => AddCourse()));
+              context, MaterialPageRoute(builder: (context) =>AddCourseTraining()));
         },
       ),
     );

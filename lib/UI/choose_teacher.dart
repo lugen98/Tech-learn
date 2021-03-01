@@ -31,7 +31,6 @@ class _ChooseTeacherState extends State<ChooseTeacher> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     //APP Bar
     return Scaffold(
       backgroundColor: Colors.white,
@@ -39,20 +38,14 @@ class _ChooseTeacherState extends State<ChooseTeacher> {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: //ListView.builder(
-           //  itemBuilder: (context, index) {
-            //return
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+        title:
           Text("chose your teacher",
-             // allCoursesByIdList.coursegrade+allCoursesByIdList.coursesubject,
               style: GoogleFonts.poppins(
                   textStyle: TextStyle(
                       color: Color(0xFF053361),
                       fontWeight: FontWeight.w500,
                       fontSize: 16))),
-               ]),
-       //  },
-        // ),
+
         leading: Container(
           child: IconButton(
             color: Color(0xFF053361),

@@ -16,7 +16,6 @@ import 'package:techlearning_app/grades/secondary/seventh_grade.dart';
 import 'package:techlearning_app/grades/secondary/tenth_grade.dart';
 import 'package:techlearning_app/menu/student_drawer.dart';
 import 'package:techlearning_app/profile/student_profile.dart';
-var scaffoldkey = GlobalKey<ScaffoldState>();
 
 class StudentDashboardScreen extends StatefulWidget {
   @override
@@ -37,21 +36,21 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
           textDirection: TextDirection.ltr,
           child: Scaffold(
             backgroundColor: Colors.white,
-            key: scaffoldkey,
             drawer: Drawer(
               child: StudentDrawer(),
             ),
             appBar: AppBar(
-              leading: IconButton(
+              leading:Builder(builder:(context){
+                return IconButton(
+
                 icon: Icon(Icons.menu),
                 color: Color(0xFF053361),
                 iconSize: 30,
-                onPressed: () {
-                  scaffoldkey.currentState.openDrawer();
-                },
-              ),
+                onPressed: () => Scaffold.of(context).openDrawer(),
+              );
 
-
+                }
+    ),
             title: Text(
                 "Welcome",
                 style: GoogleFonts.poppins(

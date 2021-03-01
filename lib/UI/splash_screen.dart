@@ -23,17 +23,18 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 7), () => goToNextPage());
   }
 
-  goToNextPage() {
-  //  UserModel userModel =g
-    if (UserModel == MyConstants.USER_TYPE_TEACHER.toString()) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => TeacherDashboard()));
-    } else if (UserModel == MyConstants.USER_TYPE_STUDENT.toString()) {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => StudentDashboardScreen()));
-    } else {
+  goToNextPage() async {
+    UserModel userModel = await getUser();
+    if(userModel==null){
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => MainHomePage()));
+    }
+   else if (userModel.usertype == MyConstants.USER_TYPE_TEACHER.toString()) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => TeacherDashboard()));
+    } else if (userModel.usertype == MyConstants.USER_TYPE_STUDENT.toString()) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => StudentDashboardScreen()));
     }
   }
 
@@ -136,12 +137,16 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
         ]))));
   }
-  Future<UserModel> getUser() async {
+ Future<UserModel> getUser() async {
+ try{
     SharedPreferences pref = await SharedPreferences.getInstance();
     String userString = pref.getString('userData');
     Map json = jsonDecode(userString);
     UserModel user = UserModel.fromJson(json);
     return user;
+    }catch(e){
+    return null;
+    }
   }
 
 

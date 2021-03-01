@@ -19,6 +19,7 @@ class TeacherSignIn extends StatefulWidget {
 }
 
 class _TeacherSignInState extends State<TeacherSignIn> {
+  Size size;
   final AuthService _auth = AuthService();
   AuthProvider _loginProvider = AuthProvider();
 
@@ -34,7 +35,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Colors.white,
 
@@ -79,262 +80,54 @@ class _TeacherSignInState extends State<TeacherSignIn> {
         ),
         body: _loginProvider.isLoading
             ? Container(
-          child: Center(child: CircularProgressIndicator()),
-        )
+                child: Center(child: CircularProgressIndicator()),
+              )
             : Container(
-          child: SingleChildScrollView(
-              child: Column(children: <Widget>[
-            Container(
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: size.height * 0.05),
-                  Text('Sign in to your TechLearn Account',
-                      style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                              color: Color(0xFF053361),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18))),
-                ],
-              ),
-            ),
-
-            //signIn with Google
-            Container(
-                child: Column(children: <Widget>[
-              SizedBox(height: size.height * 0.04),
-              SizedBox(
-                width: 328,
-                height: 49,
-                child: RaisedButton(
-                  color: Colors.white,
-                  elevation: 1.0,
-                  shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Color(0xFF6D747A)),
-                      borderRadius: BorderRadius.circular(10.0)),
-                  highlightColor: Color(0xFF6D747A),
-                  padding: EdgeInsets.only(
-                      top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
-                  onPressed: () async {
-                    await _auth.signInGoogle();
-                  },
-                  child: new Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      SvgPicture.asset(
-                        'images/search 1.svg',
-                        height: 20.0,
-                        width: 20.0,
-                      ),
-                      Padding(
-                          padding: EdgeInsets.only(right: 40, left: 50.0),
-                          child: Text(
-                            "Sign in with google",
+                child: SingleChildScrollView(
+                    child: Column(children: <Widget>[
+                  Container(
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(height: size.height * 0.05),
+                        Text('Sign in to your TechLearn Account',
                             style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                     color: Color(0xFF053361),
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.w500)),
-                          ))
-                    ],
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18))),
+                      ],
+                    ),
                   ),
-                ),
-              )
-            ])),
-            SizedBox(height: size.height * 0.03),
 
-            OrDivider(),
+                  //signIn with Google
+                  getSignInGoogle(),
+                  SizedBox(height: size.height * 0.03),
 
-            //sign In Email&Password
-            Container(
-                child: SingleChildScrollView(
-                    child: Form(
-                        key: _formKey,
-                        child: Column(children: <Widget>[
-                          SizedBox(height: size.height * 0.01),
-                          SizedBox(
-                            height: 49,
-                            width: 328,
-                            child: TextFormField(
-                              validator: (val) =>
-                                  val.isEmpty ? 'Enter email' : null,
-                              decoration: InputDecoration(
-                                  labelText: 'E-mail',
-                                  prefixIcon: Icon(Icons.email),
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFC8CACC),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10))),
-                              onChanged: (val) {
-                                setState(() => email = val);
-                              },
-                            ),
-                          ),
-                          SizedBox(height: size.height * 0.03),
-                          SizedBox(
-                            width: 328,
-                            height: 49,
-                            child: TextFormField(
-                                validator: (val) => val.length < 6
-                                    ? 'password Should be more than6'
-                                    : null,
-                                obscureText: !isHidePassword,
-                                decoration: InputDecoration(
-                                    suffixIcon: IconButton(
-                                      icon: Icon(isHidePassword
-                                          ? Icons.visibility
-                                          : Icons.visibility_off),
-                                      color: isHidePassword
-                                          ? Color(0xFF0A61B7)
-                                          : Colors.grey,
-                                      onPressed: () {
-                                        _togglePasswordVisability();
-                                      },
-                                    ),
-                                    labelText: "password",
-                                    prefixIcon: Icon(Icons.lock),
-                                    border: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0xFFC8CACC),
-                                          width: 1,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(10))),
-                                onChanged: (val) {
-                                  setState(() => _password = val);
-                                }),
-                          ),
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Checkbox(
-                                    value: checkBokValue,
-                                    onChanged: (bool value) {
-                                      setState(() {
-                                        checkBokValue = value;
-                                      });
-                                    }),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Text('Remember Me?',
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              color: Color(0xFF0A61B7),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 14))),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 20),
-                                ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                TeacherForgotPass()));
-                                  },
-                                  child: Text('Forgot Password?',
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              color: Color(0xFF0A61B7),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 14))),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(right: 10),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Text(
-                            error,
-                            style: TextStyle(color: Colors.red, fontSize: 12.0),
-                          ),
-                          //sign In Button
-                          Container(
-                            child: Column(children: <Widget>[
-                              SizedBox(height: size.height * 0.03),
-                              SizedBox(
-                                width: 328,
-                                height: 49,
-                                child: RaisedButton(
-                                  color: Color(0xFFFFD900),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  child: Text(
-                                    "Sign in",
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                            fontSize: 16,
-                                            color: Color(0xFF053361),
-                                            fontWeight: FontWeight.w700)),
-                                  ),
-                                  onPressed: () async {
-                                    setState(() {
-                                      _loginProvider.isLoading = true;
-                                    });
-                                    if (_formKey.currentState
-                                        .validate()) {
-                                      UserModel result =
-                                      await _loginProvider.login(
-                                          email, _password);
-                                      if (result == null) {
-                                        setState(() =>
-                                        error = 'Failed To Sign In');
-                                      } else {
-                                        saveUserInSharedPreferences(result);
-                                        print(result.firstname);
-                                        print(result.lastname);
-                                        print(result.email);
-                                        print(result.usertype);
+                  OrDivider(),
 
-                                      }
-                                    }
-                                  },
-                                ),
-                              ),
-                            ]),
-                          ),
-
-
-                          Container(
-                            child: Column(
-                              children: <Widget>[
+                  //sign In Email&Password
+                  Container(
+                      child: SingleChildScrollView(
+                          child: Form(
+                              key: _formKey,
+                              child: Column(children: <Widget>[
+                                SizedBox(height: size.height * 0.01),
+                                getEmail(),
                                 SizedBox(height: size.height * 0.03),
+                                getPassword(),
+                                getForgotAndRemember(),
                                 Text(
-                                  'Dont have an account?',
-                                  style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                          color: Color(0xFF053361),
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w700)),
+                                  error,
+                                  style: TextStyle(
+                                      color: Colors.red, fontSize: 12.0),
                                 ),
-                                InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  TeacherSignUp()));
-                                    },
-                                    child: Text(
-                                      "Click here to Sign up ",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              fontSize: 13,
-                                              color: Color(0xFF0A61B7),
-                                              fontWeight: FontWeight.w700)),
-                                    ))
-                              ],
-                            ),
-                          ),
-                        ]))))
-          ])),
-        ));
+                                //sign In Button
+
+                                getSignInButton(),
+                                getDontHaveAccount(),
+                              ]))))
+                ])),
+              ));
   }
 
   void _togglePasswordVisability() {
@@ -343,14 +136,225 @@ class _TeacherSignInState extends State<TeacherSignIn> {
     });
   }
 
+  Widget getDontHaveAccount() {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          SizedBox(height: size.height * 0.03),
+          Text(
+            'Dont have an account?',
+            style: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                    color: Color(0xFF053361),
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700)),
+          ),
+          InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TeacherSignUp()));
+              },
+              child: Text(
+                "Click here to Sign up ",
+                style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                        fontSize: 13,
+                        color: Color(0xFF0A61B7),
+                        fontWeight: FontWeight.w700)),
+              ))
+        ],
+      ),
+    );
+  }
+
+  Widget getForgotAndRemember() {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Checkbox(
+              value: checkBokValue,
+              onChanged: (bool value) {
+                setState(() {
+                  checkBokValue = value;
+                });
+              }),
+          InkWell(
+            onTap: () {},
+            child: Text('Remember Me?',
+                style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                        color: Color(0xFF0A61B7),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14))),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 20),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => TeacherForgotPass()));
+            },
+            child: Text('Forgot Password?',
+                style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                        color: Color(0xFF0A61B7),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14))),
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: 10),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget getEmail() {
+    return SizedBox(
+      height: 49,
+      width: 328,
+      child: TextFormField(
+        validator: (val) => val.isEmpty ? 'Enter email' : null,
+        decoration: InputDecoration(
+            labelText: 'E-mail',
+            prefixIcon: Icon(Icons.email),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFC8CACC),
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(10))),
+        onChanged: (val) {
+          setState(() => email = val);
+        },
+      ),
+    );
+  }
+
+  Widget getPassword() {
+    return SizedBox(
+      width: 328,
+      height: 49,
+      child: TextFormField(
+          validator: (val) =>
+              val.length < 6 ? 'password Should be more than6' : null,
+          obscureText: !isHidePassword,
+          decoration: InputDecoration(
+              suffixIcon: IconButton(
+                icon: Icon(
+                    isHidePassword ? Icons.visibility : Icons.visibility_off),
+                color: isHidePassword ? Color(0xFF0A61B7) : Colors.grey,
+                onPressed: () {
+                  _togglePasswordVisability();
+                },
+              ),
+              labelText: "password",
+              prefixIcon: Icon(Icons.lock),
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color(0xFFC8CACC),
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(10))),
+          onChanged: (val) {
+            setState(() => _password = val);
+          }),
+    );
+  }
+
+  Widget getSignInGoogle() {
+    return Container(
+        child: Column(children: <Widget>[
+      SizedBox(height: size.height * 0.04),
+      SizedBox(
+        width: 328,
+        height: 49,
+        child: RaisedButton(
+          color: Colors.white,
+          elevation: 1.0,
+          shape: RoundedRectangleBorder(
+              side: BorderSide(color: Color(0xFF6D747A)),
+              borderRadius: BorderRadius.circular(10.0)),
+          highlightColor: Color(0xFF6D747A),
+          padding:
+              EdgeInsets.only(top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
+          onPressed: () async {
+            //  await _auth.signInGoogle();
+          },
+          child: new Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              SvgPicture.asset(
+                'images/search 1.svg',
+                height: 20.0,
+                width: 20.0,
+              ),
+              Padding(
+                  padding: EdgeInsets.only(right: 40, left: 50.0),
+                  child: Text(
+                    "Sign in with google",
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            color: Color(0xFF053361),
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w500)),
+                  ))
+            ],
+          ),
+        ),
+      )
+    ]));
+  }
+
+  Widget getSignInButton() {
+    return Container(
+      child: Column(children: <Widget>[
+        SizedBox(height: size.height * 0.03),
+        SizedBox(
+          width: 328,
+          height: 49,
+          child: RaisedButton(
+            color: Color(0xFFFFD900),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            child: Text(
+              "Sign in",
+              style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                      fontSize: 16,
+                      color: Color(0xFF053361),
+                      fontWeight: FontWeight.w700)),
+            ),
+            onPressed: () async {
+              setState(() {
+                _loginProvider.isLoading = true;
+              });
+              if (_formKey.currentState.validate()) {
+                UserModel result = await _loginProvider.login(email, _password);
+                if (result == null) {
+                  setState(() => error = 'Failed To Sign In');
+                } else {
+                  saveUserInSharedPreferences(result);
+                  print(result.firstname);
+                  print(result.lastname);
+                  print(result.email);
+                  print(result.usertype);
+                }
+              }
+            },
+          ),
+        ),
+      ]),
+    );
+  }
+
   saveUserInSharedPreferences(UserModel userModel) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     String user = jsonEncode(userModel);
     pref.setString('userData', user);
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) =>
-                TeacherDashboard()));
+        context, MaterialPageRoute(builder: (context) => TeacherDashboard()));
   }
 }

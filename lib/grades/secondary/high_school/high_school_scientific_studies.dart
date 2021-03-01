@@ -21,9 +21,6 @@ class _HighSchoolScientificStudiesState extends State<HighSchoolScientificStudie
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         title:
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
 
             Text('High School-Scientific Studies',
                 style: GoogleFonts.poppins(
@@ -31,10 +28,7 @@ class _HighSchoolScientificStudiesState extends State<HighSchoolScientificStudie
                         color: Color(0xFF053361),
                         fontWeight: FontWeight.w600,
                         fontSize: 17))),
-            Padding(padding: EdgeInsets.only(right: 30, left: 30,top: 10)),
 
-          ],
-        ),
         leading: Container(
           child: IconButton(
             color: Color(0xFF053361),

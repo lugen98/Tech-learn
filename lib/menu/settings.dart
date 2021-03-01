@@ -83,6 +83,26 @@ class _SettingsState extends State<Settings> {
                   MaterialPageRoute(builder: (context) => Password()),
                 );
               }),
+          new ListTile(
+              trailing: new Icon(
+                Icons.arrow_forward,
+                color: Color(0xFF053361),
+              ),
+              title: new Text(
+                "Change phone Number",
+                style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      color: Color(0xFF053361),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                    )),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Phone()),
+                );
+              }),
         ],
       ),
     );

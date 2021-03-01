@@ -21,9 +21,6 @@ class _ScientificStudiesState extends State<ScientificStudies> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         title:
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
 
             Text('Eleventh grade-Scientific Studies',
                 style: GoogleFonts.poppins(
@@ -32,8 +29,7 @@ class _ScientificStudiesState extends State<ScientificStudies> {
                         fontWeight: FontWeight.w600,
                         fontSize: 17))),
 
-          ],
-        ),
+
         leading: Container(
           child: IconButton(
             color: Color(0xFF053361),

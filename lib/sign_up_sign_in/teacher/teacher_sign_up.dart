@@ -16,6 +16,7 @@ class TeacherSignUp extends StatefulWidget {
 }
 
 class _TeacherSignUpState extends State<TeacherSignUp> {
+  Size size;
   AuthProvider _registerProvider = AuthProvider();
   final _formKey = GlobalKey<FormState>();
   bool isHidePassword = false;
@@ -35,7 +36,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+     size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -90,47 +91,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                 ],
               ),
             ),
-            Container(
-                child: Column(children: <Widget>[
-              SizedBox(height: size.height * 0.04),
-              SizedBox(
-                width: 328,
-                height: 49,
-                child: RaisedButton(
-                  color: Colors.white,
-                  elevation: 1.0,
-                  shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Color(0xFF6D747A)),
-                      borderRadius: BorderRadius.circular(10.0)),
-                  highlightColor: Color(0xFF6D747A),
-                  padding: EdgeInsets.only(
-                      top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
-                  onPressed: () async {
-                   // await _auth.signInGoogle();
-                  },
-                  child: new Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      SvgPicture.asset(
-                        'images/search 1.svg',
-                        height: 20.0,
-                        width: 20.0,
-                      ),
-                      Padding(
-                          padding: EdgeInsets.only(right: 40, left: 50.0),
-                          child: Text(
-                            "Sign up with google",
-                            style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                    color: Color(0xFF053361),
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.w500)),
-                          ))
-                    ],
-                  ),
-                ),
-              )
-            ])),
+                getSignUpGoogle(),
             OrDivider(),
             Container(
                 child: SingleChildScrollView(
@@ -138,209 +99,23 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                         key: _formKey,
                         child: Column(children: <Widget>[
                           SizedBox(height: size.height * 0.01),
-                          SizedBox(
-                            width: 328,
-                            height: 49,
-                            child: TextFormField(
-                              validator: (val) =>
-                                  val.isEmpty ? 'Enter First Name' : null,
-                              decoration: InputDecoration(
-                                  labelText: 'First name',
-                                  prefixIcon: Icon(Icons.person),
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFC8CACC),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10))),
-                              onChanged: (val) {
-                                setState(() => firstName = val);
-                              },
-                            ),
-                          ),
+                         getFirstName(),
                           SizedBox(height: size.height * 0.03),
-                          SizedBox(
-                            width: 328,
-                            height: 49,
-                            child: TextFormField(
-                              validator: (val) =>
-                                  val.isEmpty ? 'Enter Last Name' : null,
-                              decoration: InputDecoration(
-                                  labelText: 'last name',
-                                  prefixIcon: Icon(Icons.people),
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFC8CACC),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10))),
-                              onChanged: (val) {
-                                setState(() => lastName = val);
-                              },
-                            ),
-                          ),
+                     getLastName(),
                           SizedBox(height: size.height * 0.03),
-                          SizedBox(
-                            width: 328,
-                            height: 49,
-                            child: TextFormField(
-
-                              validator: (val) =>
-                                  val.isEmpty ? 'Enter email' : null,
-                              decoration: InputDecoration(
-                                  labelText: 'E-mail',
-                                  prefixIcon: Icon(Icons.email),
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFC8CACC),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10))),
-                              onChanged: (val) {
-                                setState(() => email = val);
-                              },
-                            ),
-                          ),
+                         getEmail(),
                           SizedBox(height: size.height * 0.03),
-                          SizedBox(
-                            width: 328,
-                            height: 49,
-                            child: TextFormField(
-
-                                validator: (val) => val.length < 6
-                                    ? 'password Should be more than 6'
-                                    : null,
-                                obscureText: !isHidePassword,
-                                decoration: InputDecoration(
-                                    hintText: "password 6+ characters",
-                                    labelText: "password",
-                                    prefixIcon: Icon(Icons.lock),
-                                    suffixIcon: IconButton(
-                                      icon: Icon(isHidePassword
-                                          ? Icons.visibility
-                                          : Icons.visibility_off),
-                                      color: isHidePassword
-                                          ? Color(0xFF0A61B7)
-                                          : Colors.grey,
-                                      onPressed: () {
-                                        _togglePasswordVisability();
-                                      },
-                                    ),
-                                    border: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0xFFC8CACC),
-                                          width: 1,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(10))),
-                                onChanged: (val) {
-                                  setState(() => password = val);
-                                }),
-                          ),
+                        getPassword(),
 
                           SizedBox(height: size.height * 0.03),
-                          SizedBox(
-                            width: 328,
-                            height: 49,
-                            child: TextFormField(
-                              validator: (val) =>
-                                  val.isEmpty ? 'Enter your Degree' : null,
-                              decoration: InputDecoration(
-                                  hintText: 'Degree',
-                                  labelText: 'Degree',
-                                  prefixIcon: Image.asset(
-                                    'images/Degree Icon.png',
-                                    height: 30,
-                                    width: 30,
-                                  ),
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFC8CACC),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10))),
-                              onChanged: (val) {
-                                setState(() => degree = val);
-                              },
-                            ),
-                          ),
+                         getDegree(),
                           SizedBox(height: size.height * 0.03),
-                          SizedBox(
-                            width: 328,
-                            height: 49,
-                            child: TextFormField(
-                              validator: (val) =>
-                                  val.isEmpty ? 'Enter your Major' : null,
-                              decoration: InputDecoration(
-                                  hintText: 'Major',
-                                  labelText: 'Major',
-                                  prefixIcon: Icon(Icons.bookmark),
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFC8CACC),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10))),
-                              onChanged: (val) {
-                                setState(() => major = val);
-                              },
-                            ),
-                          ),
+                        getMajor(),
                           SizedBox(height: size.height * 0.03),
-                          SizedBox(
-                            width: 328,
-                            height: 49,
-                            child: TextFormField(
-                              keyboardType: TextInputType.phone,
-                              decoration: InputDecoration(
-                                  labelText: 'Phone Number',
-                                  prefixIcon: Icon(Icons.phone),
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFC8CACC),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10))),
-                              onChanged: (val) {
-                                setState(() => phoneNumber = val);
-                              },
-                            ),
-                          ),
+                        getPhoneNumber(),
                           SizedBox(height: size.height * 0.02),
-                          Container(
-                              child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                Text('By signing up, you agree to our',
-                                    style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                            color: Color(0xFF6D747A),
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12))),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Text('Terms and ',
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              color: Color(0xFF0A61B7),
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 12))),
-                                )
-                              ])),
-                          Container(
-                              child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                InkWell(
-                                  onTap: () {},
-                                  child: Text('Privacy Policy',
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              color: Color(0xFF0A61B7),
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 12))),
-                                )
-                              ])),
+                          getTerms(),
+                          getPrivacyPolicy(),
                           SizedBox(
                             height: 12.0,
                             child: Text(
@@ -349,90 +124,8 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                                   TextStyle(color: Colors.red, fontSize: 14.0),
                             ),
                           ),
-                          Container(
-                            child: Column(children: <Widget>[
-                              SizedBox(height: size.height * 0.03),
-                              SizedBox(
-                                width: 328,
-                                height: 49,
-                                child: RaisedButton(
-                                    color: Color(0xFFFFD900),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10))),
-                                    child: Text(
-                                      "Sign Up",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              fontSize: 17,
-                                              color: Color(0xFF053361),
-                                              fontWeight: FontWeight.w700)),
-                                    ),
-                                    onPressed: () async {
-                                      setState(() {
-                                        _registerProvider.isLoading = true;
-                                      });
-                                      if (_formKey.currentState.validate()) {
-                                        UserModel result =
-                                            await _registerProvider.register(
-                                                firstName,
-                                                lastName,
-                                                email,
-                                                password,
-                                                degree,
-                                                major,
-                                                phoneNumber,
-                                                0);
-                                        if (result == null) {
-                                          setState(() =>
-                                              error = 'Failed To Sign In');
-                                        } else {
-                                          saveUserInSharedPreferences(result);
-                                          print(result.firstname);
-                                          print(result.lastname);
-                                          print(result.email);
-                                          print(result.degree);
-                                          print(result.major);
-                                          print(result.phone);
-                                          print(result.usertype);
-
-                                        }
-                                      }
-                                    }),
-                              ),
-                            ]),
-                          ),
-                          Container(
-                            child: Column(
-                              children: <Widget>[
-                                SizedBox(height: size.height * 0.02),
-                                Text(
-                                  'Already have an account?',
-                                  style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                          color: Color(0xFF053361),
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w700)),
-                                ),
-                                InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  TeacherSignIn()));
-                                    },
-                                    child: Text(
-                                      "Click here to Sign In ",
-                                      style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                              fontSize: 13,
-                                              color: Color(0xFF0A61B7),
-                                              fontWeight: FontWeight.w700)),
-                                    ))
-                              ],
-                            ),
-                          ),
+                          getSignUpButton(),
+                          getAlreadyHaveAccount(),
                           SizedBox(height: size.height * 0.02),
                         ]))))
           ])),
@@ -444,6 +137,351 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
       isHidePassword = !isHidePassword;
     });
   }
+  Widget getSignUpGoogle(){
+    return  Container(
+        child: Column(children: <Widget>[
+          SizedBox(height: size.height * 0.04),
+          SizedBox(
+            width: 328,
+            height: 49,
+            child: RaisedButton(
+              color: Colors.white,
+              elevation: 1.0,
+              shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Color(0xFF6D747A)),
+                  borderRadius: BorderRadius.circular(10.0)),
+              highlightColor: Color(0xFF6D747A),
+              padding: EdgeInsets.only(
+                  top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
+              onPressed: () async {
+                // await _auth.signInGoogle();
+              },
+              child: new Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  SvgPicture.asset(
+                    'images/search 1.svg',
+                    height: 20.0,
+                    width: 20.0,
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(right: 40, left: 50.0),
+                      child: Text(
+                        "Sign up with google",
+                        style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                                color: Color(0xFF053361),
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.w500)),
+                      ))
+                ],
+              ),
+            ),
+          )
+        ]));
+  }
+  Widget getAlreadyHaveAccount(){
+    return  Container(
+      child: Column(
+        children: <Widget>[
+          SizedBox(height: size.height * 0.02),
+          Text(
+            'Already have an account?',
+            style: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                    color: Color(0xFF053361),
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700)),
+          ),
+          InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            TeacherSignIn()));
+              },
+              child: Text(
+                "Click here to Sign In ",
+                style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                        fontSize: 13,
+                        color: Color(0xFF0A61B7),
+                        fontWeight: FontWeight.w700)),
+              ))
+        ],
+      ),
+    );
+  }
+  Widget getFirstName(){
+    return  SizedBox(
+      width: 328,
+      height: 49,
+      child: TextFormField(
+        validator: (val) =>
+        val.isEmpty ? 'Enter First Name' : null,
+        decoration: InputDecoration(
+            labelText: 'First name',
+            prefixIcon: Icon(Icons.person),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFC8CACC),
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(10))),
+        onChanged: (val) {
+          setState(() => firstName = val);
+        },
+      ),
+    );
+  }
+  Widget getLastName(){
+    return      SizedBox(
+      width: 328,
+      height: 49,
+      child: TextFormField(
+        validator: (val) =>
+        val.isEmpty ? 'Enter Last Name' : null,
+        decoration: InputDecoration(
+            labelText: 'last name',
+            prefixIcon: Icon(Icons.people),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFC8CACC),
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(10))),
+        onChanged: (val) {
+          setState(() => lastName = val);
+        },
+      ),
+    );
+  }
+  Widget getEmail(){
+    return  SizedBox(
+      width: 328,
+      height: 49,
+      child: TextFormField(
+
+        validator: (val) =>
+        val.isEmpty ? 'Enter email' : null,
+        decoration: InputDecoration(
+            labelText: 'E-mail',
+            prefixIcon: Icon(Icons.email),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFC8CACC),
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(10))),
+        onChanged: (val) {
+          setState(() => email = val);
+        },
+      ),
+    );
+  }
+  Widget getPassword(){
+    return   SizedBox(
+      width: 328,
+      height: 49,
+      child: TextFormField(
+
+          validator: (val) => val.length < 6
+              ? 'password Should be more than 6'
+              : null,
+          obscureText: !isHidePassword,
+          decoration: InputDecoration(
+              hintText: "password 6+ characters",
+              labelText: "password",
+              prefixIcon: Icon(Icons.lock),
+              suffixIcon: IconButton(
+                icon: Icon(isHidePassword
+                    ? Icons.visibility
+                    : Icons.visibility_off),
+                color: isHidePassword
+                    ? Color(0xFF0A61B7)
+                    : Colors.grey,
+                onPressed: () {
+                  _togglePasswordVisability();
+                },
+              ),
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color(0xFFC8CACC),
+                    width: 1,
+                  ),
+                  borderRadius:
+                  BorderRadius.circular(10))),
+          onChanged: (val) {
+            setState(() => password = val);
+          }),
+    );
+  }
+  Widget getMajor(){
+    return   SizedBox(
+      width: 328,
+      height: 49,
+      child: TextFormField(
+        validator: (val) =>
+        val.isEmpty ? 'Enter your Major' : null,
+        decoration: InputDecoration(
+            hintText: 'Major',
+            labelText: 'Major',
+            prefixIcon: Icon(Icons.bookmark),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFC8CACC),
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(10))),
+        onChanged: (val) {
+          setState(() => major = val);
+        },
+      ),
+    );
+  }
+  Widget getDegree(){
+    return  SizedBox(
+      width: 328,
+      height: 49,
+      child: TextFormField(
+        validator: (val) =>
+        val.isEmpty ? 'Enter your Degree' : null,
+        decoration: InputDecoration(
+            hintText: 'Degree',
+            labelText: 'Degree',
+            prefixIcon: Image.asset(
+              'images/Degree Icon.png',
+              height: 30,
+              width: 30,
+            ),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFC8CACC),
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(10))),
+        onChanged: (val) {
+          setState(() => degree = val);
+        },
+      ),
+    );
+  }
+  Widget getPhoneNumber(){
+    return   SizedBox(
+      width: 328,
+      height: 49,
+      child: TextFormField(
+        keyboardType: TextInputType.phone,
+        decoration: InputDecoration(
+            labelText: 'Phone Number',
+            prefixIcon: Icon(Icons.phone),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFC8CACC),
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(10))),
+        onChanged: (val) {
+          setState(() => phoneNumber = val);
+        },
+      ),
+    );
+  }
+Widget getSignUpButton(){
+    return  Container(
+      child: Column(children: <Widget>[
+        SizedBox(height: size.height * 0.03),
+        SizedBox(
+          width: 328,
+          height: 49,
+          child: RaisedButton(
+              color: Color(0xFFFFD900),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(10))),
+              child: Text(
+                "Sign Up",
+                style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                        fontSize: 17,
+                        color: Color(0xFF053361),
+                        fontWeight: FontWeight.w700)),
+              ),
+              onPressed: () async {
+                setState(() {
+                  _registerProvider.isLoading = true;
+                });
+                if (_formKey.currentState.validate()) {
+                  UserModel result =
+                  await _registerProvider.register(
+                      firstName,
+                      lastName,
+                      email,
+                      password,
+                      degree,
+                      major,
+                      phoneNumber,
+                      0);
+                  if (result == null) {
+                    setState(() =>
+                    error = 'Failed To Sign In');
+                  } else {
+                    saveUserInSharedPreferences(result);
+                    print(result.firstname);
+                    print(result.lastname);
+                    print(result.email);
+                    print(result.degree);
+                    print(result.major);
+                    print(result.phone);
+                    print(result.usertype);
+
+                  }
+                }
+              }),
+        ),
+      ]),
+    );
+}
+Widget getTerms(){
+    return Container(
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('By signing up, you agree to our',
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          color: Color(0xFF6D747A),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12))),
+              InkWell(
+                onTap: () {},
+                child: Text('Terms and ',
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            color: Color(0xFF0A61B7),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12))),
+              )
+            ]));
+}
+Widget getPrivacyPolicy(){
+    return  Container(
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              InkWell(
+                onTap: () {},
+                child: Text('Privacy Policy',
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            color: Color(0xFF0A61B7),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12))),
+              )
+            ]));
+}
+
   saveUserInSharedPreferences(UserModel userModel) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     String user = jsonEncode(userModel);

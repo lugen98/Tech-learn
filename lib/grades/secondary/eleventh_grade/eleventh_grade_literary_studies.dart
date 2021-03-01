@@ -21,9 +21,6 @@ class _LiteraryStudiesState extends State<LiteraryStudies> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         title:
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
 
             Text('Eleventh grade-Literary Studies',
                 style: GoogleFonts.poppins(
@@ -32,8 +29,7 @@ class _LiteraryStudiesState extends State<LiteraryStudies> {
                         fontWeight: FontWeight.w600,
                         fontSize: 17))),
 
-          ],
-        ),
+
         leading: Container(
           child: IconButton(
             color: Color(0xFF053361),
