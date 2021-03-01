@@ -83,7 +83,7 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
                     fontSize: 17,
                     color: Color(0xFF053361),
                     fontWeight: FontWeight.w500)),
-            hintText: " fareed ",
+            hintText: "fareed",
             labelText: " Last Name",
             floatingLabelBehavior: FloatingLabelBehavior.always,
             labelStyle: GoogleFonts.poppins(
@@ -180,11 +180,7 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
                 child: Row(
                   children: <Widget>[
                     ButtonBar(
-                      //  alignment: MainAxisAlignment.spaceEvenly,
-
                       children: <Widget>[
-                        //    Padding(padding: EdgeInsets.only(right: 50,top: 10)),
-
                         Radio(
                           value: 1,
                           groupValue: selectedRadio,
@@ -202,8 +198,6 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
                                   color: Color(0xFF053361),
                                   fontWeight: FontWeight.w500)),
                         ),
-                        //  Padding(padding: EdgeInsets.only( left: 50,top: 10)),
-
                         Radio(
                           value: 2,
                           groupValue: selectedRadio,
@@ -221,8 +215,6 @@ class StudentProfileScreenState extends State<StudentProfileScreen> {
                                   color: Color(0xFF053361),
                                   fontWeight: FontWeight.w500)),
                         ),
-                        //    Padding(
-                        //  padding: EdgeInsets.only(right: 90, left: 60, top: 10)),
                       ],
                     ),
                   ],

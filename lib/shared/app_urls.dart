@@ -19,4 +19,7 @@ class AppUrls {
   static String editCourseUrl() {
     return BASE_URL + '/editcourse';
   }
+  static String getAllCoursesUrl() {
+    return BASE_URL + '/getallcourses';
+  }
 }

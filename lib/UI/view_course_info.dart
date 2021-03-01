@@ -99,8 +99,9 @@ class _ViewCourseInfoState extends State<ViewCourseInfo> {
                             width: 313,
                             height: 150,
                             child: Container(
-                              child: Expanded(
+
                                 child: ListView.builder(
+                                  itemCount: allCoursesList.length,
                                   itemBuilder: (context, index) {
                                     return Container(
                                       height: 160,
@@ -190,24 +191,7 @@ class _ViewCourseInfoState extends State<ViewCourseInfo> {
                                                         left: 16.0),
                                                   ),
                                                   SizedBox(height: 6.0),
-                                                  SizedBox(
-                                                    width: 125,
-                                                    height: 21,
-                                                    child: Text(
-                                                      "25 hours",
-                                                      style:
-                                                          GoogleFonts.poppins(
-                                                        textStyle: TextStyle(
-                                                            color: Color(
-                                                                0xFF053361),
-                                                            fontStyle: FontStyle
-                                                                .normal,
-                                                            fontWeight:
-                                                                FontWeight.w400,
-                                                            fontSize: 14),
-                                                      ),
-                                                    ),
-                                                  ),
+
                                                 ],
                                               ),
                                             ),
@@ -257,7 +241,7 @@ class _ViewCourseInfoState extends State<ViewCourseInfo> {
                                 ),
                               ),
                             ),
-                          )),
+                          ),
                     ],
                   ),
                 ),

@@ -14,11 +14,11 @@ class CoursesProvider {
   }
 
   Future<List<CourseListModel>> getAllCourses() async {
-    var url = AppUrls.loginUrl();
+    var url = AppUrls.getAllCoursesUrl();
     Map<String, String> headers = {"Content-type": "application/json"};
     isLoading = true;
 
-    Response apiResponse = await post(url, headers: headers);
+    Response apiResponse = await get(url, headers: headers);
     print("SendApi Response status: ${apiResponse.statusCode}");
     print("SendApi ${apiResponse.headers}");
     print("SendApi ${apiResponse.request}");
