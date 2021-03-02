@@ -159,15 +159,4 @@ class _EmailState extends State<Email> {
       ),
     );
   }
-  void openSignUpPage()
-  {
-    Navigator.pop(context);
-
-  }
-
-  void _togglePasswordVisability() {
-    setState(() {
-      isHidePassword = !isHidePassword;
-    });
-  }
 }
