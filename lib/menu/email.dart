@@ -115,59 +115,6 @@ class _EmailState extends State<Email> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 20,),
-
-
-                    Container(
-                      padding: EdgeInsets.symmetric(vertical: 2, horizontal: 20),
-
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: TextField(
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black
-                              ),
-                              obscureText: isHidePassword,
-                              decoration: InputDecoration(
-                                suffixIcon: IconButton(
-                                  icon: Icon(isHidePassword
-                                      ? Icons.visibility
-                                      : Icons.visibility_off),
-                                  color: isHidePassword
-                                      ? Color(0xFF0A61B7)
-                                      : Colors.grey,
-                                  onPressed: () {
-                                    _togglePasswordVisability();
-                                  },
-                                ),
-                                hintText: 'Password',
-                                hintStyle: GoogleFonts.poppins(textStyle:TextStyle(
-                                  fontWeight:FontWeight.w500  ,
-                                  fontSize: 15 ,
-                                  color:Color(0xFF6D747A),
-
-
-
-                                )
-
-                                ),
-
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-
-
-
-
-
-
 
                     SizedBox(height: 20,),
                     Container(
