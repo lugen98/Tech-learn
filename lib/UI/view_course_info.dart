@@ -94,10 +94,10 @@ class _ViewCourseInfoState extends State<ViewCourseInfo> {
 ////////////////box1
                       SizedBox(height: size.height * 0.02),
                       SizedBox(
-                          height: 650,
+                          height: 500,
                           child: SizedBox(
-                            width: 313,
-                            height: 150,
+                          //  width: 313,
+                            height: 120,
                             child: Container(
 
                                 child: ListView.builder(
@@ -137,7 +137,7 @@ class _ViewCourseInfoState extends State<ViewCourseInfo> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsets.only(
+                                                  padding: EdgeInsets.only(top: 50,
                                                       left: 120.0, right: 20.0),
                                                 ),
                                                 Text(
@@ -147,8 +147,7 @@ class _ViewCourseInfoState extends State<ViewCourseInfo> {
                                                     textStyle: TextStyle(
                                                         color:
                                                             Color(0xFF053361),
-                                                        fontStyle:
-                                                            FontStyle.normal,
+
                                                         fontWeight:
                                                             FontWeight.w400,
                                                         fontSize: 14),
@@ -235,13 +234,19 @@ class _ViewCourseInfoState extends State<ViewCourseInfo> {
                                             ),
                                           ],
                                         ),
+
                                       ),
+
                                     );
+
                                   },
                                 ),
-                              ),
+
+
+                            ),
                             ),
                           ),
+
                     ],
                   ),
                 ),
