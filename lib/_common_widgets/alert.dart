@@ -11,13 +11,13 @@ class Alert {
     showDialog(
       context: context,
       barrierDismissible: true,
-      child: AlertDialog(
+      builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10.0))),
         title: new Text(title),
         content: new Text(message),
         actions: <Widget>[
-          new FlatButton(
+          new TextButton(
             child: new Text(buttonTitle),
             onPressed: () {
               Navigator.of(context).pop();

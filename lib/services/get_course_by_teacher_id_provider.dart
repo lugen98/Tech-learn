@@ -1,5 +1,6 @@
 import 'package:http/http.dart';
-import 'package:techlearning_app/entities/GetCoursebyTeacherId.dart';
+import 'package:techlearning_app/entities/CourseModel.dart';
+import 'package:techlearning_app/entities/courseListModel.dart';
 import 'package:techlearning_app/shared/app_urls.dart';
 
 class GetCoursesByTeacherIdProvider {
@@ -13,7 +14,7 @@ class GetCoursesByTeacherIdProvider {
     isLoading = false;
   }
 
-  Future<List<GetCourseByTeacherId>> getAllCoursesByTeacherId(int TeacherId) async {
+  Future<List<CourseModel>> getAllCoursesByTeacherId(int TeacherId) async {
     var url = AppUrls.getAllCoursesByTeacherId(TeacherId);
     Map<String, String> headers = {"Content-type": "application/json"};
     isLoading = true;
@@ -25,7 +26,8 @@ class GetCoursesByTeacherIdProvider {
     print("SendApi" + apiResponse.body);
 
     try {
-      final getCourseListbyTeacherId =getCourseByTeacherIdFromJson(apiResponse.body);
+      final getCourseListbyTeacherId =
+          courseListModelFromJson(apiResponse.body);
       isLoading = false;
       return getCourseListbyTeacherId;
     } catch (e) {
