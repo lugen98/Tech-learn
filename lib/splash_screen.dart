@@ -71,12 +71,12 @@ class _SplashScreenState extends State<SplashScreen> {
                 Padding(
                   padding: EdgeInsets.only(right: 15.0),
                 ),
-                SvgPicture.asset("assets/images/Frame 1.svg",
-                    height: size.height * 0.07
+                SvgPicture.asset("images/techlogo.svg",
+                    height: size.height * 0.09
 
                     // width: 120,
                     ),
-                SizedBox(height: size.height * 0.03),
+                SizedBox(height: size.height * 0.02),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
