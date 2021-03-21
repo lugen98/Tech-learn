@@ -25,8 +25,8 @@ dependencies:
 #  firebase_core:
 #  cloud_firestore:
   flutter_spinkit:
-  flutter_svg:
-  google_sign_in:
+  flutter_svg: ^0.19.3
+#  google_sign_in:
   sign_button:
   device_preview:
   form_validation:
@@ -61,8 +61,8 @@ flutter_icons:
   ios: true
   image_path: "assets/logo/logo.png"
 
-dependency_overrides:
-  intl:
+#dependency_overrides:
+#  intl:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -77,7 +77,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/
+    - assets/images/
     - assets/logo/
 
 

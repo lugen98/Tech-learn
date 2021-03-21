@@ -71,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 Padding(
                   padding: EdgeInsets.only(right: 15.0),
                 ),
-                SvgPicture.asset("images/techlogo.svg",
+                SvgPicture.asset("assets/images/techlogo.svg",
                     height: size.height * 0.09
 
                     // width: 120,

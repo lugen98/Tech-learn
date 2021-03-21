@@ -43,7 +43,7 @@ class _MainHomePageState extends State<MainHomePage> {
               child: Column(children: <Widget>[
             SizedBox(height: size.height * 0.03),
             SvgPicture.asset(
-              "images/techlogo.svg",
+              "assets/images/techlogo.svg",
               height: size.height * 0.30,
             ),
             //
