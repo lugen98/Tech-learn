@@ -209,8 +209,11 @@ class _TeacherDrawerState extends State<TeacherDrawer> {
   }
 
   void openSignOutPage() async {
-    await //_auth.signOut();
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MainHomePage()));
+    try {
+      SharedPreferences pref = await SharedPreferences.getInstance();
+      pref.clear();
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MainHomePage()));
+    } catch (e) {}
   }
 }

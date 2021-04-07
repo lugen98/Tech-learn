@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/student/view_course_info.dart';
 import 'package:techlearning_app/student/grades/grades.dart';
 import 'package:techlearning_app/student/student_drawer.dart';
 import 'package:techlearning_app/student/student_profile.dart';
+import 'package:techlearning_app/student/view_course_info.dart';
 
 class StudentDashboardScreen extends StatefulWidget {
   @override
@@ -180,7 +180,7 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
                   }),
               Container(
                 child: Text(
-                  "Math , Sciences and ...",
+                  "Math , sciences and ...",
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                           fontWeight: FontWeight.w500,

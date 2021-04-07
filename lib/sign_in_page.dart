@@ -6,19 +6,18 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:techlearning_app/_common_widgets/or_divider.dart';
 import 'package:techlearning_app/entities/UserModel.dart';
+import 'package:techlearning_app/forgot_password_page.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'package:techlearning_app/services/auth_provider.dart';
+import 'package:techlearning_app/student/student_dashboard.dart';
 import 'package:techlearning_app/teacher/teacher_dashboard.dart';
-import 'package:techlearning_app/teacher/teacher_forgot_password.dart';
 
-import 'teacher_sign_up.dart';
-
-class TeacherSignIn extends StatefulWidget {
+class SignInPage extends StatefulWidget {
   @override
-  _TeacherSignInState createState() => _TeacherSignInState();
+  _SignInPageState createState() => _SignInPageState();
 }
 
-class _TeacherSignInState extends State<TeacherSignIn> {
+class _SignInPageState extends State<SignInPage> {
   Size size;
   final AuthService _auth = AuthService();
   AuthProvider _loginProvider = AuthProvider();
@@ -124,7 +123,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                 //sign In Button
 
                                 getSignInButton(),
-                                getDontHaveAccount(),
+                                //getDontHaveAccount(),
                               ]))))
                 ])),
               ));
@@ -136,59 +135,11 @@ class _TeacherSignInState extends State<TeacherSignIn> {
     });
   }
 
-  Widget getDontHaveAccount() {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          SizedBox(height: size.height * 0.03),
-          Text(
-            'Dont have an account?',
-            style: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                    color: Color(0xFF053361),
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700)),
-          ),
-          InkWell(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TeacherSignUp()));
-              },
-              child: Text(
-                "Click here to Sign up ",
-                style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                        fontSize: 13,
-                        color: Color(0xFF0A61B7),
-                        fontWeight: FontWeight.w700)),
-              ))
-        ],
-      ),
-    );
-  }
-
   Widget getForgotAndRemember() {
     return Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          // Checkbox(
-          //     value: checkBokValue,
-          //     onChanged: (bool value) {
-          //       setState(() {
-          //         checkBokValue = value;
-          //       });
-          //     }),
-          // InkWell(
-          //   onTap: () {},
-          //   child: Text('Remember Me?',
-          //       style: GoogleFonts.poppins(
-          //           textStyle: TextStyle(
-          //               color: Color(0xFF0A61B7),
-          //               fontWeight: FontWeight.bold,
-          //               fontSize: 14))),
-          // ),
-
           Padding(
             padding: const EdgeInsets.only(top: 28.0),
             child: InkWell(
@@ -196,7 +147,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => TeacherForgotPass()));
+                        builder: (context) => ForgotPasswordPage()));
               },
               child: Text('Forgot Password?',
                   style: GoogleFonts.poppins(
@@ -216,9 +167,9 @@ class _TeacherSignInState extends State<TeacherSignIn> {
 
   Widget getEmail() {
     return SizedBox(
-      height: 49,
       width: 328,
       child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
         validator: (val) => val.isEmpty ? 'Enter email' : null,
         decoration: InputDecoration(
             labelText: 'E-mail',
@@ -239,10 +190,10 @@ class _TeacherSignInState extends State<TeacherSignIn> {
   Widget getPassword() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
-          validator: (val) =>
-              val.length < 6 ? 'password Should be more than6' : null,
+          validator: (val) => val.length < 6
+              ? 'Password should be more than 6 characters'
+              : null,
           obscureText: !isHidePassword,
           decoration: InputDecoration(
               suffixIcon: IconButton(
@@ -330,22 +281,8 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                       color: Color(0xFF053361),
                       fontWeight: FontWeight.w700)),
             ),
-            onPressed: () async {
-              setState(() {
-                _loginProvider.isLoading = true;
-              });
-              if (_formKey.currentState.validate()) {
-                UserModel result = await _loginProvider.login(email, _password);
-                if (result == null) {
-                  setState(() => error = 'Failed To Sign In');
-                } else {
-                  saveUserInSharedPreferences(result);
-                  print(result.firstname);
-                  print(result.lastname);
-                  print(result.email);
-                  print(result.usertype);
-                }
-              }
+            onPressed: () {
+              doSignIn();
             },
           ),
         ),
@@ -353,11 +290,37 @@ class _TeacherSignInState extends State<TeacherSignIn> {
     );
   }
 
+  doSignIn() async {
+    if (_formKey.currentState.validate()) {
+      setState(() {
+        _loginProvider.isLoading = true;
+      });
+      UserModel result = await _loginProvider.login(email, _password);
+      setState(() {
+        _loginProvider.isLoading = false;
+      });
+      if (result == null) {
+        setState(() => error = 'Failed To Sign In');
+      } else {
+        saveUserInSharedPreferences(result);
+        print(result.firstname);
+        print(result.lastname);
+        print(result.email);
+        print(result.usertype);
+      }
+    }
+  }
+
   saveUserInSharedPreferences(UserModel userModel) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     String user = jsonEncode(userModel);
     pref.setString('userData', user);
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => TeacherDashboard()));
+    if (userModel.usertype == '0') {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => TeacherDashboard()));
+    } else if (userModel.usertype == '1') {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => StudentDashboardScreen()));
+    }
   }
 }

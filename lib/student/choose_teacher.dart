@@ -69,6 +69,7 @@ class _ChooseTeacherState extends State<ChooseTeacher> {
               )
             : SingleChildScrollView(
                 child: Container(
+                  margin: EdgeInsets.all(20),
                   child: Column(
                     children: <Widget>[
                       Container(
@@ -92,143 +93,134 @@ class _ChooseTeacherState extends State<ChooseTeacher> {
                       SizedBox(
                           height: 650,
                           child: Container(
-                            child: Expanded(
-                              child: ListView.builder(
-                                  itemCount: courseModelList.length,
-                                  itemBuilder: (context, index) {
-                                    return Column(children: <Widget>[
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Container(
-                                          height: 160,
-                                          width: 360,
-                                          decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                color: Colors.grey,
-                                                width: 2,
-                                              )),
-                                          child: ListTile(
-                                            title: Text(
-                                              courseModelList[index].ownername,
-                                              style: GoogleFonts.poppins(
-                                                  textStyle: TextStyle(
-                                                fontWeight: FontWeight.w700,
-                                                fontSize: 16.0,
-                                                color: Color(0xff053361),
-                                              )),
-                                            ),
+                            child: ListView.builder(
+                                itemCount: courseModelList.length,
+                                itemBuilder: (context, index) {
+                                  return Column(children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                        height: 160,
+                                        width: 360,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            border: Border.all(
+                                              color: Colors.grey,
+                                              width: 2,
+                                            )),
+                                        child: ListTile(
+                                          title: Text(
+                                            courseModelList[index].ownername,
+                                            style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 16.0,
+                                              color: Color(0xff053361),
+                                            )),
+                                          ),
 
-                                            //   child:ListTile(),
-                                            subtitle: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                Align(
-                                                  alignment: Alignment.topLeft,
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        courseModelList[index]
-                                                                .coursegrade +
-                                                            "\n" +
-                                                            courseModelList[
-                                                                    index]
-                                                                .coursesubject,
-                                                        textAlign:
-                                                            TextAlign.left,
-                                                        style: TextStyle(
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          color:
-                                                              Color(0xff053361),
-                                                        ),
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          Text(
-                                                            'Price: ',
-                                                            textAlign:
-                                                                TextAlign.left,
-                                                            style: TextStyle(
-                                                              fontSize: 16,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              color: Color(
-                                                                  0xff053361),
-                                                            ),
-                                                          ),
-                                                          Text(
-                                                            courseModelList[
-                                                                    index]
-                                                                .courseprice,
-                                                            textAlign:
-                                                                TextAlign.left,
-                                                            style: TextStyle(
-                                                              fontSize: 16,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              color: Color(
-                                                                  0xff053361),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                InkWell(
-                                                    child: Align(
-                                                      alignment:
-                                                          Alignment.bottomRight,
-                                                      child: Text(
-                                                        'View info',
-                                                        textAlign:
-                                                            TextAlign.left,
-                                                        style: TextStyle(
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          color:
-                                                              Color(0xff053361),
-                                                        ),
+                                          //   child:ListTile(),
+                                          subtitle: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              Align(
+                                                alignment: Alignment.topLeft,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      courseModelList[index]
+                                                              .coursegrade +
+                                                          "\n" +
+                                                          courseModelList[index]
+                                                              .coursesubject,
+                                                      textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color:
+                                                            Color(0xff053361),
                                                       ),
                                                     ),
-                                                    onTap: () {
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              ViewInfo(
-                                                                  courseModel:
-                                                                      courseModelList[
-                                                                          index]),
+                                                    Row(
+                                                      children: [
+                                                        Text(
+                                                          'Price: ',
+                                                          textAlign:
+                                                              TextAlign.left,
+                                                          style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            color: Color(
+                                                                0xff053361),
+                                                          ),
                                                         ),
-                                                      );
-                                                    }),
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      bottom: 90),
+                                                        Text(
+                                                          courseModelList[index]
+                                                              .courseprice,
+                                                          textAlign:
+                                                              TextAlign.left,
+                                                          style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            color: Color(
+                                                                0xff053361),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                              InkWell(
+                                                  child: Align(
+                                                    alignment:
+                                                        Alignment.bottomRight,
+                                                    child: Text(
+                                                      'View info',
+                                                      textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color:
+                                                            Color(0xff053361),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            ViewInfo(
+                                                                courseModel:
+                                                                    courseModelList[
+                                                                        index]),
+                                                      ),
+                                                    );
+                                                  }),
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(bottom: 90),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
-                                    ]);
-                                  }),
-                            ),
+                                    ),
+                                  ]);
+                                }),
                           ))
                     ],
                   ),

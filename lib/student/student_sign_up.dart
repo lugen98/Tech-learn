@@ -8,8 +8,8 @@ import 'package:techlearning_app/_common_widgets/or_divider.dart';
 import 'package:techlearning_app/entities/UserModel.dart';
 import 'package:techlearning_app/services/auth.dart';
 import 'package:techlearning_app/services/auth_provider.dart';
+import 'package:techlearning_app/sign_in_page.dart';
 import 'package:techlearning_app/student/student_dashboard.dart';
-import 'package:techlearning_app/student/student_sign_in.dart';
 
 class StudentSignUp extends StatefulWidget {
   @override
@@ -24,7 +24,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
   bool isHidePassword = false;
-  bool isshowPassword = false;
+  bool isShowPassword = false;
 
   //text filed state
   String firstName = '';
@@ -76,94 +76,11 @@ class _StudentSignUpState extends State<StudentSignUp> {
             ),
           ),
         ),
-        body: Container(
-          child: SingleChildScrollView(
-              child: Column(children: <Widget>[
-            Container(
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: size.height * 0.05),
-                  Text('Sign up For TechLearn',
-                      style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                              color: Color(0xFF053361),
-                              fontWeight: FontWeight.w700,
-                              fontSize: 18))),
-                ],
-              ),
-            ),
-            Container(
-                child: Column(children: <Widget>[
-              SizedBox(height: size.height * 0.04),
-              SizedBox(
-                width: 328,
-                height: 49,
-                child: RaisedButton(
-                  color: Colors.white,
-                  elevation: 1.0,
-                  shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Color(0xFF6D747A)),
-                      borderRadius: BorderRadius.circular(10.0)),
-                  highlightColor: Color(0xFF6D747A),
-                  padding: EdgeInsets.only(
-                      top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
-                  onPressed: () async {
-                    //  await _auth.signInGoogle();
-                  },
-                  child: new Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      SvgPicture.asset(
-                        'assets/images/search 1.svg',
-                        height: 20.0,
-                        width: 20.0,
-                      ),
-                      Padding(
-                          padding: EdgeInsets.only(right: 40, left: 50.0),
-                          child: Text(
-                            "Sign up with google",
-                            style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                    color: Color(0xFF053361),
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.w500)),
-                          ))
-                    ],
-                  ),
-                ),
+        body: _registerProvider.isLoading
+            ? Container(
+                child: Center(child: CircularProgressIndicator()),
               )
-            ])),
-            OrDivider(),
-            Container(
-                child: SingleChildScrollView(
-                    child: Form(
-                        key: _formKey,
-                        child: Column(children: <Widget>[
-                          SizedBox(height: size.height * 0.01),
-                          getFirstName(),
-                          SizedBox(height: size.height * 0.03),
-                          getLastName(),
-                          SizedBox(height: size.height * 0.03),
-                          getEmail(),
-                          SizedBox(height: size.height * 0.03),
-                          getPassword(),
-                          SizedBox(height: size.height * 0.03),
-                          getTerms(),
-                          getPrivacyPolicy(),
-                          SizedBox(
-                            height: 12.0,
-                            child: Text(
-                              error,
-                              style:
-                                  TextStyle(color: Colors.red, fontSize: 14.0),
-                            ),
-                          ),
-                          getSignUpButton(),
-                          getAlreadyHaveAccount(),
-                          SizedBox(height: size.height * 0.03),
-                        ]))))
-          ])),
-        ));
+            : _buildMainWidget());
   }
 
   void _togglePasswordVisability() {
@@ -188,7 +105,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
           InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => StudentSignIn()));
+                    MaterialPageRoute(builder: (context) => SignInPage()));
               },
               child: Text(
                 "Click here to Sign in ",
@@ -210,50 +127,53 @@ class _StudentSignUpState extends State<StudentSignUp> {
         SizedBox(
           width: 328,
           height: 49,
-          child: RaisedButton(
-            color: Color(0xFFFFD900),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            child: Text(
-              "Sign Up",
-              style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                      fontSize: 16,
-                      color: Color(0xFF053361),
-                      fontWeight: FontWeight.w700)),
-            ),
-            onPressed: () async {
-              setState(() {
-                _registerProvider.isLoading = true;
-              });
-              if (_formKey.currentState.validate()) {
-                UserModel result = await _registerProvider.register(
-                    firstName, lastName, email, password, "", "", "", 1);
-                if (result == null) {
-                  setState(() => error = 'Failed To Sign In');
-                } else {
-                  saveUserInSharedPreferences(result);
-                  print(result.firstname);
-                  print(result.lastname);
-                  print(result.email);
-                  print(result.usertype);
-                }
-              }
-            },
-          ),
+          child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: Color(0xFFFFD900),
+                  // onPrimary: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)))),
+              child: Text(
+                "Sign Up",
+                style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xFF053361),
+                        fontWeight: FontWeight.w700)),
+              ),
+              onPressed: () {
+                doSignUp();
+              }),
         )
       ]),
     );
   }
 
+  void doSignUp() async {
+    if (_formKey.currentState.validate()) {
+      setState(() {
+        _registerProvider.isLoading = true;
+      });
+      UserModel result = await _registerProvider.register(
+          firstName, lastName, email, password, "", "", "", 1);
+      setState(() {
+        _registerProvider.isLoading = false;
+      });
+      if (result == null) {
+        setState(() => error = 'Failed To Sign In');
+      } else {
+        saveUserInSharedPreferences(result);
+      }
+    }
+  }
+
   Widget getLastName() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
         validator: (val) => val.isEmpty ? 'Enter Last Name' : null,
         decoration: InputDecoration(
-            labelText: 'last name',
+            labelText: 'Last name',
             prefixIcon: Icon(Icons.people),
             border: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -271,7 +191,6 @@ class _StudentSignUpState extends State<StudentSignUp> {
   Widget getFirstName() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
         validator: (val) => val.isEmpty ? 'Enter First Name' : null,
         decoration: InputDecoration(
@@ -293,8 +212,8 @@ class _StudentSignUpState extends State<StudentSignUp> {
   Widget getEmail() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
         validator: (val) => val.isEmpty ? 'Enter email' : null,
         decoration: InputDecoration(
             labelText: 'E-mail',
@@ -315,14 +234,14 @@ class _StudentSignUpState extends State<StudentSignUp> {
   Widget getPassword() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
-          validator: (val) =>
-              val.length < 6 ? 'password Should be more than 6' : null,
+          validator: (val) => val.length < 6
+              ? 'Password should be more than 6 characters'
+              : null,
           obscureText: !isHidePassword,
           decoration: InputDecoration(
-              hintText: "password 6+ characters",
-              labelText: "password",
+              hintText: "Password 6+ characters",
+              labelText: "Password",
               prefixIcon: Icon(Icons.lock),
               suffixIcon: IconButton(
                 icon: Icon(
@@ -388,5 +307,95 @@ class _StudentSignUpState extends State<StudentSignUp> {
     pref.setString('userData', user);
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => StudentDashboardScreen()));
+  }
+
+  Widget _buildMainWidget() {
+    return Container(
+      child: SingleChildScrollView(
+          child: Column(children: <Widget>[
+        Container(
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: size.height * 0.05),
+              Text('Sign up For TechLearn',
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          color: Color(0xFF053361),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18))),
+            ],
+          ),
+        ),
+        Container(
+            child: Column(children: <Widget>[
+          SizedBox(height: size.height * 0.04),
+          SizedBox(
+            width: 328,
+            height: 49,
+            child: RaisedButton(
+              color: Colors.white,
+              elevation: 1.0,
+              shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Color(0xFF6D747A)),
+                  borderRadius: BorderRadius.circular(10.0)),
+              highlightColor: Color(0xFF6D747A),
+              padding: EdgeInsets.only(
+                  top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
+              onPressed: () async {
+                //  await _auth.signInGoogle();
+              },
+              child: new Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  SvgPicture.asset(
+                    'assets/images/search 1.svg',
+                    height: 20.0,
+                    width: 20.0,
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(right: 40, left: 50.0),
+                      child: Text(
+                        "Sign up with Google",
+                        style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                                color: Color(0xFF053361),
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.w500)),
+                      ))
+                ],
+              ),
+            ),
+          )
+        ])),
+        OrDivider(),
+        Container(
+            child: SingleChildScrollView(
+                child: Form(
+                    key: _formKey,
+                    child: Column(children: <Widget>[
+                      SizedBox(height: size.height * 0.01),
+                      getFirstName(),
+                      SizedBox(height: size.height * 0.03),
+                      getLastName(),
+                      SizedBox(height: size.height * 0.03),
+                      getEmail(),
+                      SizedBox(height: size.height * 0.03),
+                      getPassword(),
+                      SizedBox(height: size.height * 0.03),
+                      getTerms(),
+                      getPrivacyPolicy(),
+                      SizedBox(
+                        height: 12.0,
+                        child: Text(
+                          error,
+                          style: TextStyle(color: Colors.red, fontSize: 14.0),
+                        ),
+                      ),
+                      getSignUpButton(),
+                      //getAlreadyHaveAccount(),
+                      SizedBox(height: size.height * 0.03),
+                    ]))))
+      ])),
+    );
   }
 }

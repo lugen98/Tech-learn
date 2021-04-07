@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techlearning_app/student/student_sign_in.dart';
+import 'package:techlearning_app/sign_in_page.dart';
 import 'package:techlearning_app/student/student_sign_up.dart';
-import 'package:techlearning_app/teacher/teacher_sign_in.dart';
 import 'package:techlearning_app/teacher/teacher_sign_up.dart';
 
 class ChooseUserTypeScreen extends StatefulWidget {
@@ -89,7 +88,7 @@ class _ChooseUserTypeScreenState extends State<ChooseUserTypeScreen> {
                               builder: (context) =>
                                   widget.registerOrLogin == 'Register'
                                       ? TeacherSignUp()
-                                      : TeacherSignIn()));
+                                      : SignInPage()));
                     },
                     color: Color(0xFFFFD900),
                     shape: RoundedRectangleBorder(
@@ -117,9 +116,10 @@ class _ChooseUserTypeScreenState extends State<ChooseUserTypeScreen> {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  widget.registerOrLogin == 'Register'
-                                      ? StudentSignUp()
-                                      : StudentSignIn()));
+                                  // widget.registerOrLogin == 'Register'?
+                                  StudentSignUp()
+                              //: StudentSignIn()
+                              ));
                     },
                     color: Color(0xFFFFD900),
                     shape: RoundedRectangleBorder(

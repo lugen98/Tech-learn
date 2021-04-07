@@ -37,7 +37,7 @@ class _ViewCourseInfoState extends State<ViewCourseInfo> {
           centerTitle: true,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          title: Text('Course Training',
+          title: Text('Training Courses',
               style: GoogleFonts.poppins(
                   textStyle: TextStyle(
                       color: Color(0xFF053361),

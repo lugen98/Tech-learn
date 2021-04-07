@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/services/auth.dart';
-import 'package:techlearning_app/teacher/teacher_sign_in.dart';
+import 'package:techlearning_app/sign_in_page.dart';
 
-class TeacherForgotPass extends StatefulWidget {
+class ForgotPasswordPage extends StatefulWidget {
   @override
-  _TeacherForgotPassState createState() => _TeacherForgotPassState();
+  _ForgotPasswordPageState createState() => _ForgotPasswordPageState();
 }
 
-class _TeacherForgotPassState extends State<TeacherForgotPass> {
+class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final _formKey = GlobalKey<FormState>();
   final AuthService _auth = AuthService();
 
@@ -135,24 +135,10 @@ class _TeacherForgotPassState extends State<TeacherForgotPass> {
                     onPressed: () {
                       // _auth.sendPasswordResetEmail(email);
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => TeacherSignIn()));
+                          builder: (context) => SignInPage()));
                     },
                   )),
               SizedBox(height: size.height * 0.03),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => TeacherSignIn()));
-                },
-                child: Text(
-                  "Back to Sign In",
-                  style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                          fontSize: 13,
-                          color: Color(0xFF0A61B7),
-                          fontWeight: FontWeight.w500)),
-                ),
-              )
             ])),
           ]))
         ]))));

@@ -391,7 +391,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                   }),
               Container(
                 child: Text(
-                  "Math , Sciences and ...",
+                  "Math , sciences and ...",
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                           fontWeight: FontWeight.w500,

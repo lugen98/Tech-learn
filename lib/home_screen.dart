@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:techlearning_app/choose_user_type.dart';
+import 'package:techlearning_app/sign_in_page.dart';
 
 class MainHomePage extends StatefulWidget {
   MainHomePage({Key key}) : super(key: key);
@@ -94,8 +95,7 @@ class _MainHomePageState extends State<MainHomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  ChooseUserTypeScreen('Login')));
+                              builder: (context) => SignInPage()));
                     },
                     child: Text(
                       " Click here to log in ",

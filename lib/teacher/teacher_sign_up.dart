@@ -7,8 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:techlearning_app/_common_widgets/or_divider.dart';
 import 'package:techlearning_app/entities/UserModel.dart';
 import 'package:techlearning_app/services/auth_provider.dart';
+import 'package:techlearning_app/sign_in_page.dart';
 import 'package:techlearning_app/teacher/teacher_dashboard.dart';
-import 'package:techlearning_app/teacher/teacher_sign_in.dart';
 
 class TeacherSignUp extends StatefulWidget {
   @override
@@ -75,60 +75,67 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
             ),
           ),
         ),
-        body: Container(
-          child: SingleChildScrollView(
-              child: Column(children: <Widget>[
-            Container(
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: size.height * 0.05),
-                  Text('Sign up For TechLearn',
-                      style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                              color: Color(0xFF053361),
-                              fontWeight: FontWeight.w700,
-                              fontSize: 18))),
-                ],
-              ),
-            ),
-            getSignUpGoogle(),
-            OrDivider(),
-            Container(
-                child: SingleChildScrollView(
-                    child: Form(
-                        key: _formKey,
-                        child: Column(children: <Widget>[
-                          SizedBox(height: size.height * 0.01),
-                          getFirstName(),
-                          SizedBox(height: size.height * 0.03),
-                          getLastName(),
-                          SizedBox(height: size.height * 0.03),
-                          getEmail(),
-                          SizedBox(height: size.height * 0.03),
-                          getPassword(),
-                          SizedBox(height: size.height * 0.03),
-                          getDegree(),
-                          SizedBox(height: size.height * 0.03),
-                          getMajor(),
-                          SizedBox(height: size.height * 0.03),
-                          getPhoneNumber(),
-                          SizedBox(height: size.height * 0.02),
-                          getTerms(),
-                          getPrivacyPolicy(),
-                          SizedBox(
-                            height: 12.0,
-                            child: Text(
-                              error,
-                              style:
-                                  TextStyle(color: Colors.red, fontSize: 14.0),
-                            ),
-                          ),
-                          getSignUpButton(),
-                          getAlreadyHaveAccount(),
-                          SizedBox(height: size.height * 0.02),
-                        ]))))
-          ])),
-        ));
+        body: _registerProvider.isLoading
+            ? Container(
+                child: Center(child: CircularProgressIndicator()),
+              )
+            : _buildMainWidget());
+  }
+
+  Widget _buildMainWidget() {
+    return Container(
+      child: SingleChildScrollView(
+          child: Column(children: <Widget>[
+        Container(
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: size.height * 0.05),
+              Text('Sign up For TechLearn',
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          color: Color(0xFF053361),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18))),
+            ],
+          ),
+        ),
+        getSignUpGoogle(),
+        OrDivider(),
+        Container(
+            child: SingleChildScrollView(
+                child: Form(
+                    key: _formKey,
+                    child: Column(children: <Widget>[
+                      SizedBox(height: size.height * 0.01),
+                      getFirstName(),
+                      SizedBox(height: size.height * 0.03),
+                      getLastName(),
+                      SizedBox(height: size.height * 0.03),
+                      getEmail(),
+                      SizedBox(height: size.height * 0.03),
+                      getPassword(),
+                      SizedBox(height: size.height * 0.03),
+                      getDegree(),
+                      SizedBox(height: size.height * 0.03),
+                      getMajor(),
+                      SizedBox(height: size.height * 0.03),
+                      getPhoneNumber(),
+                      SizedBox(height: size.height * 0.02),
+                      getTerms(),
+                      getPrivacyPolicy(),
+                      SizedBox(
+                        height: 12.0,
+                        child: Text(
+                          error,
+                          style: TextStyle(color: Colors.red, fontSize: 14.0),
+                        ),
+                      ),
+                      getSignUpButton(),
+                      //getAlreadyHaveAccount(),
+                      SizedBox(height: size.height * 0.02),
+                    ]))))
+      ])),
+    );
   }
 
   void _togglePasswordVisability() {
@@ -167,7 +174,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
               Padding(
                   padding: EdgeInsets.only(right: 40, left: 50.0),
                   child: Text(
-                    "Sign up with google",
+                    "Sign up with Google",
                     style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                             color: Color(0xFF053361),
@@ -197,7 +204,7 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
           InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TeacherSignIn()));
+                    MaterialPageRoute(builder: (context) => SignInPage()));
               },
               child: Text(
                 "Click here to Sign In ",
@@ -215,7 +222,6 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
   Widget getFirstName() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
         validator: (val) => val.isEmpty ? 'Enter First Name' : null,
         decoration: InputDecoration(
@@ -237,11 +243,10 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
   Widget getLastName() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
         validator: (val) => val.isEmpty ? 'Enter Last Name' : null,
         decoration: InputDecoration(
-            labelText: 'last name',
+            labelText: 'Last name',
             prefixIcon: Icon(Icons.people),
             border: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -259,8 +264,8 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
   Widget getEmail() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
         validator: (val) => val.isEmpty ? 'Enter email' : null,
         decoration: InputDecoration(
             labelText: 'E-mail',
@@ -281,14 +286,13 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
   Widget getPassword() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
           validator: (val) =>
               val.length < 6 ? 'password Should be more than 6' : null,
           obscureText: !isHidePassword,
           decoration: InputDecoration(
-              hintText: "password 6+ characters",
-              labelText: "password",
+              hintText: "Password 6+ characters",
+              labelText: "Password",
               prefixIcon: Icon(Icons.lock),
               suffixIcon: IconButton(
                 icon: Icon(
@@ -313,7 +317,6 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
   Widget getMajor() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
         validator: (val) => val.isEmpty ? 'Enter your Major' : null,
         decoration: InputDecoration(
@@ -336,7 +339,6 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
   Widget getDegree() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
         validator: (val) => val.isEmpty ? 'Enter your Degree' : null,
         decoration: InputDecoration(
@@ -363,7 +365,6 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
   Widget getPhoneNumber() {
     return SizedBox(
       width: 328,
-      height: 49,
       child: TextFormField(
         keyboardType: TextInputType.phone,
         decoration: InputDecoration(
@@ -401,30 +402,30 @@ class _TeacherSignUpState extends State<TeacherSignUp> {
                         color: Color(0xFF053361),
                         fontWeight: FontWeight.w700)),
               ),
-              onPressed: () async {
-                setState(() {
-                  _registerProvider.isLoading = true;
-                });
-                if (_formKey.currentState.validate()) {
-                  UserModel result = await _registerProvider.register(firstName,
-                      lastName, email, password, degree, major, phoneNumber, 0);
-                  if (result == null) {
-                    setState(() => error = 'Failed To Sign In');
-                  } else {
-                    saveUserInSharedPreferences(result);
-                    print(result.firstname);
-                    print(result.lastname);
-                    print(result.email);
-                    print(result.degree);
-                    print(result.major);
-                    print(result.phone);
-                    print(result.usertype);
-                  }
-                }
+              onPressed: () {
+                doSignUp();
               }),
         ),
       ]),
     );
+  }
+
+  void doSignUp() async {
+    if (_formKey.currentState.validate()) {
+      setState(() {
+        _registerProvider.isLoading = true;
+      });
+      UserModel result = await _registerProvider.register(
+          firstName, lastName, email, password, degree, major, phoneNumber, 0);
+      setState(() {
+        _registerProvider.isLoading = false;
+      });
+      if (result == null) {
+        setState(() => error = 'Failed To Sign In');
+      } else {
+        saveUserInSharedPreferences(result);
+      }
+    }
   }
 
   Widget getTerms() {
